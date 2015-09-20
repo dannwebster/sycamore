@@ -1,0 +1,6 @@
+<template name='notificationTypes'>
+    {{>notiEduLinks}}
+    <h4 class="syc-title">{{#if type}}{{type}} {{/if}}Notifications</h4>
+    {{>notificationLinks}}
+    {{>notificationList notifications=notifications}}
+</template>

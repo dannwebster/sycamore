@@ -1,0 +1,599 @@
+ul > li {
+    border: none;
+}
+.newMessageIndicator{
+    z-index:999;
+    background-color:#5bc0de;
+    color:#fff;
+    cursor:pointer;
+    bottom:0px;
+    padding:5px;
+    display:none;
+    text-align:center;
+    border-radius:3px;
+}
+.conversation{
+    border-right: 0;
+    border-left: 0;
+    border-bottom: 1px solid #d8d8d8;
+    margin-right:5px;
+}
+.conversation:hover{
+    background: #99FFCC;
+    background-color:  #99FFCC;
+}
+.chatlist-icon{
+    position:relative;
+    width:80px;
+    height:80px;
+    float: left;
+    padding-left:10px;
+}
+.chatlist-text{
+    position:relative;
+    float:right;
+    width: calc(100% - 90px)
+}
+.chat{
+    margin-bottom:3px;
+    width:100%;
+    clear:both;
+    float:left;
+    margin-left:10px; margin-right:10px;
+}
+.chat > .holder{
+    position: relative;
+    width:100%;
+}
+
+
+.left-arrow{
+    width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+	border-right: 19px solid #ffffff;
+    margin-left:-20px;
+    top:23px;
+    position:absolute;
+}
+
+.right-arrow{
+    width: 0;
+	height: 0;
+	border-top: 7px solid transparent;
+	border-bottom: 7px solid transparent;
+    border-left: 19px solid #6dcdd2;
+    right:85px;
+    top:23px;
+    position:absolute;
+}
+
+.chat > .holder > .file {
+    position: relative;
+    width: calc(100% - 180px);
+    margin-top: 5px;
+    margin-left:20px;
+    margin-right:5px;
+    margin-bottom:20px;
+    float:left;
+}
+
+.chat > .holder > .text{
+    width: calc(100% - 115px);
+    font-size:12px;
+    font-weight:bold;
+    border-radius:5px;
+    border-bottom: 3px solid #c8c8c8;
+    padding: 5px;
+    min-height:65px;
+    background:#ffffff;
+}
+.chat > .holder > .system-text{
+    width: calc(100% - 40px);
+    text-align:center;
+    font-size:16px;
+    font-style: italic;
+    font-weight:bold;
+    border-radius:5px;
+    border: 2px solid #6dcdd2;
+    padding: 5px;
+    color:#6dcdd2;
+    background-color:rgba(0,0,0,0);
+    margin-top:10px;
+}
+.chat > .holder > .system-text.self{
+    width: calc(100% - 40px);
+    text-align:center;
+    font-size:16px;
+    font-style: italic;
+    font-weight:bold;
+    border-radius:5px;
+    border: 2px solid #6dcdd2;
+    margin-left:20px;
+    padding: 5px;
+    color:#6dcdd2;
+    background-color:rgba(0,0,0,0);
+}
+.chat > .holder > .user.text{
+    margin-left:80px;
+}
+.chat > .holder > .self.text{
+    color:#fff;
+    margin-left:15px;
+    background:#6dcdd2;
+}
+.chat > .holder > .photo.self {
+    width: 65px;
+    position: absolute;
+    right:20px;
+}
+.chat > .holder > .photo.user{
+    width: 65px;
+    position: absolute;
+    left:0px;
+}
+
+.user.time{
+    width: 20px;
+    position: absolute;
+    height:65px;
+    right:35px;
+    top:65px;
+    margin-top:-40px;
+}
+.user.time.today{
+    right:42px;
+    margin-top:-50px;
+}
+
+.self.time{
+    width: 20px;
+    position: absolute;
+    height:65px;
+    left:-30px;
+    top:65px;
+    margin-top:-40px;
+}
+.self.time.today{
+    left:-37px;
+    margin-top:-50px;
+}
+.system-text > .self.time{
+    margin-top:-55px;
+}
+.system-text > .self.time.today{
+    margin-top:-90px;
+}
+.system-text > .user.time{
+    margin-top:-55px;
+}
+.system-text > .user.time.today{
+    margin-top:-90px;
+}
+.time > .display{
+    left:-60px;
+    color: #6dcdd2;
+    font-size:11px;
+    width:65px;
+    font-weight: bold;
+    text-align:center;
+    -ms-transform: rotate(270deg); /* IE 9 */
+    -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+    transform: rotate(270deg);
+    -ff-transform: rotate(270deg);
+}
+
+
+.ME_conversation_holder{
+    margin:5px;
+    background: #e2f1ee;
+    border:1px solid #6dcdd2;
+    padding:5px;
+}
+.formHolder{
+    margin:20px;
+    background:#fff;
+    border-radius: 5px;
+    padding:10px;
+}
+.formHolder > .addChat{
+    width:120px;
+    font-size:18px;
+    border-radius:4px;
+}
+.MEchathub_addon{
+    margin-right:5px;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+
+
+
+.froala-editor.f-basic.sycamore-theme{
+    border:0px;
+}
+
+.froala-wrapper.f-basic{
+    border:0px;
+}
+
+
+/*FROALA CLASSES*/
+.sycamore.froala-box.fr-disabled .froala-element {
+  color: #999999;
+}
+.sycamore.froala-box.fr-disabled button.fr-bttn,
+.sycamore.froala-box.fr-disabled button.fr-trigger {
+  color: #999999 !important;
+}
+.sycamore.froala-box.fr-disabled button.fr-bttn:after,
+.sycamore.froala-box.fr-disabled button.fr-trigger:after {
+  border-top-color: #999999 !important;
+}
+.sycamore.froala-box .html-switch {
+  border-color: #999999;
+}
+.sycamore.froala-box .froala-wrapper.f-basic {
+  border: solid 1px #ffffff;
+  background: #ffffff;
+}
+.sycamore.froala-box .froala-wrapper.f-basic.f-placeholder + span.fr-placeholder {
+  margin: 10px;
+}
+.sycamore.froala-box .froala-element hr {
+  border-top-color: #cccccc;
+}
+.sycamore.froala-box .froala-element.f-placeholder:before {
+  color: #cccccc;
+}
+.sycamore.froala-box .froala-element pre {
+  border: solid 1px #cccccc;
+  background: #fcfcfc;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.sycamore.froala-box .froala-element blockquote {
+  border-left: solid 5px #cccccc;
+}
+.sycamore.froala-box .froala-element img {
+  min-width: 32px !important;
+  min-height: 32px !important;
+}
+.sycamore.froala-box .froala-element img.fr-fil {
+  padding: 10px 10px 10px 3px;
+}
+.sycamore.froala-box .froala-element img.fr-fir {
+  padding: 10px 3px 10px 10px;
+}
+.sycamore.froala-box .froala-element img.fr-fin {
+  padding: 10px 0;
+}
+.sycamore.froala-box .froala-element img::selection {
+  color: #ffffff;
+}
+.sycamore.froala-box .froala-element img::-moz-selection {
+  color: #ffffff;
+}
+.sycamore.froala-box .froala-element span.f-img-editor:before {
+  border: none !important;
+  outline: solid 1px #2c82c9 !important;
+}
+.sycamore.froala-box .froala-element span.f-img-editor.fr-fil {
+  margin: 10px 10px 10px 3px;
+}
+.sycamore.froala-box .froala-element span.f-img-editor.fr-fir {
+  margin: 10px 3px 10px 10px;
+}
+.sycamore.froala-box .froala-element span.f-img-editor.fr-fin {
+  margin: 10px 0;
+}
+.sycamore.froala-box .froala-element span.f-img-handle {
+  height: 8px;
+  width: 8px;
+  border: solid 1px #ffffff !important;
+  background: #2c82c9;
+}
+.sycamore.froala-box .froala-element span.f-video-editor.active:after {
+  border: solid 1px #ffffff;
+}
+.sycamore.froala-box .froala-element.f-basic {
+  color: #444444;
+  padding: 10px;
+}
+.sycamore.froala-box .froala-element.f-basic a {
+  color: inherit;
+}
+.sycamore.froala-box .froala-element table td {
+  border: solid 1px #cccccc;
+}
+.sycamore.froala-box.f-html .froala-element {
+  background: #202020;
+  color: #ffffff;
+  font-family: 'Courier New', Monospace;
+  font-size: 13px;
+}
+.sycamore.froala-editor {
+  background: #ffffff;
+  border: solid 1px #ffffff;
+  border-top: solid 5px #ffffff;
+}
+.sycamore.froala-editor hr {
+  border-top-color: #cccccc;
+}
+.sycamore.froala-editor span.f-sep {
+  border-right: solid 1px #cccccc;
+  height: 35px;
+}
+.sycamore.froala-editor button.fr-bttn,
+.sycamore.froala-editor button.fr-trigger {
+  background: transparent;
+  color: #353535;
+  font-size: 16px;
+  line-height: 35px;
+  width: 40px;
+}
+.sycamore.froala-editor button.fr-bttn img,
+.sycamore.froala-editor button.fr-trigger img {
+  max-width: 40px;
+  max-height: 35px;
+}
+.sycamore.froala-editor button.fr-bttn:disabled,
+.sycamore.froala-editor button.fr-trigger:disabled {
+  color: #999999 !important;
+}
+.sycamore.froala-editor button.fr-bttn:disabled:after,
+.sycamore.froala-editor button.fr-trigger:disabled:after {
+  border-top-color: #999999 !important;
+}
+.sycamore.froala-editor.ie8 button.fr-bttn:hover,
+.sycamore.froala-editor.ie8 button.fr-trigger:hover {
+  background: #2c82c9;
+  color: #ffffff;
+}
+.sycamore.froala-editor.ie8 button.fr-bttn:hover:after,
+.sycamore.froala-editor.ie8 button.fr-trigger:hover:after {
+  border-top-color: #ffffff;
+}
+.sycamore.froala-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover,
+.sycamore.froala-editor .froala-popup button.fr-bttn:hover,
+.sycamore.froala-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover,
+.sycamore.froala-editor .froala-popup button.fr-trigger:hover {
+  background: #2c82c9;
+  color: #ffffff;
+}
+.sycamore.froala-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover:after,
+.sycamore.froala-editor .froala-popup button.fr-bttn:hover:after,
+.sycamore.froala-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover:after,
+.sycamore.froala-editor .froala-popup button.fr-trigger:hover:after {
+  border-top-color: #ffffff;
+}
+.sycamore.froala-editor .fr-bttn.active {
+  color: #2c82c9;
+  background: transparent;
+}
+.sycamore.froala-editor .fr-trigger:after {
+  border-top-color: #353535;
+}
+.sycamore.froala-editor .fr-trigger.active {
+  color: #ffffff;
+  background: #2c82c9;
+}
+.sycamore.froala-editor .fr-trigger.active:after {
+  border-top-color: #ffffff !important;
+}
+.sycamore.froala-editor .fr-dropdown .fr-trigger {
+  width: calc(38px);
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu {
+  background: #ffffff;
+  border: solid 1px #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu li.active a {
+  background: #444444 !important;
+  color: #ffffff !important;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu li a {
+  color: #444444;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu li a:hover {
+  background: #444444 !important;
+  color: #ffffff !important;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li:hover > a,
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li.hover > a {
+  background: #444444;
+  color: #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li > ul {
+  background: #ffffff;
+  color: #444444;
+  border: solid 1px #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li > div {
+  background: #ffffff;
+  color: #444444;
+  border: solid 1px #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li > div > span > span {
+  border: solid 1px #cccccc;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li > div > span:hover > span,
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > li > div > span.hover > span {
+  background: rgba(61, 142, 185, 0.3);
+  border: solid 1px #3d8eb9;
+}
+.sycamore.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table > hr {
+  border-top: solid 1px #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p {
+  color: #444444;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn {
+  color: #444444;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn:hover {
+  color: #2c82c9;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active {
+  outline: solid 1px #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active:after {
+  color: #ffffff;
+}
+.sycamore.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn:hover:not(:focus):not(:active) {
+  outline: solid 1px #ffffff;
+}
+.sycamore.froala-editor .froala-popup {
+  background: #ffffff;
+}
+.sycamore.froala-editor .froala-popup h4 {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup h4 i {
+  color: #cccccc;
+}
+.sycamore.froala-editor .froala-popup h4 i.fa-external-link {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup h4 i.fa-external-link:hover {
+  color: #2c82c9;
+}
+.sycamore.froala-editor .froala-popup h4 i:hover {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup button.fr-p-bttn {
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup button.fr-p-bttn.f-ok {
+  background: #2c82c9;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup button.fr-p-bttn.f-unlink {
+  background: #b8312f;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup button.fr-p-bttn.f-unlink:hover {
+  background: #353535;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup button.fr-p-bttn:hover,
+.sycamore.froala-editor .froala-popup button.fr-p-bttn:focus {
+  background: #353535;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line.f-popup-toolbar {
+  background: #ffffff;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line label {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line input[type="text"] {
+  border: solid 1px #cccccc;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line input[type="text"]:focus {
+  border: solid 1px #54acd2;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line input[type="text"]:disabled {
+  background: #ffffff;
+  color: #999999;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line textarea {
+  border: solid 1px #cccccc;
+}
+.sycamore.froala-editor .froala-popup div.f-popup-line textarea:focus {
+  border: solid 1px #54acd2;
+}
+.sycamore.froala-editor .froala-popup.froala-image-editor-popup div.f-popup-line + div.f-popup-line {
+  border-top: solid 1px #cccccc;
+}
+.sycamore.froala-editor .froala-popup.froala-video-popup p.or {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload {
+  color: #444444;
+  border: dashed 2px #cccccc;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload:hover {
+  border: dashed 2px #353535;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload.f-hover {
+  border: dashed 2px #61bd6d;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line button.f-browse {
+  background: #475577;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line button.f-browse:hover {
+  background: #353535;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup div.f-popup-line + div.f-popup-line {
+  border-top: solid 1px #cccccc;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup p.f-progress {
+  background-color: #61bd6d;
+}
+.sycamore.froala-editor .froala-popup.froala-image-popup p.f-progress span {
+  background-color: #61bd6d;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line .f-browse-links {
+  background: #475577;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line .f-browse-links:hover {
+  background: #353535;
+  color: #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line ul {
+  background: #ffffff;
+  border: solid 1px #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line ul li {
+  color: #444444;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line ul li + li {
+  border-top: solid 1px #ffffff;
+}
+.sycamore.froala-editor .froala-popup.froala-link-popup div.f-popup-line ul li:hover {
+  background: #444444;
+  color: #ffffff;
+}
+.sycamore.froala-modal .f-modal-wrapper {
+  background: #ffffff;
+  border: solid 1px #ffffff;
+  border-top: solid 5px #ffffff;
+}
+.sycamore.froala-modal .f-modal-wrapper h4 {
+  color: #444444;
+}
+.sycamore.froala-modal .f-modal-wrapper h4 i {
+  color: #cccccc;
+}
+.sycamore.froala-modal .f-modal-wrapper h4 i:hover {
+  color: #444444;
+}
+.sycamore.froala-modal .f-modal-wrapper div.f-image-list div.f-empty {
+  background: #cccccc;
+}
+.sycamore.froala-modal .f-modal-wrapper div.f-image-list div .f-delete-img {
+  background: #b8312f;
+  color: #ffffff;
+}
+.sycamore.froala-modal .f-modal-wrapper div.f-image-list div .f-delete-img:hover {
+  background: #353535;
+  color: #ffffff;
+}
+.sycamore.froala-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover .f-delete-img:hover {
+  background: #353535;
+  color: #ffffff;
+}
+.froala-overlay {
+  background: #000000;
+}

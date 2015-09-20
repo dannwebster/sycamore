@@ -1,0 +1,79 @@
+<template name='editContent'>
+    <div class='row'>
+        <input id="customimage" type="file" name="customimage" style="display: none;" />
+        <input id="mcustomimage" type="file" name="mcustomimage" style="display: none;" />
+        <form class="form-horizontal">
+            <fieldset>
+                <div class='col-lg-6 col-md-6'>
+                    <div class="form-group">
+                        <label for="title" class="col-lg-2 control-label">Title </label>
+                        <div class="col-lg-10">
+                            <input type='text' class='form-control auto_save' name='title' id='title' value='{{../post.title}}'>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-lg-2 control-label">Status</label>
+                        <div class="col-lg-4">
+                            <select class="form-control auto_save" id="status">
+                                {{{statusOptions}}}
+                            </select>
+                        </div>
+                        <label for="visibility" class="col-lg-2 control-label">Visibility</label>
+                        <div class="col-lg-4">
+                            <select class="form-control auto_save" id="visibility">
+                                {{{visibilityOptions}}}
+                            </select>
+                        </div>
+                    </div>
+                    {{#if scheduled}}
+                    <div class="form-group">
+                        <label for="post_date" class="col-lg-2 control-label">Publish Date:</label>
+                        <div class="col-lg-10">
+                            {{>dateTimeTemplate class='' id='post_date' date=post_date}}
+                        </div>
+                    </div>
+                    {{/if}}
+                    <div class='col-lg-12'>
+                        <h3 class='syc-title'>Header Image</h3>
+                        <div class='col-lg-12 col-md-12'>
+                            {{#if post.headerImage}}
+                            <div class='btn-file'>
+                                <img src='{{post.headerImage.secure_url}}' style='width:100%' >
+                                <input type="file" id="headerImage" class="headerImage">
+                            </div>
+                            {{else}}
+
+                            <div class='btn-file'>
+                                <img src='/images/placeholder.jpg' >
+                                <input type="file" id="headerImage" class="headerImage">
+                            </div>
+                            {{/if}}
+                            {{#each files}}
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class='col-lg-6 col-md-6'>
+                    <div class='well text-right'>
+                        <div class='btn btn-success save'>Save {{../title}}</div> <div class='btn btn-danger discard'>Discard {{../title}}</div><br>
+                        {{#if post.autosaved}}<sup><i>Autosaved: {{>dateLong date=post.autosaved}}</i></sup><br>{{/if}}
+                        <sup><i>Created: {{>dateLong date=post.created}}</i></sup>
+                    </div>
+                </div>
+                <div class='col-lg-12 col-md-12 contentMain'>
+                    <h2>Primary Content {{#if post.mobile}}<div class='btn btn-sm btn-info emobile'>Edit Mobile Version</div>{{else}} <div class='btn btn-sm btn-success addmobile'>Add Mobile Version</div>{{/if}}</h2>
+                    <div id="content" class='form-control'>{{{post.content}}}</div>
+                </div>
+                <div class='clearfix'></div>
+                <div class='col-lg-12 col-md-12 contentMobile' style='display:none'>
+                    <h2>Alternate Mobile Content <div class='btn btn-sm btn-info emain'>Edit Main Version</div>  <div class='btn btn-sm btn-danger removemobile'>Remove Mobile Version</div></h2>
+                    <div id="mobilecontent" class='form-control'>{{{post.mobile}}}</div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</template>

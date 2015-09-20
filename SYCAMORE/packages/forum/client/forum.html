@@ -1,0 +1,17 @@
+<template name='meForumTopics'>
+    {{#if options.buttons}}
+        {{{options.buttons}}}
+    {{/if}}
+    <div class='col-lg-4' style='height:80%; overflow-x: hidden; overflow-y:scroll;'>
+
+        {{#if options.title.unstyled}}
+            <span class='{{options.title.class}}'>
+                {{#if options.title.text}}{{{options.title.text}}}{{else}}Topics{{/if}}
+            </span>
+        {{else}}
+            <h2 class='{{options.title.class}}'>{{#if options.title.text}}{{{options.title.text}}}{{else}}Topics{{/if}}</h2>
+        {{/if}}
+
+        {{>meForumTopicList data=data}}
+    </div>
+</template>

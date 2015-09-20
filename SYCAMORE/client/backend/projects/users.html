@@ -1,0 +1,66 @@
+<template name='projectUsers'>
+    <h1 class='syc-title'>{{project.title}} <br><sup>Project Members</sup></h1>{{groupsess}}
+    <a href="{{pathFor 'projectEdit' id=project._id}}" class='btn btn-info'><i class="fa fa-chevron-left"></i> Back to Project</a>
+    <div class='btn btn-success changeView' id='member'><i class="fa fa-chevron-plus"></i> View Members </div>
+    <div class='btn btn-success changeView' id='student'><i class="fa fa-plus"></i> Add Students </div>
+    <div class='btn btn-success changeView' id='group'><i class="fa fa-chevron-plus"></i> Manage Groups </div>
+
+    <div class='projectMemberTab' id='memberView'>
+        <div class='row'>
+            <h3 class='syc-title'>Students</h3>
+            {{#each user_list}}
+            <div class='col-lg-4 animate flipInY userBox'>
+                {{>addFamilySnip photo=true name=true user=this height=80 width=80}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class='row projectMemberTab' id='studentView' style='display:none'>
+        <h3 class='syc-title'>Add Students  <div class='btn btn-success addAll'><i class="fa fa-plus"></i> Add All </div>  </h3>
+
+        {{#each non_users}}
+        <div class='col-lg-4 animate flipInY userBox'>
+            {{>addFamilySnip photo=true name=true user=this add=true height=80 width=80}}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class='row projectMemberTab' id='parentView' style='display:none'>
+        <h3 class='syc-title'>Add Parents</h3>
+        {{#each adult_non_users}}
+        <div class='col-lg-4 animate flipInY userBox'>
+            {{>addFamilySnip photo=true name=true user=this add=true height=80 width=80}}
+        </div>
+        {{/each}}
+    </div>
+
+    <div class='row projectMemberTab' id='groupView' style='display:none'>
+        <h3 class='syc-title'>Manage Project Groups</h3>
+        <div class='col-lg-2 well'>
+            <div class='addGroup btn btn-success btn-block'><i class="fa fa-plus"></i> New Group</div>
+            {{#each groups}}
+            <div class='viewGroup btn btn-info btn-block' id='{{_id}}'><i class="fa fa-chevron-right"></i> {{name}}</div>
+            {{else}}
+            <div class='alert alert-warning'>
+                You have not created any groups.
+            </div>
+            {{/each}}
+        </div>
+        <div class='col-lg-7'>
+            {{#each groups}}
+                {{>projectGroupView}}
+            {{/each}}
+        </div>
+        <div class='col-lg-3 well'>
+            <h4 class='syc-title'>Ungrouped Project Members</h4>
+            <div id='memberlist'>
+            {{#each ungrouped_users}}
+                <div class='userBox ungrouped' id='{{_id}}'>
+                    {{>familySnip photo=true name=true user=this height=50 width=50 style='float:left;' nameClass='syc-title' nameStyle='float:left;' nameAfter='<div style="clear:both;"></div>'}}
+                </div>
+            {{/each}}
+        </div>
+        </div>
+    </div>
+</template>

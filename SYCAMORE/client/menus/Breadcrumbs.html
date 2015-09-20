@@ -1,0 +1,7 @@
+<template name='masterBreadcrumbs'>
+  {{#if crumbs}}
+  <ul class="breadcrumb">
+    {{#each crumbs}}<li><a href="{{path}}">{{text}}</a></li>{{/each}}
+  </ul>
+  {{/if}}
+</template>

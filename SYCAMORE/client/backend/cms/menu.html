@@ -1,0 +1,11 @@
+<template name='manageContentMenu'>
+  <div class='col-lg-2'>
+    <div class="btn-group-vertical btn-block" role="group">
+      <div class="btn btn-success new">New {{../title}}</div>
+      <a href="{{pathFor ../rootPath view='live'}}" class="btn btn-default">Live {{../pluralTitle}}</a>
+      <a href="{{pathFor ../rootPath view='scheduled'}}" class="btn btn-default">Scheduled</a>
+      <a href="{{pathFor ../rootPath view='drafts'}}" class="btn btn-default">Drafts</a>
+      <a href="{{pathFor ../rootPath view='trash'}}" class="btn btn-danger">Trash</a>
+    </div>
+  </div>
+</template>

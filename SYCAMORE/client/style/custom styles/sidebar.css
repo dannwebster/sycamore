@@ -1,0 +1,78 @@
+#sideBar{
+    position:fixed;
+}
+.main-content-box{
+    position: relative;
+    width: calc(100% - 220px);
+    left: 210px;
+}
+.nav-bg-bar{
+    position:fixed;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:170px;
+    z-index:0;
+    background:#cecece;
+}
+.sidebar-nav{
+    width:170px;
+    height:100%;
+}
+.sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+}
+.sidebar-nav .navbar ul {
+    float: none;
+}
+.sidebar-nav .navbar ul:not {
+    display: block;
+}
+.sbnav > li {
+    float: none;
+    display: block;
+    border: none;
+}
+.sbnav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+.sbnav > li.active > a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top:5px;
+    margin-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+}
+.sbnav > li:nth-of-type(2).active {
+    margin-top:25px;
+    margin-bottom:5px;
+}
+.sbnav > li > a >.menu-text {
+    font-size:12px;
+    text-transform:uppercase;
+    font-family: "GothamBold";
+    font-style: normal;
+}
+.sbnav > li > a > .menu-icon {
+    font-size:20px;
+    /*margin-top:-5px;*/
+    padding-left:5px;
+    padding-right:10px;
+}
+.sbnav > li > .mainmenu-border {
+    border: 1.5px solid rgba(0,0,0,0.2);
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+    display:block;
+}
+.sbnav > li.active > .mainmenu-border {
+    display:none
+}.sbnav > li.active + li > .mainmenu-border {
+    display:none
+}

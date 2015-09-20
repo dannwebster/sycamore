@@ -1,0 +1,15 @@
+<template name='meForumTopicList'>
+    <div class="list-group">
+        {{#each topic}}
+            {{>meForumTopicItem}}
+        {{/each}}
+    </div>
+</template>
+
+<template name='meForumTopicItem'>
+    <a href="#" class="list-group-item conversation" id='{{_id}}'>
+        <h4>{{title}}</h4>
+        <p class="list-group-item-text">{{time}}</p>
+        <p class="list-group-item-text">{{subscribers}}</p>
+    </a>
+</template>

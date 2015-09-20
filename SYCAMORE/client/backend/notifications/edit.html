@@ -1,0 +1,63 @@
+<template name='notificationEdit'>
+    <div class='row' id='notificationBox'>
+        <input id="customimage" type="file" name="customimage" style="display: none;" />
+        <div class='well notification-box notification-shadow' style='margin-top:0px; margin-bottom:0px;'>
+            <div class='row ns'>
+                <div class='col-s-m-m-s'>
+                    <div class='text-center'>
+                        <h1 id='iconview' style='font-size:50px;'></h1>
+                    </div>
+                    <div>
+                        <h3 class='syc-title' >Title:
+                            <input class='form-control' id='title' value='{{notification.title}}'>
+                        </h3>
+                        <p class='syc-title'>Select an Icon:
+                            <button class="btn btn-default" role="iconpicker" id='iconselect' name='iconselect'></button>
+                        </p>
+                    </div>
+                    <div style='padding-top:33px;'>
+                        <p class='syc-title'>Alert Level:
+                            <select class="form-control" id="alert">
+                                <option value='success'>normal</option>
+                                <option value='danger'>urgent</option>
+                            </select>
+                        </p>
+                        <p class='syc-title'>Who to Notify:
+                            <select class="form-control" id="visibility">
+                                <option value='all'>Everyone</option>
+                                <option value='students'>Students & Educators Only</option>
+                                <option value='parents'>Parents & Educators Only</option>
+                                <option value='educators'>Educators Only</option>
+                                <option value='invited'>Specified Users Only</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        {{#if notification.calendarEvent}}
+                        <a href="{{pathFor 'editEvent' id=notification.eventId}}" class='btn btn-info btn-info btn-block'>Edit Event</a>
+                        {{/if}}
+                        {{#if stat.draft}}
+                        <div class='btn btn-success btn-info btn-block save'>Save Draft</div>
+                        <div class='btn btn-success btn-block publish'>Publish</div>
+                        {{/if}}
+                        {{#if stat.live}}
+                        <div class='btn btn-info btn-block unpublish'>Unpublish</div>
+                        <div class='btn btn-success btn-block publish'>RePublish</div>
+                        <div class='btn btn-warning btn-block archive'>Archive</div>
+                        {{/if}}
+                        {{#if stat.archived}}
+                        <div class='btn btn-info btn-block sendDraft'>Return to Draft</div>
+                        <div class='btn btn-success btn-block publish'>Publish</div>
+                        {{/if}}
+                        <div class='btn btn-danger btn-block delete'>Delete</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#unless notification.calendarEvent}}
+        <div class='row'>
+            <div id='notifyContent' name='{{notification._id}}'>{{{notification.content}}}</div>
+        </div>
+    {{/unless}}
+</template>

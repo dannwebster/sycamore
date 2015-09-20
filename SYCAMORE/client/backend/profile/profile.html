@@ -1,0 +1,274 @@
+<template name='profile'>
+    {{>manageProfile}}
+</template>
+
+<template name='manageProfile'>
+    <div class='row' style='margin-bottom:15px;'><h2>{{user.profile.family}}</h2>
+
+            {{#if isInRole 'educator'}}
+            {{#if isStudent}}
+                <div class='btn btn-success keyHole pull-right' name='{{studentPW}}' title='{{studentPW}}'><i class="fa fa-key"></i></div>
+            {{/if}}
+            <div class='btn btn-info editProfile viewContent pull-right'>Edit Profile</div>
+            <div class='btn btn-info viewProfile editContent pull-right'>View Profile</div>
+            <div class='btn btn-danger removeUser pull-right'>Remove User</div>
+        {{/if}}
+        {{#unless isInRole 'educator'}}
+            {{#if isInRole 'superadmin'}}
+            <div class='btn btn-info editProfile viewContent pull-right'>Edit Profile</div>
+            <div class='btn btn-info viewProfile editContent pull-right'>View Profile</div>
+            <div class='btn btn-danger removeUser pull-right'>Remove User</div>
+        {{/if}}
+        {{/unless}}
+    </div>
+
+    {{#if isInRole 'student'}}
+        {{>studentProfileView current=current user=user family=family memberRecord=memberRecord}}
+    {{/if}}
+
+    {{#if isInRole 'parent'}}
+        {{>parentProfileView current=current user=user family=family memberRecord=memberRecord edit_status=edit_status}}
+    {{/if}}
+
+    {{#if isInRole 'educator'}}
+        {{>eduProfileView current=current user=user family=family memberRecord=memberRecord edit_status=edit_status}}
+    {{/if}}
+
+    {{#unless isInRole 'educator'}}
+        {{#if isInRole 'superadmin'}}
+            {{>eduProfileView current=current user=user family=family memberRecord=memberRecord edit_status=edit_status}}
+        {{/if}}
+    {{/unless}}
+</template>
+
+<template name="studentProfileView">
+    <div class='col-lg-6 col-md-6 col-sm-6'>
+        <h3 class='syc-title'>Profile Details</h3>
+        <div class='well syc-shadow matchHeight' id='profile'>
+            {{>nameBlock}}
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    <div class='col-lg-6'>
+        <h3 class='syc-title'>Your Conversations
+            <a href="{{pathFor 'messages'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well wellmfix syc-shadow' style='padding-bottom:20px;'>
+            <div style='max-height:300px; min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='messages' class='matchHeight' match='profile'>
+                {{>ConversationList}}
+            </div>
+        </div>
+    </div>
+    {{#if myFamAccess}}
+    <div class='col-lg-12'>
+        <h3 class='syc-title'>Recent Projects
+            <a href="{{pathFor 'projects'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well  wellmfix syc-shadow' style='padding-bottom:20px'>
+            <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px;'>
+                <ul class="list-group ns">
+                    {{#each current}}
+                        {{>homeProjectListItem project=this studentId=user._id}}
+                    {{else}}
+                    <li class="list-group-item text-center">
+                        {{>noProjects}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>
+
+<template name="parentProfileView">
+
+    <div class='col-lg-6 col-md-6 col-sm-6'>
+        {{#unless myFamAccess}}<h3 class="syc-title">{{user.profile.firstname}}'s Details</h3>{{/unless}}
+        <div class='well syc-shadow matchHeight' match='userDetails'>
+            {{>nameBlock}}
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    <input type='hidden' value='{{myFamAccess}}'>
+    {{#if myFamAccess}}
+        <div class='col-lg-6 col-md-6 col-sm-6'>
+            <div class='well  syc-shadow' id='userDetails'>
+                <div class='col-lg-6 col-md-12'>
+                    <h5 class='syc-title'>Home Address:</h5>
+                    {{#if edit_status}}
+                    <textarea id='address' class='form-control editMe syc-form' name='Address'>{{{user.profile.address}}}</textarea>
+                    {{else}}
+                    {{{user.profile.address}}}
+                    {{/if}}
+                </div>
+                <div class='col-lg-6 col-md-12'>
+                    <h5 class='syc-title'>Phone Number:</h5>
+                    {{#if edit_status}}
+                    <textarea id='address' class='form-control editMe syc-form' name='phone'>{{{user.profile.phone}}}</textarea>
+                    {{else}}
+                    {{{user.profile.address}}}
+                    {{/if}}
+                </div>
+                <div class='col-lg-6'>
+                    <h5 class='syc-title'>Emergency Contact:</h5>
+                    {{#if edit_status}}
+                    <textarea id='emergency_contact' class='form-control editMe syc-form' name='Emergency Contact'>{{{user.profile.emergency_contact}}}</textarea>
+                    {{else}}
+                    {{{user.profile.emergency_contact}}}
+                    {{/if}}
+                </div>
+                <div class='col-lg-12'>
+                    <h5 class='syc-title'>Allergy & Medical Notes:</h5>
+                    {{#if edit_status}}
+                    <textarea id='allergy_medical' class='form-control editMe syc-form' name='Allergy & Medical Info'>{{{user.profile.allergy_medical}}}</textarea>
+                    {{else}}
+                    {{{user.profile.allergy_medical}}}
+                    {{/if}}
+                </div>
+                <div class='clearfix'></div>
+            </div>
+        </div>
+        <div class='clearfix'></div>
+
+        {{#unless self}}
+        <div class='col-lg-6 col-md-6'>
+            <h3 class='syc-title'>Recent Projects
+                <a href="{{pathFor 'projects'}}" class='sidelink'>View All</a>
+            </h3>
+            <div class='well  wellmfix syc-shadow' id='projects' style='padding-bottom:20px'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px;'>
+                    <ul class="list-group ns">
+                        {{#each current}}
+                            {{>homeProjectListItem project=this studentId=../user._id}}
+                        {{else}}
+                        <li class="list-group-item text-center">
+                            {{>noProjects}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {{/unless}}
+
+        <div class='col-lg-6 col-md-6'>
+            <h3 class='syc-title'>Your Conversations
+                <a href="{{pathFor 'messages'}}" class='sidelink'>View All</a>
+            </h3>
+            <div class='well wellmfix syc-shadow' style='padding-bottom:20px'>
+                <div style='max-height:300px; min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='messages' class='matchHeight' match='projects'>
+                    {{>ConversationList}}
+                </div>
+            </div>
+        </div>
+        {{else}}
+            <div class='col-lg-6 col-md-6'>
+                <h3 class='syc-title'>Your Conversations</h3>
+                <div class='well wellmfix syc-shadow' style='padding-bottom:20px'>
+                    <div style='max-height:300px; min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='userDetails' class='matchHeight' match='projects'>
+                        {{>ConversationList}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+</template>
+
+<template name="eduProfileView">
+    <div class='col-lg-12' id='resetpw' style='display:none;'>
+        <div class='well'>
+            <span class='syc-title' style='float:left; margin:5px; padding-top:7px'>Password Reset:</span>
+            <input class='form-control' id='newpw' style='width:25%; float:left; margin:5px;' placeholder='new password'>
+            <input class='form-control' id='newconfirm' style='width:25%; float:left; margin:5px;' placeholder='password confirm'>
+            <div class='btn btn-success savenewpw' style='float:left; margin:5px;'>Save</div>
+            <div class='btn btn-danger cancelnewpw' style='float:left; margin:5px;'>Cancel</div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+
+    <div class='col-lg-6 col-md-6 col-sm-6'>
+        <div class='well syc-shadow matchHeight' match='userDetails'>
+            {{>nameBlock}}
+            <div class='clearfix'></div>
+        </div>
+    </div>
+
+    <input type='hidden' value='{{myFamAccess}}'>
+    <div class='col-lg-6 col-md-6 col-sm-6'>
+        <div class='well syc-shadow' id='userDetails'>
+            <div class='col-lg-6 col-md-12'>
+                <h5 class='syc-title'>Home Address:</h5>
+                {{#if edit_status}}
+                <textarea id='address' class='form-control editMe syc-form' name='Address'>{{user.profile.address}}</textarea>
+                {{else}}
+                {{user.profile.address}}
+                {{/if}}
+            </div>
+            <div class='col-lg-6 col-md-12'>
+                <h5 class='syc-title'>Phone Number:</h5>
+                {{#if edit_status}}
+                <textarea id='address' class='form-control editMe syc-form' name='phone'>{{{user.profile.phone}}}</textarea>
+                {{else}}
+                {{{user.profile.address}}}
+                {{/if}}
+            </div>
+            <div class='col-lg-6'>
+                <h5 class='syc-title'>Emergency Contact:</h5>
+                {{#if edit_status}}
+                <textarea id='emergency_contact' class='form-control editMe syc-form' name='Emergency Contact'>{{{user.profile.emergency_contact}}}</textarea>
+                {{else}}
+                {{{user.profile.emergency_contact}}}
+                {{/if}}
+            </div>
+            <div class='col-lg-12'>
+                <h5 class='syc-title'>Allergy & Medical Notes:</h5>
+                {{#if edit_status}}
+                <textarea id='allergy_medical' class='form-control editMe syc-form' name='Allergy & Medical Info'>{{{user.profile.allergy_medical}}}</textarea>
+                {{else}}
+                {{{user.profile.allergy_medical}}}
+                {{/if}}
+            </div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    <div class='col-lg-12'>
+        <h3 class='syc-title'>Recent Projects
+            <a href="{{pathFor 'projects'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well  wellmfix syc-shadow' style='padding-bottom:20px'>
+            <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px;'>
+                <ul class="list-group ns">
+                    {{#each current}}
+                        {{>homeProjectListItem project=this studentId=user._id}}
+                    {{else}}
+                    <li class="list-group-item text-center">
+                        {{>noProjects}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class='col-lg-6 col-md-6'>
+        <h3 class='syc-title'>Your Conversations
+            <a href="{{pathFor 'messages'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well wellmfix syc-shadow' style='padding-bottom:20px'>
+            <div style='max-height:300px; min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='messages' class='matchHeight' match='notes'>
+                {{>ConversationList}}
+            </div>
+        </div>
+    </div>
+    <div class='col-lg-6'>
+        <h3 class='syc-title'>Teachers Notes
+            <a href="{{pathFor 'projects'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well syc-shadow' id='notes' style='padding-bottom:20px'>
+            {{#if edit_status}}
+            <textarea id='teacher_notes' class='form-control editMe syc-form' style='text-transform:none' name='Teachers Notes'>{{{user.profile.teacher_notes}}}</textarea>
+            {{else}}
+            {{{user.profile.teacher_notes}}}
+            {{/if}}
+        </div>
+    </div>
+</template>

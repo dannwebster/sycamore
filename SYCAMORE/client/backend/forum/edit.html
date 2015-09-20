@@ -1,0 +1,55 @@
+<template name='forumEdit'>
+    {{#if mine}}
+    <div class='row' id='forumbox'>
+
+        <input id="customimage" type="file" name="customimage" style="display: none;" />
+        <div class='well forum-box forum-shadow' style='background-color:#e1cbe7'>
+            <div class='col-lg-2'>
+                {{#if topic.mainphoto}}
+                <div class='btn-file'>
+                    <div style='height:150px; width:150px; background-image: url({{topic.mainphoto.secure_url}}); background-size:cover; background-position: center center'></div>
+
+                    <input type="file" id="mainphoto" class="mainphoto">
+                </div>
+                {{else}}
+
+                <div class='btn-file'>
+                    <div style='height:150px; width:150px; background-image: url("/images/placeholder.jpg"); background-size:cover; background-position: center center'></div>
+                    <input type="file" id="mainphoto" class="mainphoto">
+                </div>
+                {{/if}}
+            </div>
+            <div class='col-lg-7'>
+
+                <p><h3 class='syc-title' >Title: </h3><input class='editMe forum-title form-control' name='title' id='title' value='{{topic.title}}'></p>
+                <p><h4 class='syc-title'>Description:</h4> <textarea class='editMe forum-title form-control' name='description' id='description' value='{{topic.description}}' rows='15'></textarea></p>
+            </div>{{text}}
+            <div class='col-lg-3'>
+                <h5 class='syc-title'>Visibility</h5>
+                <select class='form-control' id='visibility'>
+                    <option value=''>Everyone</option>
+                    {{#if isInRole 'educator'}}
+                        <option value='educators'>Educators Only</option>
+                        <option value='adults'>Parents & Educators</option>
+                        <option value='staff'>Educators & Web Admins</option>
+                    {{/if}}
+                    {{#if isInRole 'parent'}}
+                        <option value='adults'>Parents & Educators</option>
+                    {{/if}}
+                    {{#if isInRole 'student'}}
+                        <option value='family'>My Family</option>
+                        <option value='classmates'>My Classmates</option>
+                    {{/if}}
+                </select>
+                <h5 class='syc-title'>Publish / Cancel</h5>
+                <p><div class='btn btn-forum disabled btn-block btn-sm'><i class="fa fa-ban"></i> Remove Topic</div></p>
+                <p><div class='btn btn-forum publishTopic btn-block btn-sm'><i class="fa fa-check"></i> Update Thread</div></p>
+
+            </div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    {{else}}
+        <div class='well jumbotron text-center'><h4>You may only modify topics you created.</h4></div>
+    {{/if}}
+</template>

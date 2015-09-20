@@ -1,0 +1,19 @@
+<template name='newsletterManage'>
+  {{> contentManage}}
+</template>
+
+<template name='newsletterCompose'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>New {{title}}</h4>
+    {{>editContent type='newsletter' post=post notify_title=title}}
+  </div>
+</template>
+
+<template name='newsletterEdit'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>Edit {{title}}</h4>
+    {{>editContent type='newsletter' post=post notify_title=title}}
+  </div>
+</template>

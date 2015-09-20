@@ -1,0 +1,13 @@
+<template name="createEvent">
+    <h4 class="syc-title">Create Event</h4>
+    {{#autoForm collection="Events" id="insertEventForm" type="insert"}}
+        <fieldset>
+            {{> afQuickField name='title'}}
+            {{> afQuickField name="eventType" options="allowed"}}
+            {{> afQuickField name='startDate' type='datetimepicker'}}
+            {{> afQuickField name='endDate' type='datetimepicker'}}
+            {{> afQuickField name='description' rows=6}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Add Event</button>
+    {{/autoForm}}
+</template>

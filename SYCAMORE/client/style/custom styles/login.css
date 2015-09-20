@@ -1,0 +1,46 @@
+.hometitle{
+    background-color:#59AEB4;
+    border-bottom:2px solid #fff;
+}
+
+.welcomeScreen{
+    background-color:#76abd5;
+    height:100%;
+    width:100%;
+    position:fixed;
+    top:0px;
+    left:0px;
+    z-index:999999;
+}
+.welcomeScreen > .row > .title{
+    font-size:150px;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    text-align: center;
+    text-transform: uppercase;
+    left:-100%;
+}
+.welcomeScreen > .row > .text{
+    font-size:75px;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    text-align: center;
+}
+.welcomeScreen > .row > .subtext{
+    font-size:150px;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
+    text-align: center;
+}
+
+.welcomeScreen > .row > .btn{
+    font-size:50px;
+    color:#333;
+    margin-top:150px;
+    font-weight:700;
+    text-align: center;
+    text-transform: uppercase;
+}

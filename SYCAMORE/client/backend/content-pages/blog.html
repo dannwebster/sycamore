@@ -1,0 +1,19 @@
+<template name='blogManage'>
+  {{> contentManage}}
+</template>
+
+<template name='blogEdit'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>Edit {{title}}</h4>
+    {{>editContent type='blog' post=post notify_title=title}}
+  </div>
+</template>
+
+<template name='blogCompose'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>New {{title}}</h4>
+    {{>editContent type='blog' post=post notify_title=title}}
+  </div>
+</template>

@@ -1,0 +1,98 @@
+<template name='messages'>
+    <div class='row' style='margin-bottom:20px;'>
+        <a href="{{pathFor 'messageCompose'}}" class='btn btn-info pull-right'>
+            <i class="fa fa-comment"></i> COMPOSE
+        </a>
+        <h3 class='syc-title'>Current Messages  {{#if unread}}({{unread}}){{/if}}</h3>
+    </div>
+    <div class='well' style='background-color:#A1DBE0; margin-bottom:0px;'>
+        <div class='col-lg-4 col-md-5 col-sm-6'>
+            <input class='form-control' placeholder='Filter'>
+        </div>
+        <div class='col-lg-8 col-md-7 col-sm-6'>
+            <h4></h4>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='well' id='chathubHub' style='overflow: hidden;'>
+        <div class='row'>
+            <div class='col-lg-4 col-md-5 col-sm-6' style='height:100%; overflow-x: hidden; overflow-y:scroll;'>
+                {{>ConversationList}}
+            </div>
+            <div class='col-lg-8 col-md-7 col-sm-6' id='sidecode'>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name='messageCompose'>
+    <div class='row' style='margin-bottom:20px;'>
+        <a href="{{pathFor 'messageCompose'}}" class='btn btn-info pull-right'>
+            <i class="fa fa-comment"></i> COMPOSE
+        </a>
+        <h3 class='syc-title'>Current Messages  {{#if unread}}({{unread}}){{/if}}</h3>
+    </div>
+    <div class='well' style='background-color:#A1DBE0; margin-bottom:0px;'>
+        <div class='col-lg-4 col-md-5 col-sm-6'>
+            <input class='form-control' placeholder='Filter'>
+        </div>
+        <div class='col-lg-8 col-md-7 col-sm-6'>
+            <h4></h4>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='well' id='chathubHub' style='overflow: hidden;'>
+        <div class='row'>
+            <div class='col-lg-4 col-md-5 col-sm-6' style='height:100%; overflow-x: hidden; overflow-y:scroll;'>
+                {{>ConversationList}}
+            </div>
+            <div class='col-lg-8 col-md-7 col-sm-6' id='sidecode'>
+                {{>CCompose userlist=userlist}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name='messageView'>
+    <div class='row' style='margin-bottom:20px;'>
+        <a href="{{pathFor 'messageCompose'}}" class='btn btn-info pull-right'>
+            <i class="fa fa-comment"></i> COMPOSE
+        </a>
+        <h3 class='syc-title'>Current Messages {{#if unread}}({{unread}}){{/if}}</h3>
+    </div>
+    <div class='row' style='margin-bottom:20px;'>
+    <div class='well' style='background-color:#A1DBE0; margin-bottom:0px;'>
+        <div class='col-lg-4 col-md-5 col-sm-6'>
+        </div>
+        <div class='col-lg-8 col-md-7 col-sm-6'>
+            <h4>TO: <span style='text-transform:uppercase'><b>{{users_names}}</b></span></h4>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='well' id='chathubHub' style='overflow: hidden;'>
+        <div class='row'>
+            <div class='col-lg-4 col-md-5 col-sm-6 convoListHolder' style='overflow-x: hidden; overflow-y:scroll;'>
+                {{>ConversationList}}
+            </div>
+            <div class='col-lg-8 col-md-7 col-sm-6' id='sidecode'>
+                <div id='ME_CONVERSATION' >
+                    {{#if chatTitle}}<h3>{{chatTitle}}</h3>{{/if}}
+                    <div class='ME_conversation_holder' id='ME_conversation_holder'>
+                        <div class='clearfix chatHolder' style='overflow-y: scroll; overflow-x:hidden;'>
+                            <div>{{>Chats conversation=convo}}
+                                <div class='clearfix'></div>
+                            </div>
+                        </div>
+                        <div class='CHHolder newMessageIndicator'>You have new messages. Click to view.</div>
+                        <div class='clearfix'>{{>ChatForm conversation=convo}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</template>

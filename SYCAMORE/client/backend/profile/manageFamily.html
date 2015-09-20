@@ -1,0 +1,91 @@
+<template name='manageFamily'>
+    <h2 class='syc-title'>Manage
+        {{#if family.name}}{{family.name}}{{else}}
+            {{#if user.profile.firstname}}{{user.profile.firstname}}'s {{/if}}
+        {{/if}}
+     Family</h2>
+    <a href="{{pathFor 'manageProfile' id=user._id}}" class='btn btn-info'>Back to Profile</a>
+
+    <div class='row'>
+        <div class='col-lg-6'>
+            {{#if family}}
+            <p>
+                <h3 class='syc-title'>Parents & Guardians <div class='btn btn-success addParents'><i class="fa fa-plus"></i></div></h3>
+                <hr>
+                <div class='row'>
+                {{#each members.parents}}
+                    <div class='col-lg-6 animate flipInY userBox'>
+                        {{>addFamilySnip photo=true name=true user=this height=80 width=80}}
+                    </div>
+                    {{else}}
+                        <p class='lead'>There are no parents or guardians in this family.</p>
+                    {{/each}}
+                    {{#each members.edufam}}
+                        <div class='col-lg-6 animate flipInY userBox'>
+                            {{>addFamilySnip photo=true name=true user=this height=80 width=80}}
+                        </div>
+                        {{/each}}
+                </div>
+            </p>
+            <p>
+                <h3 class='syc-title'>Children <div class='btn btn-success addChildren'><i class="fa fa-plus"></i></div></h3>
+                <hr>
+                <div class='row'>
+                {{#each members.children}}
+                    <div class='col-lg-6 animate flipInY userBox'>
+                        {{>addFamilySnip photo=true name=true user=this height=80 width=80}}
+                    </div>
+                    {{else}}
+                        <p class='lead'>There are no children in this family.</p>
+                    {{/each}}
+                </div>
+
+            </p>
+            {{else}}
+            <div class='jumbotron'>
+                {{#if families.count}}
+                <h2 class='syc-title'>Create or Add a Family</h2>
+                <p>You haven't added a family to this profile. You can create a new family or add to an existing family.</p>
+
+                <div class='btn btn-info createFamily'>Create A New Family</div>
+
+                <h2 class='syc-title'>Join an Existing Family</h2>
+                    {{#each families.families}}
+                        <h3><div class='btn btn-success joinFamily' id='{{_id}}'>Join</div> {{name}} (<span class='remove' id='{{_id}}'>remove</span>)</h3>
+                    {{/each}}
+
+
+                {{else}}
+                <h2 class='syc-title'>No families</h2>
+                <p>You don't have any families.</p>
+                <p>Create a new one below and start adding family members.</p>
+                <div class='btn btn-info createFamily'>Create Family</div>
+                {{/if}}
+            </div>
+            {{/if}}
+        </div>
+        <div class='col-lg-6' id='addView'>
+            <div class='row search' id='searchKids'>
+            {{#each members.students}}
+                <div class='col-lg-6 animate flipInY userBox'>
+                    {{>addFamilySnip photo=true name=true user=this add=true height=80 width=80}}
+                </div>
+            {{/each}}
+            </div>
+            <div class='row search' id='searchAdults'>
+            {{#each members.adults}}
+                <div class='col-lg-6 animate flipInY userBox'>
+                    {{>addFamilySnip photo=true name=true user=this add=true height=80 width=80}}
+                </div>
+            {{/each}}
+            {{#if isInRole 'educator'}}
+            {{#each members.educators}}
+                <div class='col-lg-6 animate flipInY userBox'>
+                    {{>addFamilySnip photo=true name=true user=this add=true height=80 width=80}}
+                </div>
+            {{/each}}
+            {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

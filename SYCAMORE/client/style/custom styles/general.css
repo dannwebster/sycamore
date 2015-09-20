@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+    width: 8px;
+    right:10px;
+    margin-right:50px;
+}
+
+::-webkit-scrollbar-track {
+    margin-top:10px;
+    border-radius:4px;
+    background: #ebebeb;
+}
+
+::-webkit-scrollbar-thumb {
+    border: 1px solid #ccc;
+    border-radius:4px;
+    background: #fff;
+}
+.caps{
+    text-transform:uppercase;
+}
+.bootstrap-tagsinput{
+    width:100%;
+}
+.twitter-typeahead{
+    width:100%;
+}
+.twitter-typeahead > .tt-input{
+    width:100%;
+    padding:10px;
+}
+.content-pad{
+    padding-left:30px;
+    padding-right:60px;
+    padding-top:30px;
+    padding-bottom:20px;
+}
+.content-pad-10{
+    padding:10px;
+}
+.btn{
+    text-transform:uppercase;
+}

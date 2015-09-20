@@ -1,0 +1,48 @@
+<template name='ConversationList'>
+    <div class="list-group" id='MECLIST'>
+        {{#each conversation}}
+            {{>Conversation}}
+        {{/each}}
+    </div>
+</template>
+
+<template name='Conversation'>
+    <a href="/message/{{_id}}" class="list-group-item conversation row" id='{{_id}}' style='{{unreadCount.style}}'>
+        <div class='chatlist-icon'>
+            {{#if recipients.group}}
+                {{#each recipients.groupUsers}}
+                    {{>recipientViewGroup}}
+                {{/each}}
+                {{#if recipients.large}}
+                    <i class="fa fa-plus messageLargePlus"></i>
+                {{/if}}
+            {{else}}
+                {{#each recipients.users}}
+                    {{>recipientView}}
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class='chatlist-text'>
+            <div  style='max-height:75px; overflow:hidden;'>
+            {{#if text.file}}
+                {{#with text}}
+                    {{>listFileDisplay}}
+                {{/with}}<br>
+            {{else}}
+                <h5><b>{{{text.text}}}</b></h5>
+            {{/if}}
+            </div>
+            <div class='clearfix'>{{time}}</div>
+        </div>
+    </a>
+</template>
+
+<template name="recipientView">
+    {{#unless itsMe}}
+        {{> profileSnip photo=true userid=this height=75 width=75 mini=true}}
+    {{/unless}}
+</template>
+
+<template name="recipientViewGroup">
+    {{> profileSnip photo=true userid=this height=45 width=45 class='messageOffset'}}
+</template>

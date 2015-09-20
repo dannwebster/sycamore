@@ -1,0 +1,71 @@
+<template name="studentProjectHolder">
+    {{>studentProjectList}}
+</template>
+
+<template name="parentProjects">
+    {{#if multiChild.multi}}
+        {{#each multiChild.students}}
+            {{>studentProjectHolder student=this}}
+        {{/each}}
+        {{#each multiChild.students}}
+            {{>studentProjectListOld}}
+        {{/each}}
+    {{else}}
+    <div class='row'>
+        <div class='col-lg-10 col-md-10'>
+            <h3 class='syc-title'>Current Projects
+                {{#if isInRole 'educator'}}
+                    <a href='#' class='btn btn-project syc-shadow text-left newProject' style='margin-left:10px;'><i class="fa fa-plus"></i> New Project</a>
+                {{/if}}
+            </h3>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px; margin-bottom:20px;'>
+                    <ul class="list-group ns">
+                        {{#each multiChild.projects}}
+                            {{>homeProjectListItem project=this buttonClass='homeProjectButton' studentId=multiChild.child._id}}
+                        {{else}}
+                        <li class="list-group-item text-center">
+                            {{>noProjects}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-10 col-md-10'>
+            <h3 class='syc-title'>Past Projects
+                {{#if isInRole 'educator'}}
+                    <a href='#' class='btn btn-project syc-shadow text-left newProject' style='margin-left:10px;'><i class="fa fa-plus"></i> New Project</a>
+                {{/if}}
+            </h3>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px; margin-bottom:20px;'>
+                    <ul class="list-group ns">
+                        {{#each multiChild.old}}
+                            {{>homeProjectListItem project=this buttonClass='homeProjectButton' studentId=multiChild.child._id}}
+                        {{else}}
+                        <li class="list-group-item text-center">
+                            {{>noProjects type='past'}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>

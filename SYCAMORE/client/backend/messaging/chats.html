@@ -1,0 +1,98 @@
+<template name='Chats'>
+    <input type='hidden' id='chatCount' value='{{chatCount}}'>
+    {{#each chats}}
+    {{>Chat}}
+    {{/each}}
+    {{scrollchat}}
+</template>
+
+<template name='Topics'>
+    {{#each chats}}
+    {{>Chat}}
+    {{else}}
+    <div class='text-center'>
+        <h4 class="syc-title" style='padding-top:50px'>No Comments Yet</h4>
+    </div>
+    {{/each}}
+</template>
+
+<template name='Chat'>
+    <div class='chat'>
+        <div class='holder'>
+            {{#if self}}
+                {{#if system}}
+                    <div class='well well-sm system-text self'>
+                        <div class='time self {{time.class}}'>
+                            <div class='display'>{{{time.display}}}</div>
+                        </div>
+                        {{{text}}}
+                        <div class='clearfix'></div>
+                    </div>
+                {{else}}
+                    <div class='photo self'>
+                        {{>profileSnip height=65 width=65 photo=true name=false userid=user}}
+                    </div>
+                    <div class='well well-sm text self'>
+                        <div class='time self {{time.class}}'>
+                            <div class='display'>{{{time.display}}}</div>
+                        </div>
+                        <div class='right-arrow'></div>
+                        {{#if file}}
+                            {{>fileDisplay}}
+                        {{else}}
+                            {{{text}}}
+                        {{/if}}
+                        <div class='clearfix'></div>
+                    </div>
+                {{/if}}
+            {{else}}
+                {{#if system}}
+                    <div class='well well-sm system-text'>
+                        <div class='time user {{time.class}}'>
+                            <div class='display'>{{{time.display}}}</div>
+                        </div>
+                        {{{text}}}
+                        <div class='clearfix'></div>
+                    </div>
+                {{else}}
+                    <div class='photo user'>
+                        {{>profileSnip height=65 width=65 photo=true name=false userid=user mini=true}}
+                    </div>
+                    <div class='well well-sm user text'>
+                        <div class='time user {{time.class}}'>
+                            <div class='display'>{{{time.display}}}</div>
+                        </div>
+                        <div class='left-arrow'></div>
+                        {{#if file}}
+                            {{>fileDisplay}}
+                        {{else}}
+                        {{#if system}}
+                        <div class='text-center'><h4 class="syc-title">{{{text}}}!</h4></div>
+                            {{else}}
+                                {{{text}}}
+                            {{/if}}
+                        {{/if}}
+                        <div class='clearfix'></div>
+                    </div>
+                    {{/if}}
+                {{/if}}
+
+        </div><div class='clearfix'></div>
+    </div>
+</template>
+
+<template name="fileDisplay">
+    {{#if doc.image}}
+    <p class='col-lg-4'><a href='{{doc.link}}' target='_blank'><img src='{{doc.link}}' style='width:100%'></a></p>
+    {{else}}
+    <a href='{{doc.link}}' target='_blank'><h1><i class='fa fa-{{doc.icon}}'></i></h1> {{doc.name}}</a>
+    {{/if}}
+</template>
+
+<template name="listFileDisplay">
+    {{#if doc.image}}
+    <p class='col-lg-4'><img src='{{doc.link}}' style='height:75px'></p>
+    {{else}}
+    <h1><i class='fa fa-{{doc.icon}}'></i></h1> {{doc.name}}
+    {{/if}}
+</template>

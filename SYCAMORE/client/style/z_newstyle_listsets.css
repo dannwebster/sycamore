@@ -1,0 +1,77 @@
+/*LISTGROUP sm sm MAIN med sm*/
+.ns > li {
+    list-style: none;
+    clear:both;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.ns > li.set-2s-main-1m-1s > p{
+    width:50px;
+    float:left;
+}
+.ns > li.set-2s-main-1m-1s > p:nth-of-type(3){
+    width: calc(100% - 350px);
+}
+.ns > li.set-2s-main-1m-1s > p:nth-of-type(4){
+    width:200px;
+}
+.ns > li.set-2s-main-1m-1s > p > h2{
+    padding:0px;
+    margin:0px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.ns > li.set-2s-main-1m-1s > .small{
+    font-size:12px;
+}
+
+/*FOR PROJECTS*/
+
+.ns > li.set-main-s-m-s {
+    list-style: none;
+    clear:both;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.ns > li.set-main-s-m-s > div {
+    float:left;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:60px;
+}
+.ns > li.set-main-s-m-s > div:nth-of-type(1){
+    width: calc(60% - 100px)
+}
+.ns > li.set-main-s-m-s > div:nth-of-type(2) {
+    float:left;
+    padding-top:10px;
+    padding-bottom:10px;
+    width:100px;
+}
+.ns > li.set-main-s-m-s > div:nth-of-type(3){
+    width: calc(40% - 120px);
+}
+.ns > li.set-main-s-m-s > .treePad{
+    padding:0px;
+}
+
+/*LISTGROUP sm MAIN sm sm*/
+.ns > li.set-1s-main-2s > p{
+    width:50px;
+    float:left;
+}
+.ns > li.set-1s-main-2s > p:nth-of-type(2){
+    width: calc(100% - 150px);
+}
+.ns > li.set-1s-main-2s > p > h2{
+    padding:0px;
+    margin:0px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.ns > li.set-1s-main-2s > .small{
+    font-size:12px;
+}
+.ns > li> p > h2.ns-no-padtop{
+    padding-top:-5px;
+}

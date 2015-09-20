@@ -1,0 +1,72 @@
+<template name="newsletterSignup">
+    {{#if isDesktop}}
+    <div class='container-fluid' id='fepage'>
+        <div class='row'>
+            <div class='page-bg1'></div>
+            <div class='page-bg2'>
+                <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+                    <h2>Newsletter Signup</h2>
+                </div>
+            </div>
+        </div>
+        <div class='container' id='mpcontainer'>
+            <div class='row'>
+                <div class='frontEndSide'>
+                    {{>frontEndSideMenu}}
+                </div>
+                <div class='frontEndContent'>
+
+                    <div class='pageContent '>
+                        <h3 class='syc-title'>Subscribe to our Newsletter</h3>
+                        <p class='text-center open' style='font-size:15px; line-height:20px; padding-top:10px; padding-bottom:10px;'><b>
+                        Whether you are a prospective parent or have kids currently enrolled at Sycamore, our newsletter informs you of the latest events and happenings at the school. Sign up today and stay in the know!
+                    </b>
+                    </p>
+
+                        <div class='well MEinvite' style='background-color:#e7eded;'>
+                                <p class='signupblue'><b>Your Name:</b></p>
+                                <input id='subname2' class='form-control'>
+                                <p class='signupblue'><b>Your Email Address:</b></p>
+                                <input id='subemail2' class='form-control'>
+                                <div class='btn btn-contact pull-right' style='margin-top:10px' id='subscribe2'>Subscribe</div>
+                                <div class='clearfix'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class='container' id='fepage'>
+        <div class='row'>
+            <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+                <h4>Newsletter Signup</h4>
+            </div>
+            <div class='clearfix'></div>
+        </div>
+
+        <div class='clearfix'></div>
+        <div class='row' style='margin-top:260px;'>
+            <div class='col-lg-12'>
+                <div class='pageContent '>
+                    <h3 class='syc-title text-center'>Subscribe to our Newsletter</h3>
+                    <p class='text-center open' style='font-size:15px; line-height:20px; padding-top:10px; padding-bottom:10px;'><b>
+                    Whether you are a prospective parent or have kids currently enrolled at Sycamore, our newsletter informs you of the latest events and happenings at the school. Sign up today and stay in the know!
+                </b>
+                </p>
+
+                    <div class='well MEinvite' style='background-color:#e7eded;'>
+                            <p class='signupblue'><b>Your Name:</b></p>
+                            <input id='subname2' class='form-control'>
+                            <p class='signupblue'><b>Your Email Address:</b></p>
+                            <input id='subemail2' class='form-control'>
+                            <div class='btn btn-contact pull-right' style='margin-top:10px' id='subscribe2'>Subscribe</div>
+                            <div class='clearfix'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    {{/if}}
+</template>

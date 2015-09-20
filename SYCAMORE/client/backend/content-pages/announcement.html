@@ -1,0 +1,19 @@
+<template name='announcementManage'>
+  {{> contentManage}}
+</template>
+
+<template name='announcementEdit'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>Edit {{title}}</h4>
+    {{>editContent type='announcement' post=post notify_title=title}}
+  </div>
+</template>
+
+<template name='announcementCompose'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>New {{title}}</h4>
+    {{>editContent type='announcement' post=post notify_title=title}}
+  </div>
+</template>

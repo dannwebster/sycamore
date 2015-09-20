@@ -1,0 +1,152 @@
+<template name="studentApplication">
+    {{#if isDesktop}}
+    <div class='container-fluid' id='fepage'>
+        <div class='row'>
+            <div class='page-bg1'></div>
+            <div class='page-bg2'>
+                <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+                    <h2>New Student Application</h2>
+                </div>
+            </div>
+        </div>
+        <div class='container' id='mpcontainer'>
+            <div class='row'>
+                <div class='frontEndSide'>
+                    {{>frontEndSideMenu}}
+                </div>
+                <div class='frontEndContent'>
+
+                    <div class='pageContent'>
+                        <p class='lead'>Enrollment for the 2015 school year is no longer open.</p>
+
+                        <p class='lead'>Please feel free to complete the application for the 2016-2017 school year below.</p>
+
+                        {{>applicationForm}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class='container' id='fepage'>
+        <div class='row'>
+            <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+                <h4>New Student Application</h4>
+            </div>
+            <div class='clearfix'></div>
+        </div>
+        <div class='clearfix'></div>
+        <div class='row' style='margin-top:260px;'>
+            <div class='col-lg-12'>
+                <div class='pageContent'>
+                    <p class='lead'>Enrollment for the 2015 school year is no longer open.</p>
+
+                    <p class='lead'>Please feel free to complete the application for the 2016-2017 school year below.</p>
+
+                    {{>applicationForm}}
+                </div>
+            </div>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    {{/if}}
+</template>
+
+
+<template name="applicationForm">
+    <div class='col-xs-12'>
+        <h4 class='syc-title'>Apply Now!</h4>
+
+        <div class='well MEinvite' style='background-color:#e7eded;' id='messageholder'>
+            <div class='row'>
+                <div class='col-lg-6 col-md-6'>
+                    <span class='signupblue lead'><b>Child Information</b></span>
+                    <p class='signupblue syc-apply-title'><b>First and Last Name</b></p>
+                    <input id='student_name' class='form-control appInfoSubmit'>
+
+                    <div class='row'>
+                        <div class='col-md-5'>
+                            <p class='signupblue syc-apply-title'><b>Date of Birth</b></p>
+                            {{>dateTimeTemplate class='form-control appInfoSubmit' id='dob'}}
+                        </div>
+                        <div class='col-md-7'>
+                            <p class='signupblue syc-apply-title'><b>Current School</b></p>
+                            <input id='current_school' class='form-control appInfoSubmit'>
+                        </div>
+                    </div>
+                </div>
+
+                <div class='col-lg-6 col-md-6'>
+                    <span class='signupblue lead'><b>Parents Information</b></span>
+                    <p class='signupblue syc-apply-title'><b>First & Last Name of Parent/Guardian #1</b></p>
+                    <input id='parent_1' class='form-control appInfoSubmit'>
+                    <p class='signupblue syc-apply-title'><b>First & Last Name of Parent/Guardian #2</b></p>
+                    <input id='parent_2' class='form-control appInfoSubmit'>
+                </div>
+
+            </div>
+
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <div class='signupblue lead apply'><b>Contact Information</b></div>
+                </div>
+
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b>Mailing Address</b></p>
+                    <textarea id='address' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b>Phone Number</b></p>
+                    <input id='phone' class='form-control appInfoSubmit'>
+                    <p class='signupblue syc-apply-title'><b>Email Address</b></p>
+                    <input id='email' class='form-control appInfoSubmit'>
+                </div>
+
+            </div>
+
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <div class='signupblue lead apply'><b>Tell Us More About Your Child</b></div>
+
+                    <p class='signupblue syc-apply-title'><b>In a few sentences, tell us what is driving your search for an alternative approach to education for your child?</b></p>
+                    <textarea id='why' class='form-control appInfoSubmit' style='height:150px'></textarea>
+                </div>
+            </div>
+
+
+            <div class='row'>
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b><br>What are your child's passions/interests?</b></p>
+                    <textarea id='passions' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b>What kinds of activities do you like to do as a family?</b></p>
+                    <textarea id='activities' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b><br>Describe your child at play.</b></p>
+                    <textarea id='play' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+
+                <div class='col-lg-6 col-md-6'>
+                    <p class='signupblue syc-apply-title'><b>Describe your child's ideal learning environment.</b></p>
+                    <textarea id='learning' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class='col-lg-12'>
+                    <p class='signupblue syc-apply-title'><b>What kinds of enrichment activites would you like for your child?</b></p>
+                    <textarea id='enrichment' class='form-control appInfoSubmit' rows='5'></textarea>
+                </div>
+            </div>
+
+            <div class='btn btn-contact pull-right' style='margin-top:10px' id='apply'>Apply</div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+</template>

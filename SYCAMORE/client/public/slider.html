@@ -1,0 +1,28 @@
+<template name="homeSlider">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        {{#if slideButtons}}
+            <ol class="carousel-indicators">
+                {{{slideButtons}}}
+            </ol>
+        {{/if}}
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            {{#each slides}}
+                {{>homeSlideItem}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="homeSlideItem">
+    <div class="item {{status}}">
+        <img src="{{secure_url}}" alt="...">
+        <div class="carousel-caption" style='text-shadow:none; '>
+            {{#if title}}<p class='slide-title'>{{title}}</p>{{/if}}
+
+            <div class='text'>{{#if content}}{{content}}{{/if}}</div>
+
+            {{#if link_text}}<br><a href='{{link_url}}' class='btn btn-slider'>{{link_text}}</a>{{/if}}
+        </div>
+    </div>
+</template>

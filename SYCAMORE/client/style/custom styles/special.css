@@ -1,0 +1,88 @@
+.syc-title{
+    font-family: "GothamBold";
+    font-style: normal;
+    margin-left:0px;
+    margin-right:10px;
+    margin-bottom:5px;
+    text-transform:uppercase;
+}
+h1.massive{
+    font-size:90px;
+}
+h4.syc-title{
+    font-size:15px;
+}
+.syc-apply-title{
+    padding-top:10px;
+    padding-bottom:3px;
+    margin-bottom:0px;
+}
+
+.syc-form{
+    border:0px;
+    text-transform:uppercase;
+    font-style: italic;
+    font-size:14px;
+}
+.lead.apply{
+    margin-top:10px;
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+textarea.syc-form{
+    height: 100px;
+}
+.syc-circle-button{
+    width:29px;
+    height:29px;
+    padding:3px;
+    padding-left:6px;
+    border-radius:50%;
+}
+.syc-circle-button > a{
+    font-size:15px;
+    font-weight:bold;
+}
+.syc-title .sidelink{
+    font-family: 'Open Sans', sans-serif;
+    font-size:15px;
+    padding:5px;
+    padding-left:15px;
+    text-transform:uppercase;
+    text-decoration:underline;
+}
+.syc-h-200{
+    height:350px;
+}
+.syc-h-400{
+    height:400px;
+}
+.syc-shadow{
+    -webkit-box-shadow: 5px 5px 0px 0px #cecece;
+    -moz-box-shadow: 5px 5px 0px 0px #cecece;
+    box-shadow: 5px 5px 0px 0px #cecece;
+}
+.title-margin-correct{
+    margin-top:15px;
+}
+
+.syc-btn-large{
+    color:#222;
+    text-align:center;
+    padding:5px;
+    cursor: pointer;
+}
+.syc-btn-large:hover{
+    background-color:rgba(0,0,0,0.10)
+}
+.syc-btn-large > p{
+    text-align: center;
+}
+.syc-btn-large > .text{
+    font-size:20px;
+    font-weight:700;
+}
+.syc-btn-large > .subtext{
+    font-size:15px;
+    font-weight:700;
+}

@@ -1,0 +1,7 @@
+<template name="invitationList">
+    {{#if 'educator'}}
+        <a href="{{pathFor 'familyTree'}}" class='btn btn-info pull-right'>Family Tree</a> 
+        <a href="{{pathFor 'roster'}}" class='btn btn-info pull-right'>View Full Roster</a>
+    {{/if}}
+    {{>MeteorEngineInvitationHub}}
+</template>

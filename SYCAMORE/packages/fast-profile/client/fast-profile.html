@@ -1,0 +1,114 @@
+<template name='fastProfile'>
+  {{>fastProfileFull}}
+</template>
+
+<template name='fastProfileFull'>
+  <div class='row'>
+    <div class='col-lg-4'>
+      {{>fastProfilePhoto}}
+    </div>
+    <div class='col-lg-4'>
+      {{>fastProfileEmail}}
+      {{>fastProfileSpecial}}
+    </div>
+    <div class='col-lg-4'>
+      {{>fastProfilePassword}}
+      {{>fastProfileDelete}}
+    </div>
+  </div>
+</template>
+
+<template name='fastProfilePhoto'>
+  <h1>Test</h1>
+  {{#if photo}}
+    <img src='{{photo_url}}' style='width:100%'>
+  {{else}}
+    <div class='jumbotron text-center'><h1><span class='glyphicon glyphicon-user'></span></h1></div>
+  {{/if}}
+  
+    <input type="file" class="file_bag">
+    <button class="upload">{{button_text}}</button>
+
+  {{#each files}}
+    <div class="progress">
+      <div class="progress-bar progress-bar-info" style="width: {{percent_uploaded}}%"></div>
+    </div>
+  {{/each}}
+</template>
+
+<template name='fastProfileEmail'>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Email Addresses</h3>
+    </div>
+    <div class="panel-body">
+      {{#if mail.multi}}
+        {{#each mail.emails}}
+          {{>fastProfileEmailBlock}}
+        {{/each}}
+      {{else}}
+        {{#with mail.email}}
+          {{>fastProfileEmailBlock}}
+        {{/with}}
+      {{/if}}
+      {{>fastProfileAddEmail}}      
+    </div>
+  </div>
+</template>
+
+<template name='fastProfileAddEmail'>
+  <div style='display:none' class='add_email_block'>
+    <input class='form-control' name='email' id='email' type='email'>
+    <div class='btn btn-danger cancel_add_email'>Cancel</div><div class='btn btn-success add_email_address'>Add</div>
+  </div>
+  <div class='btn btn-block btn-info add_email'>Add New Email</div>
+</template>
+
+<template name='fastProfileEmailBlock'>
+  <div class='well'>
+    {{address}}
+    {{#if verified}}
+      <br><sup class="text-success"><i>Verified</i></sup>
+    {{else}}
+      <br><sup class="text-warning"><i>Not Verified</i></sup>
+      {{#if emailSent}}
+        <div class='btn btn-info pull-right btn-sm verifyEmail'>Email Sent<br><sup>Click to Resend</sup></div>
+      {{else}}
+        <div class='btn btn-info pull-right btn-sm verifyEmail'>Verify Email Address</div>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>
+
+<template name='fastProfilePassword'>
+  <h4>Change Password</h4>
+  <div class="form-group">
+    <label class="control-label" >Current Password</label>
+    <input class='form-control' name='current_password' id='current_password' type='password'>
+  </div>
+  <div class="form-group">
+    <label class="control-label" >New Password</label>
+    <input class='form-control' name='new_password' id='new_password' type='password'>
+  </div>
+  <div class="form-group">
+    <label class="control-label" >New Password Confirm</label>
+    <input class='form-control' name='new_password_confirm' id='new_password_confirm' type='password'>
+  </div>
+
+  <div class='btn btn-block btn-info change_password'>Change Password</div>
+</template>
+
+<template name='fastProfileSpecial'>
+</template>
+
+<template name='fastProfileDelete'>
+</template>
+
+<template name='fastProfileVerifyEmail'>
+  <div class='jumbotron text-center'>
+    <div class='alert alert-success'>
+      <h2>Email Verification Complete</h2>
+    </div>
+    <a href='{{pathFor "fastProfile"}}' class='btn btn-default'>Continue to My Profile</a>
+  </div>
+</template>

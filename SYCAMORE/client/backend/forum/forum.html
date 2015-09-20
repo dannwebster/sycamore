@@ -1,0 +1,168 @@
+
+<template name="noForumPosts">
+    <div class='text-center'>
+        {{#if mine}}
+        <h4 style='margin:50px;' class="syc-title text-info">You aren't following any conversations.</h4>
+        {{else}}
+        <h4 style='margin:50px;' class="syc-title text-info">There are no forum posts.</h4>
+        {{/if}}
+    </div>
+</template>
+
+<template name='forum'>
+    <div class='row'>
+        <div class='col-lg-8 col-md-8'><h3 class='syc-title ns-padtop-20'>My Conversations</h3></div>
+        <div class='col-lg-2 col-md-2 text-right title-margin-correct'>
+            <a href='#' class='btn btn-forum text-left forumCompose btn-sm'><i class="fa fa-comment"></i> Compose</a>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+            <input class='form-control'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow' style='padding-bottom:20px'>
+                <div style='height:300px; max-height: 350px; overflow-y: scroll;' >
+                    <ul class="list-group forumList">
+                        {{#each myTopics}}
+                        {{>forumTopicListItem}}
+                        {{else}}
+                        <li class="list-group-item" style='border-bottom: none;'>{{>noForumPosts mine=true}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-lg-10'><h3 class='syc-title'>Latest Topics
+            <a href="{{pathFor 'forumAll'}}" class='sidelink'>View All</a>
+        </h3></div>
+        <div class='col-lg-2 title-margin-correct'>
+            {{#if searchable}}
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search" placeholder="Search Threads">
+                    <div class="input-group-addon"><span class='glyphicon glyphicon-search'></span></div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well wellmfix syc-shadow' id='popular'  style='padding-bottom:20px'>
+                <div style='min-height:300px; max-height:350px; overflow-y: scroll'>
+                    <ul class="list-group forumList">
+                        {{#each latest}}
+                        {{>forumTopicListItem}}
+                        {{else}}
+                        <li class="list-group-item" style='border-bottom: none;'>{{>noForumPosts}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class='row'>
+        <div class='col-lg-10'><h3 class='syc-title'>Popular Topics
+            <a href="{{pathFor 'forumAll'}}" class='sidelink'>View All</a>
+        </h3></div>
+        <div class='col-lg-2 title-margin-correct'>
+            {{#if searchable}}
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search" placeholder="Search Threads">
+                    <div class="input-group-addon"><span class='glyphicon glyphicon-search'></span></div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well wellmfix syc-shadow' id='popular'  style='padding-bottom:20px'>
+                <div style='min-height:300px; max-height:350px; overflow-y: scroll'>
+                    <ul class="list-group forumList">
+                        {{#each popular}}
+                        {{>forumTopicListItem}}
+                        {{else}}
+                        <li class="list-group-item" style='border-bottom:none;'>{{>noForumPosts}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name='forumAll'>
+    <div class='row'>
+        <div class='col-lg-8 col-md-8'><h3 class='syc-title ns-padtop-20'>All Conversations</h3></div>
+        <div class='col-lg-2 col-md-2 text-right title-margin-correct'>
+            <a href='#' class='btn btn-forum text-left forumCompose btn-sm'><i class="fa fa-comment"></i> Compose</a>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+            {{#if searchable}}
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="search" placeholder="Search Threads">
+                    <div class="input-group-addon"><span class='glyphicon glyphicon-search'></span></div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well wellmfix syc-shadow' id='popular' style='padding-bottom:20px'>
+                <div>
+                    <ul class="list-group forumList">
+                        {{#each popular}}
+                        {{>forumTopicListItem}}
+                        {{else}}
+                        <li class="list-group-item" style='border-bottom: none;'>{{>noForumPosts}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="forumTopicListItem">
+    <a href="{{pathFor 'forumView' id=_id}}" class="list-group-item row">
+        <div class='col-lg-1 text-center col-md-1'>
+            {{#if mainphoto}}
+            <div style='margin-top: -8px; height:50px; width:50px; background-image: url({{mainphoto.secure_url}}); background-size:cover; background-position: center center'></div>
+            {{else}}
+            <div style='margin-top: -8px; height:50px; width:50px; background-image: url(/images/placeholder.jpg); background-size:cover; background-position: center center'></div>
+            {{/if}}
+        </div>
+        <div class='col-lg-5 col-md-5'>
+            <h4 class="syc-title" style='padding-left:0px; margin-left:0px; margin-top:-1px'>{{title}}<br></h4>
+            {{description}}
+        </div>
+        <div class='col-lg-1 col-md-1'>
+            <h3 style='margin-top:8px'><i class='fa fa-comment'></i> {{comments}}</h3>
+        </div>
+        <div class='col-lg-1 col-md-1'>
+            <h3 style='margin-top:8px'><i class='fa fa-user'></i> {{subscribers}}</h3>
+        </div>
+        <div class='col-lg-3 col-md-3'>
+            <i>Created: {{createdDate}}</i><br>
+            <i>Last Post: {{lastPostDate}}</i>
+        </div>
+        <div class='col-lg-1 col-md-1'>
+            <a href="{{pathFor 'forumView' id=_id}}" >
+                <span class="fa-stack fa-lg forumButton">
+                    <i class="fa fa-circle-o fa-stack-2x"></i>
+                    <i class="fa fa-chevron-right fa-stack-1x"></i>
+                </span>
+            </a>
+        </div>
+    </a>
+</template>

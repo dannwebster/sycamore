@@ -1,0 +1,84 @@
+<template name='sideMenu'>
+    <div class='row'>
+        <div class="sidebar-nav">
+            <div class="navbar navbar-default" role="navigation">
+                <div class="navbar-collapse collapse sidebar-navbar-collapse">
+                    <ul class="nav navbar-nav sbnav">
+                        <li class='profile-nav'>
+                            <div class='profile-pad'>
+                                {{>profileSnip height=110 width=110 name=false photo=true user=currentUser}}
+                            </div>
+                        </li>
+                        <li class="{{isActiveRoute 'dashboard'}} mm" id='mm-home'>
+                            <a href='{{pathFor "dashboard"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-home"></i></div>
+                                <div class='menu-text push-left'>Home</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='^project'}} mm" id='mm-project'>
+                            <a href='{{pathFor "projects"}}'>
+                                <div class='menu-icon pull-left'><span class='glyphicon glyphicon-pencil icon'></span></div>
+                                <div class='menu-text push-left'>Projects</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='^noti'}} mm" id='mm-notifications'>
+                            <a href='{{pathFor "notifications"}}'>
+                                <div class='menu-icon pull-left'><span class='glyphicon glyphicon-envelope icon'></span></div>
+                                <div class='menu-text push-left'>Notifications</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='messages'}} mm" id='mm-messages'>
+                            <a href='{{pathFor "messages"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-comment"></i></div>
+                                <div class='menu-text push-left'>Messages</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='^forum'}} mm" id='mm-forum'>
+                            <a href='{{pathFor "forum"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-users icon"></i></div>
+                                <div class='menu-text push-left'>Forum</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='^calen'}} mm" id='mm-calendar'>
+                            <a href='{{pathFor "calendar"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-calendar"></i></div>
+                                <div class='menu-text push-left'>Calendar</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='settings'}} mm" id='mm-settings'>
+                            <a href='{{pathFor "settings"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-cog"></i></div>
+                                <div class='menu-text push-left'>Settings</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='familyTree'}} mm" id='mm-family'>
+                            <a href='{{pathFor "familyTree"}}'>
+                                <div class='menu-icon pull-left'><i class="fa fa-users icon"></i></div>
+                                <div class='menu-text push-left'>Family Tree</div>
+                            </a>
+                        </li>
+                        <li class="{{isActiveRoute regex='logoutuser'}}">
+                            <a href='#' class='logoutUser'>
+                                <div class='menu-icon pull-left'><i class="fa fa-power-off icon"></i></div>
+                                <div class='menu-text push-left'>Logout</div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class='ns-pad-10 text-center'>
+                        <a href='/'>
+                            <img src='/img/tree-blue.png' style='width:100%; display:none' class='tree-blue tree-logo'>
+                            <img src='/img/tree-orange.png' style='width:100%; display:none' class='tree-orange tree-logo'>
+                            <img src='/img/tree-grey.png' style='width:100%; display:none' class='tree-grey tree-logo'>
+                            <img src='/img/tree-yellow.png' style='width:100%; display:none' class='tree-yellow tree-logo'>
+                            <img src='/img/tree-purple.png' style='width:100%; display:none' class='tree-purple tree-logo'>
+                            <img src='/img/tree-green.png' style='width:100%; display:none' class='tree-green tree-logo'>
+                        </a>
+                        <br>
+                        <span class='ns small dark'>&copy; 2015 The Sycamore School<br>
+                        <a href='/privacy-policy'>Privacy Statement</a></span>
+                    </div>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+    </div>
+</template>

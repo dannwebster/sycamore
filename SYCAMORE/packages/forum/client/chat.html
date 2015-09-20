@@ -1,0 +1,13 @@
+<template name='MEchathub_chats'>
+    <h3>CHATS</h3>
+    {{#each chats}}
+        {{>MEchathub_chat}}
+    {{/each}}
+</template>
+
+<template name='MEchathub_chat'>
+    <div class='well well-sm chat'>
+        <h5>{{profile.firstname}} {{profile.lastname}} -- {{time}}</h5>
+        <p>{{text}}</p>
+    </div>
+</template>

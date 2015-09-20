@@ -1,0 +1,135 @@
+<template name="newEvent">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
+        <a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+    <div class='row'>
+        <h3 class="syc-title">New Event</h3>
+        <div class="col-lg-6 col-md-6">
+            <div class="form-group title">
+                <label for="title">Event Name</label>
+                <input type="text" class="form-control" id="title" placeholder="Space Museum Field Trip">
+            </div>
+            <div class='row'>
+                <div class="col-lg-8 col-md-8">
+                    <div class="form-group">
+                        <label for="type">Event Type</label>
+                        <select class="form-control" id="type">
+                            <option value=''></option>
+                            <option value='offsite'>Off-Site Event</option>
+                            <option value='onsite'>In-School Event</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-64">
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name='public' id='public'> Public?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="type">Starts</label>
+                        <p>{{>dateTimeTemplate class='form-control' id='start'}}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="type">Ends</label>
+                        <p>{{>dateTimeTemplate class='form-control' id='end'}}</p>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name='allday' id='allday'> All Day?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="guests">Who's Invited?</label>
+                        <select class="form-control" id="guests">
+                            <option value='all'>Everyone</option>
+                            <option value='students'>Students & Educators Only</option>
+                            <option value='parents'>Parents & Educators Only</option>
+                            <option value='educators'>Educators Only</option>
+                            <option value='invited'>Invited Guests Only</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group invitees" style='display:none'>
+                <label for="invitees">Invitees</label>
+                <textarea class="form-control" id="invitees" rows='8'></textarea>
+            </div>
+            <div class='row'>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group title">
+                        <label for="url">URL: (optional)</label>
+                        <input type="text" class="form-control" id="url">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group title">
+                        <label for="address">Address: (optional - will create map if included)</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                </div>
+            </div>
+
+            <div class='row'>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="rsvp">RSVP</label>
+                        <select class="form-control" id="rsvp">
+                            <option value='none'>No RSVP needed</option>
+                            <option value='optional'>RSVP Optional</option>
+                            <option value='required'>RSVP Required</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class='row'>
+                <div class="col-lg-6 col-md-6">
+                    <h4 class="syc-title">Custom Form Fields</h4>
+                    Here you can set additional field options to collect additional data.
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="form-group">
+                        <label for="customField">Additional Field</label>
+                        <select class="form-control" id="customField">
+                            <option value=''></option>
+                            <option value='text'>Text</option>
+                            <option value='textarea'>Textarea</option>
+                            <option value='select'>Select Box</option>
+                            <option value='radio'>Radio</option>
+                            <option value='checkbox'>Checkbox</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id='customFields'>
+
+            </div>
+            <hr>
+            <div class='btn btn-info create'>Create Event</div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6">
+            <div class="form-group title">
+                <label for="title">Event Description</label>
+
+                <div id='calendarContent'></div>
+            </div>
+        </div>
+    </div>
+</template>

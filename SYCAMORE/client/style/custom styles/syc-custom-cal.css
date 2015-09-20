@@ -1,0 +1,13 @@
+.holiday < .fc-event-container{
+    background-color:#000;
+}
+.holiday{
+    color:#fff;
+    font-weight:bold;
+    background-color: #c72e2e;
+}
+/*
+.fc-past{
+    background-color: #e8e8e8;
+}
+*/

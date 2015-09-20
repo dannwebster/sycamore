@@ -1,0 +1,47 @@
+<template name='MEchathub'>
+    {{#if buttons}}
+        {{{buttons}}}
+    {{/if}}
+    <div class='row'>
+
+    </div>
+    <div class='row' style='margin-bottom:20px;'>
+        <div class='btn btn-info new pull-right'>
+            <i class="fa fa-comment"></i> COMPOSE
+        </div>
+        {{#if options.title.unstyled}}
+            <span class='{{options.title.class}}'>{{{options.title.text}}}</span>
+        {{else}}
+            {{#if options.title}}<h3 class='{{options.title.class}}'>{{{options.title.text}}} </h3>{{/if}}
+        {{/if}}
+    </div>
+    <div class='well' style='background-color:#A1DBE0; margin-bottom:0px;'>
+        <div class='col-lg-4 col-md-5 col-sm-6'>
+            <input class='form-control' placeholder='Filter'>
+        </div>
+        <div class='col-lg-8 col-md-7 col-sm-6'>
+            <h4>To: User</h4>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='well' id='chathubHub' style='overflow: hidden;'>
+        <div class='row'>
+            <div class='col-lg-4 col-md-5 col-sm-6' style='height:100%; overflow-x: hidden; overflow-y:scroll;'>
+                {{>MEchathub_list}}
+            </div>
+            <div class='col-lg-8 col-md-7 col-sm-6' id='sidecode'>
+                <div id='ME_CONVERSATION' style='display:none; overflow-y: scroll; overflow-x:hidden;'>
+                    {{#if chatTitle}}<h3>{{chatTitle}}</h3>{{/if}}
+                    <div class='ME_conversation_holder' id='ME_conversation_holder'>
+                        <div class='clearfix'>{{>MEchathub_chats conversation=convo}}</div>
+                        <div class='clearfix'>{{>MEchathub_form conversation=convo}}</div>
+                    </div>
+                </div>
+                <div id='ME_COMPOSE' style='display:none'>
+                    {{>MEchathub_compose userlist=userlist}}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

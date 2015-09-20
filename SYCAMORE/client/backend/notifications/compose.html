@@ -1,0 +1,47 @@
+<template name='notificationCompose'>
+    <div class='row' id='notificationbox'>
+        <input id="customimage" type="file" name="customimage" style="display: none;" />
+        <div class='well notification-box notification-shadow'>
+            <div class='row ns'>
+                <div class='col-s-m-m-s'>
+                    <div class='text-center'>
+                        <h1 id='iconview' style='font-size:50px;'></h1>
+                    </div>
+                    <div>
+                        <h3 class='syc-title' >Title:
+                            <input class='form-control' id='title'>
+                        </h3>
+                        <p class='syc-title'>Select an Icon:
+                            <button class="btn btn-default" role="iconpicker" id='iconselect' name='iconselect'></button>
+                        </p>
+                    </div>
+                    <div style='padding-top:33px;'>
+                        <p class='syc-title'>Alert Level:
+                            <select class="form-control" id="alert">
+                                <option value='success'>normal</option>
+                                <option value='danger'>urgent</option>
+                            </select>
+                        </p>
+                        <p class='syc-title'>Who to Notify:
+                            <select class="form-control" id="visibility">
+                                <option value='all'>Everyone</option>
+                                <option value='students'>Students & Educators Only</option>
+                                <option value='parents'>Parents & Educators Only</option>
+                                <option value='educators'>Educators Only</option>
+                                <option value='invited'>Specified Users Only</option>
+                            </select>
+                        </p>
+                    </div>
+                    <div>
+                        <div class='btn btn-info btn-block saveDraft'>Save Draft</div>
+                        <div class='btn btn-success btn-block publish'>Publish</div>
+                        <div class='btn btn-danger btn-block cancel'>Cancel</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div id='notifyContent' name='{{notification._id}}'>{{{notification.content}}}</div>
+    </div>
+</template>

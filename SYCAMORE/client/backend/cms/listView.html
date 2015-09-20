@@ -1,0 +1,7 @@
+<template name='contentListView'>
+  <div class='col-lg-9'>
+    <h4 class='caps'>{{new_view}} {{../pluralTitle}}</h4>
+    {{#if empty_trash}}<div class='btn btn-danger pull-right empty_trash'>Empty Trash</div>{{/if}}
+    {{>reactiveTable settings=settings collection=../posts}}
+  </div>
+</template>

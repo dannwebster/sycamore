@@ -1,0 +1,19 @@
+<template name='pageManage'>
+  {{> contentManage}}
+</template>
+
+<template name='pageCompose'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>New {{title}}</h4>
+    {{>editContent type='page' post=post notify_title=title compose=true}}
+  </div>
+</template>
+
+<template name='pageEdit'>
+  {{>manageContentMenu}}
+  <div class='col-lg-9'>
+    <h4 class='caps'>Edit {{title}}</h4>
+    {{>editContent type='page' post=post notify_title=title}}
+  </div>
+</template>

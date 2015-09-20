@@ -1,0 +1,47 @@
+ul.projectList {
+    border:none;
+}
+ul.projectList > .list-group-item{
+    border:none;
+    border-bottom:1px solid #9fc785;
+    padding:0px;
+    margin:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+ul.projectList > .list-group-item.row{
+    padding:0px;
+    margin-bottom:0px;
+}
+.syc-project-button{
+    margin:0px;
+    padding:0px;
+}
+.btn-project, a.btn-project{
+    background-color:#92C075;
+    color:#fff;
+}
+.projectButton{
+    color: #9fc785;
+}
+.projectButton > a{
+    color: #9fc785;
+}
+.projectDue > p{
+    font-size:10px;
+}
+.homeProjectButton a{
+    color: #f1967e;
+}
+.progressProject{
+    background-color:#9fc785;
+}
+.project-box{
+    background: #b6d1a5;
+    border: none;
+}
+.project-box-shadow{
+    -webkit-box-shadow: 5px 5px 0px 0px #92c075;
+    -moz-box-shadow: 5px 5px 0px 0px #92c075;
+    box-shadow: 5px 5px 0px 0px #92c075;
+}

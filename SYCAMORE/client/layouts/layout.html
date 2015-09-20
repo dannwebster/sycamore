@@ -1,0 +1,108 @@
+<template name='layout'>
+    {{>masterMenu}}
+    <div class='container homeContainer'>
+        {{>yield}}
+    </div>
+    {{switchSwatch}}
+</template>
+
+<template name='homeLayout'>
+    {{>masterMenu}}
+    {{>yield}}
+    {{>footer}}
+    {{switchSwatch}}
+</template>
+
+
+<template name='blank'>{{>yield}}</template>
+
+<template name='wide-layout'>{{switchSwatch}}
+    <div class='container-fluid'>
+        {{>yield}}
+        {{> sAlert}}
+    </div>
+</template>
+
+<template name='backendLayout'>
+    {{#if isDesktop}}
+        <div class='nav-bg-bar'></div>{{switchSwatch}}
+        <div class='container-fluid'>
+            <div class='row'>
+                <div class='col-lg-2 col-md-3 col-sm-3'  id='sideBar'>
+                    {{>sideMenu}}
+
+                    <div class='ss' style='display:none;'>
+                        <div class='ss-size'>{{screensize}}</div>
+                        <div class='visible-lg hidden-md hidden-sm hidden-xs'>Large Screen</div>
+                        <div class='visible-md hidden-lg hidden-sm hidden-xs'>Medium Screen</div>
+                        <div class='visible-sm hidden-md hidden-lg hidden-xs'>Small Screen</div>
+                        <div class='visible-xs hidden-md hidden-sm hidden-lg'>Extra Small Screen</div>
+
+                    </div>
+                </div>
+                <div class='content-pad main-content-box'>
+                    <div class='row'>
+                        {{> sAlert}}
+                        {{>yield}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        {{>noMobile}}
+    {{/if}}
+</template>
+
+<template name="noMobile">
+    <div class='jumbotron'>
+        <div class='col-sm-10 col-sm-offset-1 text-center'>
+            <h1><i class="fa fa-desktop" style='font-size:100px'></i></h1>
+            <h3>This platform is best viewed on a desktop or laptop computer. Please visit us from a non-mobile device for the best user experience.</h3>
+        </div>
+    </div>
+</template>
+
+<template name="coverMe" class='text-center'>
+    <div class='coverMe' style='padding:15%'></div>
+</template>
+
+<template name='pageLayout'>
+    {{>masterMenu}}
+    <div class='container-fluid' id='fepage'>
+        <div class='row'>
+                <div class='page-bg1'></div>
+                <div class='page-bg2'>
+                    {{>yield region='header'}}
+                </div>
+        </div>
+        <div class='container' id='mpcontainer'>
+            <div class='row'>
+                <div class='frontEndSide'>
+                    {{>frontEndSideMenu}}
+                </div>
+                <div class='frontEndContent'>
+                    {{>yield region='main'}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+    {{switchSwatch}}
+</template>
+
+<template name='pageLayoutMobile'>
+    {{>masterMenu}}
+    <div class='container' id='fepage' style='padding-bottom:20px; margin-bottom:20px'>
+        <div class='row'>
+            {{>yield region='header'}}
+            <div class='clearfix'></div>
+        </div>
+        <div class='clearfix'></div>
+        <div class='row' style='margin-top:260px;'>
+            <div class='col-lg-12 frontEndMobileContent'>{{>yield region='main'}}</div>
+        </div>
+        <div class='clearfix'></div>
+    </div>
+    {{>footer}}
+    {{switchSwatch}}
+</template>

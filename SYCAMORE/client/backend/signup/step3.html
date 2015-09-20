@@ -1,0 +1,212 @@
+<template name="signupStep3">
+    <div class='container-fluid'>
+        <div class='row'>
+            <div style='height:210px; width:100%; text-align:center; margin:0px; background-image: url("/img/signslip.png"); background-size:20px 210px'>
+                <img src='/img/signtree.png' style='height:210px'>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6 col-md-offset-3'>
+                <div class='text-center'>
+                    <h2 class='open signupblue'>STEP 3 of 3</h2>
+                    <p class='subtitlesignup signupblue'><b>Add Your Family Members</b></p>
+                    <p class='text-center open' style='font-size:15px; line-height:30px; padding-top:30px; padding-bottom:30px;'>
+                        <b>Create an account for the child(ren) currently enrolled at Sycamore and the family members you wish to grant access to.</b>
+                    </p>
+                </div>
+                <div class='errors'></div>
+            </div>
+        </div>
+        <div class='row'>
+            {{#if students.count}}
+                {{#each students.users}}
+                    <div class='row'>
+                        <h1 class='open signupblue' style='font-weight: 100'>
+                            MY CHILD ({{profile.count}})
+                        </h1>
+                        <div class='btn btn-danger removeMe pull-right' id='{{_id}}'><i class="fa fa-times"></i></div>
+                    </div>
+                    {{>familyBox user=this}}
+                {{/each}}
+            {{/if}}
+            {{#if parents.count}}
+            {{#each parents.users}}
+            <div class='row'><h1 class='open signupblue' style='font-weight: 100'>PARENT</h1><div class='btn btn-danger removeMe pull-right' id='{{_id}}'><i class="fa fa-times"></i></div></div>
+            {{>familyBox user=this}}
+            {{/each}}
+            {{/if}}
+        </div>
+
+        <div id='signupAlert'></div>
+        <div class='row' style='margin-bottom:30px'>
+            <div class='col-md-4'>
+                <div class='btn btn-next-step btn-lg  btn-block addStudent completeSetup' style='background-color:#a0cfd1'><i class="fa fa-plus"></i> Add a Student / Child</div>
+            </div>
+            <div class='col-md-4'>
+                <div class='btn btn-next-step btn-lg  btn-block addParent completeSetup' style='background-color:#a0cfd1'><i class="fa fa-plus"></i> Add a Parent / Guardian</div>
+            </div>
+            <div class='col-md-4'>
+                <a href="#" class='btn btn-lg btn-next-step pull-right completeSetup finalSetupStep btn-block'>Complete Signup <i class="fa fa-check"></i></a>
+            </div>
+            <p><br><br></p>
+        </div>
+
+        <div class='row' style='margin-top:200px'></div>
+    </div>
+</template>
+
+
+<template name='familyBox'>
+    <div class='row'>
+        <div class='col-lg-4'>
+            <p class='signupblue'><b>PROFILE PICTURE</b></p>
+            <div class='well MEinvite'>
+                <div style='padding:20px 50px 20px 50px'>
+                    {{#if user.profile.photo}}
+                    <div class='btn-file'>
+                        {{>profileSnip height=180 width=180 name=false photo=true user=user}}
+                        <input type="file" id="pic_{{user._id}}" class="mainphoto">
+                    </div>
+                    {{else}}
+
+                    <div class='btn-file'>
+                        <img src='/images/blankprofile.jpg' style='width:100%'  class='profile-image'>
+                        <input type="file" id="pic_{{user._id}}" class="mainphoto">
+                    </div>
+                    {{/if}}
+                    {{#each files}}
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+                <p class='text-center open' style='font-size:13px; line-height:20px;'>
+                    <b>Profile picture will be visible by the school and other parents. Recognizable portraits are always preferred!</b>
+                </p>
+            </div>
+        </div>
+        {{#if user.parent}}
+        {{>parentDetailsEdit user=user}}
+        {{/if}}
+        {{#if user.student}}
+        {{>studentDetailsEdit user=user}}
+        {{/if}}
+    </div>
+</template>
+
+
+<template name="familyBoxOld">
+    <h4 class="syc-title">{{role}}</h4>
+    <div class='row'>
+        <div class='col-lg-2 col-md-2'>
+            {{#if user.profile.photo}}
+            <div class='btn-file'>
+                {{>profileSnip height=180 width=180 name=false photo=true user=user}}
+                <input type="file" id="pic_{{user._id}}" class="mainphoto">
+            </div>
+            {{else}}
+
+            <div class='btn-file'>
+                <img src='/images/profile.png' style='width:100%'  class='profile-image'>
+                <input type="file" id="pic_{{user._id}}" class="mainphoto">
+            </div>
+            {{/if}}
+            {{#each files}}
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+                </div>
+            </div>
+            {{/each}}
+            <i>Click to add / change photo</i>
+        </div>
+        <div class='col-lg-10 col-md-10'>
+            {{#if user.parent}}
+            {{>parentDetailsEdit user=user}}
+            {{/if}}
+            {{#if user.student}}
+            {{>studentDetailsEdit user=user}}
+            {{/if}}
+        </div>
+    </div>
+</template>
+
+<template name="parentDetailsEdit">
+    <div class='col-lg-4 col-md-4'>
+        <p class='signupblue'><b>FIRST NAME</b></p>
+        <p>
+            <input id='firstname' class='form-control editMe MEinvite' name='firstname' value='{{user.profile.firstname}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>EMAIL</b></p>
+        <p>
+            {{#each user.emails}}
+            <input id='email' class='form-control editMe MEinvite' name='email' value='{{address}}'>
+            {{else}}
+            <input id='email' class='form-control editMe MEinvite' name='email'>
+            {{/each}}
+        </p>
+        <br>
+        <p class='signupblue'><b>HOME ADDRESS</b></p>
+        <p>
+            <textarea id='address' class='form-control editMe MEinvite' name='Address'  style='height:148px'>{{{user.profile.address}}}</textarea>
+        </p>
+    </div>
+    <div class='col-lg-4 col-md-4'>
+        <p class='signupblue'><b>LAST NAME</b></p>
+        <p>
+            <input id='lastname' class='form-control editMe MEinvite' name='lastname' value='{{user.profile.lastname}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>PHONE NUMBER</b></p>
+        <p>
+            <input id='phone' class='form-control editMe MEinvite' name='phone' value='{{user.profile.phone}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>EMERGENCY CONTACT INFO</b></p>
+        <p>
+            <textarea id='emergency_contact' class='form-control editMe  MEinvite' name='Emergency Contact' style='height:148px'>{{{user.profile.emergency_contact}}}</textarea>
+        </p>
+    </div>
+</template>
+
+<template name="studentDetailsEdit">
+    <div class='col-lg-4 col-md-4'>
+        <p class='signupblue'><b>FIRST NAME</b></p>
+        <p>
+            <input id='firstname' class='form-control editMe MEinvite' name='firstname' value='{{user.profile.firstname}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>USERNAME</b></p>
+        <p>
+            <input id='username' class='form-control editMe MEinvite' name='username' value='{{user.profile.username}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>ALLERGY / MEDICAL NOTES</b></p>
+        <p>
+            <textarea id='allergy_medical' class='form-control editMe MEinvite' name='Allergy & Medical Info'  style='height:148px'>{{{user.profile.allergy_medical}}}</textarea>
+        </p>
+    </div>
+    <div class='col-lg-4 col-md-4'>
+        <p class='signupblue'><b>LAST NAME</b></p>
+        <p>
+            <input id='lastname' class='form-control editMe MEinvite' name='lastname' value='{{user.profile.lastname}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>PASSWORD</b></p>
+        <p>
+            <input id='password' type='password' class='form-control editMe MEinvite' name='password' value='{{currentUser.profile.password}}'>
+        </p>
+        <br>
+        <p class='signupblue'><b>EMERGENCY CONTACT INFO</b></p>
+        <p>
+            <textarea id='emergency_contact' class='form-control editMe  MEinvite' name='Emergency Contact' style='height:148px'>{{{currentUser.profile.emergency_contact}}}</textarea>
+        </p>
+    </div>
+</template>
+
+<template name="tempPhoneEditHolder">
+    <p>{{newNumber}} {{{typeField}}} (<a href='#' class='removePhone' id='address'>remove</a>)</p>
+</template>

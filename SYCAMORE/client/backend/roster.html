@@ -1,0 +1,37 @@
+<template name='roster'>
+    {{#if 'educator'}}
+        <a href="{{pathFor 'invitationList'}}" class='btn btn-info pull-right'>Invite Users</a>
+        <a href="{{pathFor 'familyTree'}}" class='btn btn-info pull-right'>View Family Tree</a>
+    {{/if}}
+  {{> reactiveTable settings=settings}}
+  <div class='col-lg-4'>
+      <h3 class="syc-title">Add A User</h3>
+      <div class='alert alert-info'>
+          <p>If you are inviting parents and teachers please use the <a href="{{pathFor 'invitationList'}}">Invitation System</a></p>
+          <p>Adding a user here will not send a notification.</p>
+      </div>
+      <div class='well'>
+      {{#if showCreateUser}}
+        {{>formAddUser}}
+      {{/if}}
+      </div>
+  </div>
+</template>
+
+<template name="progressBar">
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+      <span class="sr-only">{{progress}}% Complete</span>
+    </div>
+  </div>
+</template>
+
+<template name='userListButtons'>
+    <a href="{{pathFor 'manageProfile' id=_id}}" class='btn btn-info'>View Profile</a>
+</template>
+<template name='userListRoles'>
+    {{roles}}
+</template>
+<template name='userMiniProfile'>
+    {{> profileSnip photo=true user=this name=true height=50 width=50}}
+</template>

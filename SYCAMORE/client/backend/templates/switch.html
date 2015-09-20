@@ -1,0 +1,11 @@
+<template name='switchBox'>
+  {{#if label}}
+    <label>{{label}} <input type="checkbox" name="{{name}}" id="{{id}}" {{value}} /></label>
+  {{else}}
+    {{#if labelAfter}}
+    <label><input type="checkbox" name="{{name}}" id="{{id}}" {{value}} /> {{labelAfter}}</label>
+    {{else}}
+      <input type="checkbox" name="{{name}}" id="{{id}}" {{value}} />
+    {{/if}}
+  {{/if}}
+</template>

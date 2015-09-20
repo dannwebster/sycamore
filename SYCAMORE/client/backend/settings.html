@@ -1,0 +1,53 @@
+<template name='settings'>
+    <h3 class="syc-title nopad" style='margin-left:0px;' >Account Settings</h3>
+    <div class='row'>
+        <div class='col-lg-6 col-md-6'>
+            <div class='well syc-shadow'>
+                <h5 class='syc-title'>Password</h5>
+                <p>Current Password</p>
+                <p><input class='form-control' type='password' id='curpassword'></p>
+                <p>New Password</p>
+                <p><input class='form-control' type='password' id='password'></p>
+                <p>Confirm New Password</p>
+                <p><input class='form-control' type='password' id='password_confirm'></p>
+                <div class='btn btn-info pull-right' id='changepw'>Update Password</div>
+                <div class='clearfix'></div>
+            </div>
+        </div>
+        {{#unless isInRole 'student'}}
+        <div class='col-lg-6 col-md-6'>
+            <div class='well syc-shadow'>
+                <h5 class='syc-title'>Email Notification Settings</h5>
+                <p>Projects
+                    {{#if currentUser.profile.notifications.projects}}<span class="label label-success">Enabled</span>
+                        <div class='btn btn-default notify_off' id='projects'>Turn Off</div>
+                        {{else}}
+                        <div class='btn btn-default notify_on' id='projects'>Turn On</div>
+                    {{/if}}
+                </p>
+                <p>Messages
+                    {{#if currentUser.profile.notifications.messages}}<span class="label label-success">Enabled</span>
+                        <div class='btn btn-default notify_off' id='messages'>Turn Off</div>
+                        {{else}}
+                        <div class='btn btn-default notify_on' id='messages'>Turn On</div>
+                    {{/if}}
+                </p>
+                <p>Forum Posts
+                    {{#if currentUser.profile.notifications.forum}}<span class="label label-success">Enabled</span>
+                        <div class='btn btn-default notify_off' id='forum'>Turn Off</div>
+                        {{else}}
+                        <div class='btn btn-default notify_on' id='forum'>Turn On</div>
+                    {{/if}}
+                </p>
+                <p>Events
+                    {{#if currentUser.profile.notifications.events}}<span class="label label-success">Enabled</span>
+                        <div class='btn btn-default notify_off' id='events'>Turn Off</div>
+                        {{else}}
+                        <div class='btn btn-default notify_on' id='events'>Turn On</div>
+                    {{/if}}
+                </p>
+            </div>
+        </div>
+        {{/unless}}
+    </div>
+</template>

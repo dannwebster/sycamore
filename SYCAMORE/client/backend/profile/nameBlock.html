@@ -1,0 +1,81 @@
+<template name='nameBlock'>
+    <div class='row'>
+        <div class='col-lg-4'>
+            {{#if user.profile.photo}}
+            <div class='btn-file'>
+                <div class='img-div' style='background-image: url({{user.profile.photo.secure_url}}); height:100px; width:100px;'
+                 title="{{user.profile.firstname}} {{user.profile.lastname}}">
+                </div>
+                <input type="file" id="mainphoto" class="mainphoto">
+            </div>
+            {{else}}
+
+            <div class='btn-file'>
+                <img src='/images/profile.png' style='height:100px; width:100px;'  class='profile-image'>
+                <input type="file" id="mainphoto" class="mainphoto">
+            </div>
+            {{/if}}
+            {{#each files}}
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <div class='col-lg-8'>
+            <div class='viewContent'>
+            <h4 class='syc-title'>
+                {{#if user.profile.firstname}}
+                    {{user.profile.firstname}}
+                {{else}}
+                    firstname
+                {{/if}}
+                {{#if user.profile.lastname}}
+                    {{user.profile.lastname}}
+                {{else}}
+                    lastname
+                {{/if}}
+            </h4>
+            <h5>{{#if dob}}<i>AGE {{dob.age}}</i> | <i>BIRTHDAY: {{dob.day}}</i>{{else}} BIRTHDAY:{{/if}}</h5>
+            <hr>
+                <h4>{{user.profile.firstname}}'s Family</h4>
+                {{#each familyMembers.parents}}
+                    {{>profileSnip name=false photo=true style='float:left; margin: 5px;' height=60 width=60 user=this mini=true}}
+                {{/each}}
+                {{#each familyMembers.students}}
+                    {{>profileSnip name=false photo=true style='float:left; margin: 5px;' height=60 width=60 user=this mini=true}}
+                {{/each}}
+                {{#if isInRole 'educator'}}
+                <a href="/profile/family/{{user._id}}" class='btn btn-info' style='float:left; margin:5px;'>+</a>
+                {{/if}}
+        </div>
+
+            <div class='row editContent'>
+                <h3 class='syc-title'>Name</h3>
+                <div class='col-lg-6'>
+                    <input class='form-control editMe' id='firstname' name='First Name' value='{{user.profile.firstname}}'>
+                </div>
+                <div class='col-lg-6'>
+                    <input class='form-control editMe' id='lastname'  name='Last Name' value='{{user.profile.lastname}}'>
+                </div>
+            </div>
+            <div class='row editContent'>
+                <h3 class='syc-title'>Birthdate (mm/dd/yyyy)</h3>
+                <div class='col-lg-4'>
+                    <h5 class='syc-title'>Month</h5>
+                    <input class='form-control editDate' id='month' value='{{dob.m}}' placeholder='MM'>
+                </div>
+                <div class='col-lg-4'>
+                    <h5 class='syc-title'>Day</h5>
+                    <input class='form-control editDate' id='day' value='{{dob.d}}' placeholder='DD'>
+                </div>
+                <div class='col-lg-4'>
+                    <h5 class='syc-title'>Year</h5>
+                    <input class='form-control editDate' id='year' value='{{dob.y}}' placeholder='YYYY'>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</template>

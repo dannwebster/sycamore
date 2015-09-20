@@ -1,0 +1,67 @@
+<template name='MEchathub_chats'>
+    {{#each chats}}
+        {{>MEchathub_chat}}
+    {{/each}}
+    {{scrollchat}}
+</template>
+
+<template name='MEchathub_topics'>
+    {{#each chats}}
+    {{>MEchathub_chat}}
+    {{else}}
+    <div class='alert alert-info'>
+        No Conversations Started
+    </div>
+    {{/each}}
+</template>
+
+<template name='MEchathub_chat'>
+        <div class='chat'>
+            {{#if self}}
+            <div class='time self'>
+                <div class='display'>{{{time}}}</div>
+            </div>
+            {{#if file}}
+                <div class='file' style='text-align: right'>
+                    {{>MEchathub_fileDisplay}}
+                </div>
+            {{else}}
+                <div class='well well-sm text self'>
+                    <div class='right-arrow'></div>
+                    {{{text}}}
+                </div>
+            {{/if}}
+            <div class='photo self'>
+                {{>profileSnip height=85 width=85 photo=true name=false user=user}}
+            </div>
+            {{else}}
+            <div class='photo user'>
+                {{>profileSnip height=85 width=85 photo=true name=false user=user}}
+            </div>
+            {{#if file}}
+                <div class='file'>
+                    {{>MEchathub_fileDisplay}}
+                </div>
+            {{else}}
+                <div class='well well-sm text'>
+                    <div class='left-arrow'></div>
+                    {{{text}}}
+                </div>
+            {{/if}}
+            <div class='time'>
+                <div class='display'>{{{time}}}</div>
+            </div>
+
+
+
+            {{/if}}
+        </div>
+    </template>
+
+    <template name="MEchathub_fileDisplay">
+        {{#if doc.image}}
+        <p class='col-lg-4'><a href='{{doc.link}}' target='_blank'><img src='{{doc.link}}' style='width:100%'>{{doc.name}}</a></p>
+        {{else}}
+        <a href='{{doc.link}}' target='_blank'><h1><i class='fa fa-{{doc.icon}}'></i></h1> {{doc.name}}</a>
+        {{/if}}
+    </template>

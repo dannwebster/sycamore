@@ -1,0 +1,227 @@
+<template name='masterMenu'>
+    <div class='syc-nav visible-lg visible-md hidden-sm hidden-xs' id='syc-frontend-nav'>
+        <div class='container'>
+            <div class='row'>
+                <a href='/'>
+                    <div class='pull-left syc-menu-image text-center visible-md visible-sm visible-lg hidden-xs'>
+                        <img src='/images/logo.png' class='syc-logo' style='width: 100%'>
+                    </div>
+                    <div class='pull-left syc-menu-text'>
+                        <img src='/img/newlogo-02.png' class='syc-text-logo' style='height: 40px; margin:13px;'>
+                    </div>
+                </a>
+
+                <div class='main-syc-nav pull-right'>
+                    <i class='fa fa-bars lines'></i>
+                    <i class='fa fa-times x'></i>
+                    <ul>
+                        {{>subMeteorMenu}}
+                    </ul>
+                </div>
+
+                {{#if currentUser}}
+                <a href="{{pathFor 'dashboard'}}" class='sub-syc-nav pull-right mm-login'>
+                    <i class='fa fa-home' style='height:30px; margin:18px;'></i>
+                </a>
+                {{else}}
+                <a href="{{pathFor 'login'}}" class='sub-syc-nav pull-right mm-login'>
+                    <img src='/img/homeicon-02.png' style='height:30px; margin:18px;'>
+                </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-default syc-nav hidden-lg hidden-md visible-xs visible-sm">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-toggle collapsed main-syc-nav2" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <i class='fa fa-bars lines'></i>
+                </div>
+                <a class="navbar-brand" href="/" data-toggle="collapse" data-target=".navbar-collapse.in">
+                    <img src='/images/logo.png' style='width: 75px; float:left; margin-top:-10px'>
+                    <img src='/img/newlogo-02.png' style='height: 35px; float:left;'>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style='background-color:#F05253;'>
+                <ul class="nav navbar-nav syc-mobile-nav">
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/leaf-mobile.png' height='30px'> ABOUT THE SCHOOL
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/our-vision-for-education' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Our Vision for Education </a></li>
+                            <li><a href='/the-school' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>The School</a></li>
+                            <li><a href='/leadership-team' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Leadership Team</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/apple-mobile.png' height='30px'> LIFE AT SYCAMORE
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/the-sycamore-difference' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>The Sycamore Difference</a></li>
+                            <li><a href='/the-student-experience' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>The Student Experience</a></li>
+                            <li><a href='/recent-events' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Recent Events & Happenings</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/people-mobile.png' height='30px'> PARENTS CORNER
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/events' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Events & School Calendar</a></li>
+                            <li><a href='/what&#39;s-for-lunch' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>What's for Lunch?</a></li>
+                            <li><a href='/login' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Student Portal Login</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/mobile-heart.png' height='30px'> GET INVOLVED
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/suggest-a-field-trip' class='mobile-sublink mstsub' data-toggle="collapse" data-target=".navbar-collapse.in">Suggest a Field Trip</a></li>
+                            <li><a href='/volunteer' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Volunteer at Sycamore</a></li>
+                            <li><a href='/donate' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Donate</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/mobile-feather.png' height='30px'> APPLY TODAY
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/application-information' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Application Information</a></li>
+                            <li><a href='/financial-aid' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Financial Aid Information</a></li>
+                            <li><a href='/apply' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Apply Online</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown syc-mobile-link">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes" aria-expanded="false">
+                            <img src='/images/mobile-megaphone.png' height='30px'> NEWS
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="themes">
+                            <li><a href='/blog' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Blog</a></li>
+                            <li><a href='/newsletter/subscribe' data-toggle="collapse" data-target=".navbar-collapse.in" class='mstsub'>Newsletter</a></li>
+                        </ul>
+                    </li>
+                    <li class='syc-mobile-link'>
+                        <a href='/contact' data-toggle="collapse" data-target=".navbar-collapse.in">
+                            <img src='/images/mobile-comment.png' height='30px'> CONTACT
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<template name="subMeteorMenu">
+    <li class='green'><a href='/contact'><img src='/images/contact.png' style='width:100%' title='Contact Us'></a></li>
+
+    <li class='red'><img src='/images/parents.png' style='width:100%' title='Parents Corner'>
+        <ul class='red sub-nav'>
+            <div class='border-bottom'></div>
+            <li><a href='/events'>Events & School Calendar</a></li>
+            <li><a href='/what&#39;s-for-lunch'>What's for Lunch?</a></li>
+            <li><a href='/login'>Student Portal Login</a></li>
+        </ul>
+    </li>
+    <li class='teal'><img src='/images/experience.png' style='width:100%' title='Life at Sycamore'>
+        <ul class='teal sub-nav'>
+            <div class='border-bottom'></div>
+            <li><a href='/the-sycamore-difference'>The Sycamore Difference</a></li>
+            <li><a href='/the-student-experience'>The Student Experience</a></li>
+            <li><a href='/recent-events'>Recent Events & Happenings</a></li>
+        </ul>
+    </li>
+    <li class='purple'><img src='/images/about.png' style='width:100%' title='About the School'>
+        <ul class='purple sub-nav'>
+            <div class='border-bottom'></div>
+            <li><a href='/our-vision-for-education'>Our Vision for Education</a></li>
+            <li><a href='/the-school'>The School</a></li>
+            <li><a href='/leadership-team'>Leadership Team</a></li>
+        </ul>
+    </li>
+
+
+    <li class='orange'><img src='/images/involved.png' style='width:100%' title='Get Involved'>
+        <ul class='orange sub-nav'>
+            <li><a href='/suggest-a-field-trip'>Suggest a Field Trip</a></li>
+            <li><a href='/volunteer'>Volunteer at Sycamore</a></li>
+            <li><a href='/donate'>Donate</a></li>
+        </ul>
+    </li>
+
+    <li class='burnt'><img src='/images/news.png' style='width:100%' title='Latest News'>
+        <ul class='burnt sub-nav'>
+            <div class='border-bottom-left'></div>
+            <li><a href='/blog'>The Sycamore Blog</a></li>
+            <li><a href='/newsletter/subscribe'>Subscribe to Our Newsletter</a></li>
+        </ul>
+    </li>
+
+    <li class='blue'><img src='/images/apply.png' style='width:100%' title='Apply Today'>
+        <ul class='blue sub-nav'>
+            <li><a href='/application-information'>Application Information</a></li>
+            <li><a href='/financial-aid'>Financial Aid Information</a></li>
+            <li><a href='/apply'>Apply Online</a></li>
+        </ul>
+    </li>
+
+</template>
+
+<template name="subMeteorMenuORIGINAL">
+    <li class='green'><a href='/contact'><img src='/images/contact.png' style='width:100%' title='Contact Us'></a></li>
+
+    <li class='red'><img src='/images/parents.png' style='width:100%' title='Parents Corner'>
+        <ul class='red sub-nav'>
+            <div class='border-right-bottom'></div>
+            <div class='border-bottom-left-corner'></div>
+            <li><a href='/events'>Events & School Calendar</a></li>
+            <li><a href='/what&#39;s-for-lunch'>What's for Lunch?</a></li>
+            <li><a href='/login'>Student Portal Login</a></li>
+        </ul>
+    </li>
+    <li class='teal'><img src='/images/experience.png' style='width:100%' title='Life at Sycamore'>
+        <ul class='teal sub-nav'>
+            <div class='border-left-bottom'></div>
+            <li><a href='/the-sycamore-difference'>The Sycamore Difference</a></li>
+            <li><a href='/the-student-experience'>The Student Experience</a></li>
+            <li><a href='/recent-events'>Recent Events & Happenings</a></li>
+        </ul>
+    </li>
+    <li class='purple'><img src='/images/about.png' style='width:100%' title='About the School'>
+        <ul class='purple sub-nav'>
+            <div class='border-left-bottom'></div>
+            <li><a href='/our-vision-for-education'>Our Vision for Education</a></li>
+            <li><a href='/the-school'>The School</a></li>
+            <li><a href='/teachers-and-staff'>Teachers and Staff</a></li>
+        </ul>
+    </li>
+
+
+    <li class='orange'><img src='/images/involved.png' style='width:100%' title='Get Involved'>
+        <ul class='orange sub-nav'>
+            <li><a href='/suggest-a-field-trip'>Suggest a Field Trip</a></li>
+            <li><a href='/volunteer'>Volunteer at Sycamore</a></li>
+            <li><a href='/donate'>Donate</a></li>
+        </ul>
+    </li>
+
+    <li class='burnt'><img src='/images/news.png' style='width:100%' title='Latest News'>
+        <ul class='burnt sub-nav'>
+            <div class='border-bottom-left'></div>
+            <li><a href='/the-sycamore-blog'>The Sycamore Blog</a></li>
+            <li><a href='/subscribe'>Subscribe to Our Newsletter</a></li>
+            <li><a href='/sycamore-in-the-news'>Sycamore in the News</a></li>
+        </ul>
+    </li>
+    <li class='blue'><img src='/images/apply.png' style='width:100%' title='Apply Today'>
+        <ul class='blue sub-nav'>
+            <li><a href='/application-information'>Application Information</a></li>
+            <li><a href='/financial-aid'>Financial Aid Information</a></li>
+            <li><a href='/apply'>Apply Online</a></li>
+        </ul>
+    </li>
+
+</template>

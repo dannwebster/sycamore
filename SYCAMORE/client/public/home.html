@@ -1,0 +1,101 @@
+<template name='home'>
+    <div class='container-fluid hidden-xs visible-sm visible-md visible-lg'>
+        <div class='row'>
+            <div class='sliderBox' id='syc-home-slider'>
+                {{>homeSlider}}
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+
+
+        <div class='row syc-top-row visible-md visible-lg hidden-xs hidden-sm'>
+            {{{welcome.content}}}
+        </div>
+
+        <div class='row visible-xs visible-sm hidden-lg hidden-md' style='margin-top:70px'>
+            {{{welcome.mobile}}}
+        </div>
+
+
+
+        <div class='row visible-md visible-lg hidden-xs hidden-sm'>
+            <div class='col-lg-12 syc-homepage padding-b'>
+                <h2 class='syc-homepage-title caps'>Learning at Sycamore Is...</h2>
+            </div>
+        </div>
+
+        <div class='row visible-xs visible-sm hidden-md hidden-lg'>
+            <img src='/img/learning is mobile.png' style='width:100%; background-color:#fff; padding-top:5px; padding-bottom:5px;'>
+        </div>
+
+
+
+        <div class='row visible-md visible-lg hidden-xs hidden-sm'>
+            <div class='row' id='inf'></div>
+            <div class='syc-home-image' id='green' style='background-image: url("/images/continuous.jpg")'>
+                <div class='content green green-content'>
+                    <div class='text text-center green-text'>
+                        {{{continuous.content}}}
+                        <div class='syc-bt' style='margin-top:5px;'>Learn More</div>
+                        <div class='clearfix'></div>
+                    </div>
+                </div>
+            </div>
+            <div class='syc-home-image-spacer'></div>
+            <div class='syc-home-image' id='red' style='background-image: url("/images/engagement based.jpg")'>
+                <div class='content red red-content'>
+                    <div class='text text-center red-text'>
+                        {{{engagement.content}}}
+                        <div class='syc-bt' style='margin-top:5px;'>Learn More</div>
+                    </div>
+                </div>
+            </div>
+            <div class='syc-home-image-spacer'></div>
+            <div class='syc-home-image' id='blue' style='background-image: url("/images/future focused.jpg")'>
+                <div class='content blue blue-content'>
+                    <div class='text text-center blue-text'>
+                        {{{future.content}}}
+                        <div class='syc-bt' style='margin-top:5px;'>Learn More</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class='row hidden-md hidden-lg visible-xs visible-sm'>
+            <div class='ns-pad-20 syc-mobile-text'>
+                <img src='/img/continous-mobile.png' style='width:100%'>
+                {{{continuous.content}}}
+            </div>
+            <div class='ns-pad-20 syc-mobile-text'>
+                <img src='/img/engagement-based-mobile.png' style='width:100%'>
+                {{{engagement.content}}}
+            </div>
+            <div class='ns-pad-20 syc-mobile-text'>
+                <img src='/img/future focused mobile.png' style='width:100%'>
+                {{{future.content}}}
+            </div>
+        </div>
+
+        {{#if isDesktop}}
+        <div class='row clearfix'>
+            <div class='col-lg-12 col-md-12 syc-homepage padding-bt syc-exp'>
+                <h2 class='syc-homepage-title caps'>The Student Experience</h2>
+            </div>
+        </div>
+        <div class='row'>
+            {{>circleNav}}
+        </div>
+        <div class='row'>
+            <div class='col-lg-9 col-md-9'>
+                <h4 class='syc-homepage-foot-text'>Find out more about enrolling your child at the Sycamore School and fill
+                    an application online for the next academic year.
+                </h4>
+            </div>
+            <div class='col-lg-3 col-md-3 col-sm-5 col-xs-6 text-center'>
+                <a href='/application-information'><div class='btn btn-info btn-syc-home capitalize'>Learn More</div></a>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+</template>

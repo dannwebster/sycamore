@@ -1,0 +1,311 @@
+.homeContainer{
+    top:64px;
+    z-index:5;
+}
+.page-bg1{
+    position:fixed;
+    height:100%;
+    z-index:-1;
+    background-color: #f0f9f8;
+}
+.page-bg2{
+    position:absolute;
+    top:66px;
+    width:100%;
+    right:0px;
+}
+h4.syc-homepage-foot-text{
+    padding:30px;
+    padding-left:0px;
+    font-weight: 100;
+    color: #51c5cb;
+    font-size:20px;
+    line-height:1.5em;
+}
+h4.syc-homepage-title{
+    padding:30px;
+    padding-left:0px;
+    font-weight: 400;
+    color: #51c5cb;
+    font-size:25px;
+    line-height:1.5em;
+}
+h3.syc-homepage-title{
+    padding:30px;
+    padding-left:0px;
+    font-weight: 100;
+    color: #00686e;
+    font-size:20pxpx;
+}
+h2.syc-homepage-title{
+    font-weight: 100;
+    color: #00686e;
+    font-size:30px;
+}
+h1.syc-homepage-title{
+    font-weight: 100;
+    color: #00686e;
+    font-size:50px;
+}
+#mpcontainer > .row > .frontEndSide{
+    margin-top:66px;
+
+}
+#mpcontainer > .row > .frontEndContent{
+    margin-top:314px;
+}
+.padding-tb{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+.padding-bt{
+    margin-top:25px;
+    padding-top:25px;
+    padding-bottom:15px;
+}
+.padding-b{
+    padding-bottom:20px;
+}
+.syc-homepage > .lead{
+    font-size:14px;
+}
+.syc-homepage-foot-text{
+
+}
+.syc-top-row{
+    background-image: url('/images/bluetree.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 40%;
+    padding-top:30px;
+    padding-bottom:30px;
+    margin-top:40px;
+}
+.syc-home-image{
+    padding:0px;
+    padding-top:0px;
+    width:30%;
+    float:left;
+    cursor:pointer;
+    background-position:center center;
+    background-size: cover;
+}
+.syc-home-text{
+    padding:0px;
+    padding-top:0px;
+    width:30%;
+    float:left;
+    cursor:pointer;
+}
+.syc-home-image-spacer{
+    width:5%;
+    float:left;
+    height:40px;
+}
+.syc-home-image > .content{
+    width:100%;
+    height:250px;
+    padding:10px;
+    top:0px;
+    left:0px;
+    text-align:center;
+    position:relative;
+}
+.btn-syc-home{
+    margin-top:50px;
+    font-size:25px;
+    background-color:rgba(0,0,0,0);
+    border: 3px solid #51c5cb;
+    color: #51c5cb;
+}
+.btn-syc-home:hover{
+    background-color:#fff;
+    border: 1px solid #51c5cb;
+    color:#51c5cb;
+}
+.content > .text{
+    font-size:.91em;
+    font-weight:100;
+    padding:8px;
+    position:absolute;
+}
+.text > .syc-bt{
+    width:40%;
+    position:relative;
+    margin:auto;
+    clear:both;
+    border: 2px solid #fff;
+    font-weight:200;
+    color:#fff;
+    padding:3px;
+    font-size:13px;
+    text-transform: uppercase;
+}
+.syc-mobile-text > .syc-bt{
+    width:40%;
+    position:relative;
+    margin:auto;
+    clear:both;
+    border: 2px solid #333;
+    font-weight:200;
+    color:#333;
+    padding:3px;
+    font-size:13px;
+    text-transform: uppercase;
+}
+.content.green{
+    background-color: rgba(139,184,102,0.9);
+    height:100%;
+    color:#fff;
+}
+.content.red{
+    background-color: rgba(229,137,113,0.9);
+    height:100%;
+    color:#fff;
+}
+.content.blue{
+    background-color: rgba(107, 172, 191, 0.9);
+    height:100%;
+    color:#fff;
+}
+.syc-home-image > .content{
+    /*display: none;*/
+}
+.syc-lead{
+    font-size:19px;
+    line-height:1.8em;
+    font-weight:500;
+}
+.syc-footer{
+    background-color:#5aafb5;
+}
+.frontEndSide{
+    width:250px;
+    padding-top:100px;
+    background-color:#f0f9f8;
+    float:left;
+    height: 100%;
+    min-height:700px;
+}
+.fesMenu{
+    margin:20px;
+    padding:0px;
+    list-style: none;
+}
+.fesMenu > li{
+    font-size:19px;
+    padding-top:10px;
+    padding-bottom:10px;
+    color:#368186;
+    margin-left:0px;
+    cursor:pointer;
+    font-weight:100;
+}
+.fesMenu > li > ul{
+    display:none;
+    margin-top:10px;
+    padding-top:10px;
+    padding-left:0px;
+    border-left:2px solid #7ed0d4;
+    border-top: 2px solid #7ed0d4;
+    list-style: none;
+}
+.fesMenu > li.active > ul{
+    display:block;
+}
+.fesMenu > li > a{
+    color:#368186;
+    font-size:19;
+    text-decoration: none;
+}
+.fesMenu > li > ul > li{
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.fesMenu > li > ul > li > a, .fesMenu > li > ul > li {
+    font-weight:600;
+    font-size:15px;
+    color:#5db6ba;
+    text-decoration: none;
+}
+.fesMenu > li > ul > li:hover{
+    background-color:#d6f0f0;
+}
+.fesMenu > li > ul > li.active{
+    background-color:#d6f0f0;
+}
+.frontEndContent{
+    width: calc(100% - 250px);
+    float:left;
+}
+.frontEndContent > .pageContent{
+    padding:30px;
+    padding-left:50px;
+    padding-right:50px;
+}
+.frontEndContent > .pageContent > p{
+    font-weight:300;
+    font-size:16px;
+    line-height:28px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.frontEndContent > .pageContent > p.lead{
+    font-weight:bold;
+    font-size:18px;
+    color:#005059;
+    line-height:28px;
+}
+.frontEndContent > .pageContent > h3{
+    text-transform:uppercase;
+    margin-top:20px;
+    color:#005059;
+    font-size:32px;
+    font-weight:100;
+    margin-bottom:20px;
+}
+.frontEndMobileContent > .pageContent > h3{
+    text-transform:uppercase;
+    margin-top:20px;
+    color:#005059;
+    font-size:25px;
+    width:100%;
+    clear:both;
+    margin-bottom:12px;
+}
+.pageHeaderImage{
+    width:100%;
+    height:250px;
+    background-position:center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position:absolute;
+}
+.pageHeaderImage > h2{
+    width:100%;
+    background-color:rgba(255,255,255,0.7);
+    padding:20px;
+    padding-left:50px;
+    font-size:45px;
+    font-weight:100;
+    color:#005059;
+    position:relative;
+    left:0px;
+    top: 165px;
+    margin:0px;
+    text-transform:uppercase;
+}
+.pageHeaderImage > h4{
+    width:100%;
+    background-color:rgba(255,255,255,0.7);
+    padding:10px;
+    font-size:30px;
+    font-weight:100;
+    color:#005059;
+    position:absolute;
+    left:0px;
+    bottom: 0px;
+    margin:0px;
+    text-transform:uppercase;
+}

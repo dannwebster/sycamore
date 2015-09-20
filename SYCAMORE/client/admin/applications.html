@@ -1,0 +1,31 @@
+<template name='adminApplications'>
+    <h2>Applications</h2>
+    {{#each applications}}
+        <div class='well'>
+            {{student_name}} ({{parent_1}} {{#if parent_2}} & {{parent_2}} {{/if}})
+            <a href='{{pathFor "adminViewApplication" id=_id}}' class='btn btn-success pull-right'>View</a>
+            <div class='clearfix'></div>
+        </div>
+    {{/each}}
+</template>
+
+<template name='adminViewApplication'>
+    <a href="{{pathFor 'adminApplications'}}" class='btn btn-info'><i class='fa fa-chevron-left'></i>Back to List</a>
+    <div class='btn btn-danger deleteApplication' id='{{application._id}}'>Delete</div>
+
+    <h2>View Application</h2>
+    <p><b>Student Name: </b>{{application.student_name}}</p>
+    <p><b>Birthday: </b>{{application.dob}}</p>
+    <p><b>Parents: </b>{{application.parent_1}} {{application.parent_2}}</p>
+    <p><b>Address: </b>{{application.address}}</p>
+    <p><b>Phone: </b>{{application.phone}}</p>
+    <p><b>Email: </b>{{application.email}}</p>
+    <p><b>Current School: </b>{{application.current_school}}</p>
+    <p><b>What is driving your search for an alternative approach to education for your child?: </b>{{application.why}}</p>
+    <p><b>What are your child's passions/interests? </b>{{application.passions}}</p>
+    <p><b>What kinds of activities do you like to do as a family? </b>{{application.activities}}</p>
+    <p><b>Describe your child at play: </b>{{application.play}}</p>
+    <p><b>Describe your child's ideal learning environment: </b>{{application.learning}}</p>
+    <p><b>What kinds of enrichment activites would you like for your child?: </b>{{application.enrichment}}</p>
+
+</template>

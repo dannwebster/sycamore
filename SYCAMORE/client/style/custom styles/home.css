@@ -1,0 +1,102 @@
+.noti-syc-shadow{
+    -webkit-box-shadow: 5px 5px 0px 0px #EC6645;
+    -moz-box-shadow: 5px 5px 0px 0px #EC6645;
+    box-shadow: 5px 5px 0px 0px #EC6645;
+}
+a > .noti-box{
+    text-decoration: none;
+}
+.noti-box{
+    background-color:#F1967E;
+    color:#fff;
+    text-decoration: none;
+}
+.home-noti-clip{
+    height:50px;
+    overflow: hidden;
+    width:100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.homeProjectList > li{
+    border:none;
+    border-bottom:1px solid #d8d8d8;
+    padding:0px;
+    margin:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.btn-home{
+    width:100%;
+    background-color:#f9c488;
+    -webkit-box-shadow: 5px 5px 0px 0px #f1967e;
+    -moz-box-shadow: 5px 5px 0px 0px #f1967e;
+    box-shadow: 5px 5px 0px 0px #f1967e;
+    font-family: "GothamBold";
+    font-size:13.5px;
+}
+.btn-home:hover{
+    background-color:#f9c488;
+}
+.btn-home:active{
+    background-color:#f9c488;
+}
+.btn-home2{
+    background-color:#f9c488;
+
+    -webkit-box-shadow: 5px 5px 0px 0px #f1967e;
+    -moz-box-shadow: 5px 5px 0px 0px #f1967e;
+    box-shadow: 5px 5px 0px 0px #f1967e;
+}
+
+.homeBottomSpace{
+    padding-bottom:20px;
+}
+
+.footer-small{
+    font-size:13px;
+    font-weight:100;
+}
+
+.carousel-caption{
+    position:absolute;
+    top:40%;
+    left: 5.2%;
+    text-align:left;
+    bottom:150px;
+    height:40%;
+    font-size:18px;
+    font-weight:300;
+    color:#494a48;
+}
+.carousel-caption > .text{
+    width:36%;
+}
+
+.btn-slider{
+    margin-top:20px;
+    background-color:#47c2c8;
+    border-radius:5px;
+    padding:6px 25px 6px 25px;
+    font-size:18px;
+    color:#fff;
+    font-family:'Open Sans';
+    -webkit-box-shadow: 4px 4px 0px 0px #5d8e92;
+    -moz-box-shadow: 4px 4px 0px 0px #5d8e92;
+    box-shadow: 4px 4px 0px 0px #5d8e92;
+}
+.slide-title{
+    margin-top:-110px;
+    font-size:68px;
+    color:#006267;
+    font-family:'Open Sans';
+}
+.btn-contact{
+    background-color:#47c2c8;
+    border-radius:3px;
+    color:#fff;
+    font-family:'Open Sans';
+    -webkit-box-shadow: 4px 4px 0px 0px #5d8e92;
+    -moz-box-shadow: 4px 4px 0px 0px #5d8e92;
+    box-shadow: 4px 4px 0px 0px #5d8e92;
+}

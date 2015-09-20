@@ -1,0 +1,14 @@
+<template name="signupComplete">
+    <div class='jumbotron'><h1>Congrats!</h1>
+        {{#if isInRole 'parent'}}
+            <p>Your account is ready to go.</p>
+            <p>If you added additional Parents or Guardians they've been emailed instructions to set their password.</p>
+            <p>Any student accounts can now be logged into with the username and password you created.</p>
+        {{/if}}
+        {{#if isInRole 'educator'}}
+            <p>Your account is ready to go.</p>
+            <p>You can finish setting up your profile by visiting your <a href="{{pathFor 'profile'}}">Profile Page</a> or by clicking on your photo at anytime.</p>
+        {{/if}}
+        <a href="{{pathFor 'dashboard'}}" class='btn btn-info btn-lg pull-right'>Go to the Dashboard</a>
+    </div>
+</template>

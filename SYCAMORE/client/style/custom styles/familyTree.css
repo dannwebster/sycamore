@@ -1,0 +1,28 @@
+.memberBox{
+    background-color: #eeeeee;
+}
+.treePic{
+    margin:10px;
+}
+.treeButton{
+    color: #444;
+}
+.treeButton.syc-circle-button{
+    border: 5px solid #444;
+}
+.treeButton a{
+    color: #444;
+}
+.currentTree{
+    min-height:342px;
+    max-height:342px;
+    overflow-y:scroll;
+}
+.treeCommentIcon{
+    font-weight:500;
+    font-size:38px;
+    color:#444;
+}
+.famViewActive{
+    display:none;
+}

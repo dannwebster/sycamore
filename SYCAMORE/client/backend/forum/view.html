@@ -1,0 +1,101 @@
+<template name='forumView'>
+    <div class='row' id='forumbox'>
+        <div class='well forum-box forum-shadow' style='background-color:#e1cbe7'>
+            {{#if topic.mainphoto}}
+                <div class='col-lg-2'>
+                    <div style='height:150px; width:150px; background-image: url({{topic.mainphoto.secure_url}}); background-size:cover; background-position: center center'></div>
+                </div>
+                <div class='col-lg-5'>
+
+                    <h2 class='syc-title' >{{topic.title}}</h2>
+                    <p>{{{topic.description}}}</p>
+                </div>
+            {{else}}
+                <div class='col-lg-7'>
+                    <h2 class='syc-title' >{{topic.title}}</h2>
+                    <p>{{{topic.description}}}</p>
+                </div>
+            {{/if}}
+            <div class='col-lg-2'>
+                <h3 class='syc-title'><i class="fa fa-comments"></i> {{commentcount}} <i class="fa fa-user"></i> {{topic.subscribers}}</h3>
+                <p>
+                    <i>
+                        Creator: <b>{{creator_name}}</b><br>
+                        Created: {{created_date}}<br>
+                        Last Post: {{last_post_date}}
+                    </i>
+                </p>
+            </div>
+            <div class='col-lg-3'>
+                {{#if subscribed}}
+                    <p><div class='btn btn-forum disabled btn-sm btn-block'>Join Thread</div></p>
+                    <p><div class='btn btn-forum leaveThread btn-sm btn-block'>Leave Thread</div></p>
+                {{else}}
+                    <p><div class='btn btn-forum joinThread btn-sm btn-block'>Join Thread</div></p>
+                    <p><div class='btn btn-forum disabled btn-sm btn-block'>Leave Thread</div></p>
+                {{/if}}
+                {{#if mine}}
+                    <p><a href="{{pathFor 'forumEdit' id=topic._id}}" class='btn btn-forum btn-sm btn-block'>Edit Thread</a></p>
+                {{/if}}
+            </div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='well syc-shadow' style='height:100%'>
+            <div class='forumComments chatHolder' style='overflow-y: scroll; overflow-x:hidden;'>
+
+                    <div>
+                        {{#each comments}}
+                            {{>forumCommentBox}}
+                        {{/each}}
+                        <div class='clearfix'></div>
+                    </div>
+
+            </div>
+            <div class='CHHolder newMessageIndicator'>New comments below. Click to view.</div>
+            <div class='forumFormBox'>
+                <div class='forumForm' style='margin-bottom:30px;{{#if subscribed}}display:block; {{else}}display:none{{/if}}'>
+                    <textarea class='form-control' id='chatContent' placeholder='Type your reply...'></textarea>
+                    <div class='btn btn-info btn-forum addComment pull-right'>Send</div>
+                    {{>forumAttachment}}{{>emoticons}}
+                    <div class='clearfix'></div>
+                </div>
+                <div class='clearfix' style='padding:20px'></div>
+                {{#unless subscribed}}
+                    <div class='jumbotron'><h2 class='syc-title'>Subscribe to join the conversation.</h2></div>
+                {{/unless}}
+            </div>
+            <div class='clearfix' style='padding-bottom:20px'></div>
+        </div>
+    </div>
+</template>
+
+<template name="forumCommentBox">
+    <div class='forumCommentBox'>
+            <div class='photo'>
+                {{>profileSnip height=65 width=65 photo=true name=false userid=user mini=true}}
+            </div>
+            <div class='comment' style='font-size:13px'>
+                {{{comment}}}
+            </div>
+
+        <div class='time'>
+            {{timestamp}}
+        </div>
+        <div class='clearfix'></div>
+    </div>
+</template>
+
+<template name="forumAttachment">
+    <div class='btn-file pull-right MEchathub_addon'>
+        <img src='/images/emoticons/addfile.png' height='30' width='30'>
+        <input type="file" id="forumFile" class="chatfile">
+    </div>
+    {{#each files}}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+            </div>
+        </div>
+    {{/each}}
+</template>

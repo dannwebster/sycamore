@@ -1,0 +1,47 @@
+<template name='adminConsole'>
+
+
+    <div class='col-lg-3'>
+        <h2>Site Management</h2>
+        <div class="list-group">
+            <a href="{{pathFor 'blogManage' view='live'}}" class="list-group-item">
+                <h4 class='syc-title'><i class='fa fa-columns'></i> Sycamore Blog</h4>
+            </a>
+            <a href="{{pathFor 'pageManage' view='live'}}" class="list-group-item">
+                <h4 class='syc-title'><i class='fa fa-file'></i> Frontend Pages</h4>
+            </a>
+            <a href="{{pathFor 'frontSlider'}}" class="list-group-item">
+                <h4 class='syc-title'><i class='fa fa-photo'></i> Home Slider</h4>
+            </a>
+            <a href="{{pathFor 'adminApplications'}}" class="list-group-item">
+                <h4 class='syc-title'><i class='fa fa-user-plus'></i> New Applications</h4>
+            </a>
+            <a href="#" class="list-group-item">
+                <h4 class='syc-title'><i class='fa fa-phone'></i> Contact Form</h4>
+            </a>
+        </div>
+    </div>
+    {{#if isInRole 'superadmin'}}
+    <div class="list-group col-lg-3">
+    <h2>Admin Console</h2>
+        <a href="{{pathFor 'adminSettings'}}" class="list-group-item">
+            <h4 class='syc-title'><i class='fa fa-cog'></i> Site Settings</h4>
+        </a>
+        <a href="{{pathFor 'adminSecurity'}}" class="list-group-item">
+            <h4 class='syc-title'><i class='fa fa-shield'></i> Site Security</h4>
+        </a>
+        <a href="{{pathFor 'adminBackups'}}" class="list-group-item">
+            <h4 class='syc-title'><i class='fa fa-database'></i> Backup & Recovery</h4>
+        </a>
+        <a href="{{pathFor 'adminStats'}}" class="list-group-item">
+            <h4 class='syc-title'><i class='fa fa-line-chart'></i> Statistics</h4>
+        </a>
+    </div>
+    {{/if}}
+    <div class="list-group col-lg-3">
+        <h2>Home Alert Message</h2>
+        <p>Any content here will appear on the homepage as an alert</p>
+        <textarea class='form-control' id='alert'>{{alert}}</textarea>
+    </div>
+
+</template>

@@ -1,0 +1,102 @@
+<template name="footer">
+    {{#if isDesktop}}
+    <div class='container-fluid syc-footer'>
+        <div class='container footer-container-pad'>
+            <div class='syc-35'>
+                <div style='padding: 0px 20px 20px 0px;'>
+                    <h4 class='footer-h4 footer-pad-2'>Stay in the Know</h4>
+                    <p class='footer-small'>by subscribing to our newsletter, to receive regular updates about life at the Sycamore School.</p>
+                    <p class='footer-pad-2'><b>Your Name:</b></p>
+                    <input id='subname' class='form-control footer-input footer-shadow'>
+                    <p class='footer-pad-2'><b>Your Email Address:</b></p>
+                    <input id='subemail' class='form-control footer-input footer-shadow'>
+                    <p class='footer-pad-2 footer-small pull-left'><i class='footer-pad-2'>*We will never sell your contact<br>information or send you spam!</i></p>
+                    <div class='btn btn-message footer-shadow pull-right footer-pad-2' style='margin-top:10px' id='subscribe'>Subscribe</div>
+                </div>
+            </div>
+            <div class='syc-3'>
+                <div class='footer-pad'>
+                    <h4 class='footer-h4 footer-pad-2'>Contact Us</h4>
+                    <p class='footer-small'>call us, email us or fill the contact form to the right to get in touch with us.</p>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <h1><i class="fa fa-map-marker"></i></h1>
+                        </div>
+                        <div class="media-body">
+                            <b>The Sycamore School<br>3504 Las Flores Canyon<br>Malibu, CA 90265</b>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <h1><a href="tel:+13104561980" style='color:#fff'><i class="fa fa-phone"></i></a></h1>
+                        </div>
+                        <div class="media-body">
+                            <b><a href="tel:+13104561980" style='color:#fff'>(310) 456-1980</a></b>
+                        </div>
+                    </div>
+
+                    <div class="media">
+                        <div class="media-left">
+                            <h1><a href='mailto:twakeman@sycamore-school.org' style='color:#fff'><i class="fa fa-at"></i></a></h1>
+                        </div>
+                        <div class="media-body">
+                            <b><a href='mailto:twakeman@sycamore-school.org' style='color:#fff'>twakeman<br>@sycamore-school.org</a></b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class='syc-35'>
+                <div style='padding: 0px 0px 20px 30px;'>
+                    <p class='footer-pad-2'><b>Your Name:</b></p>
+                    <input id='name' class='form-control footer-input footer-shadow'>
+                    <p class='footer-pad-2'><b>Your Email Address:</b></p>
+                    <input id='email' class='form-control footer-input footer-shadow'>
+                    <p class='footer-pad-2'><b>Your Message:</b></p>
+                    <textarea id='message' class='form-control footer-input footer-shadow'></textarea>
+                    <div class='btn btn-message footer-shadow pull-right footer-pad-2' style='margin-top:10px' id='sendmessage'>Send</div>
+                    <div class='clearfix'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class='container-fluid syc-footer' style='margin-top:20px; padding:10px; padding-left:20px; padding-right:20px;'>
+        <div class='row'>
+            <div class='col-lg-12'>
+                <h4 class='footer-h4 '>Contact Us</h4>
+                <p class='footer-small'>call us, email us or fill the contact form to the right to get in touch with us.</p>
+
+                <div class="media">
+                    <div class="media-left">
+                        <h1><i class="fa fa-map-marker"></i></h1>
+                    </div>
+                    <div class="media-body">
+                        <b>The Sycamore School<br>3504 Las Flores Canyon<br>Malibu, CA 90265</b>
+                    </div>
+                </div>
+
+
+                <div class="media">
+                    <div class="media-left">
+                        <h1><a href="tel:+13104561980" style='color:#fff'><i class="fa fa-phone"></i></a></h1>
+                    </div>
+                    <div class="media-body">
+                        <b><a href="tel:+13104561980" style='color:#fff'>(310) 456-1980</a></b>
+                    </div>
+                </div>
+
+                <div class="media">
+                    <div class="media-left">
+                        <h1><a href='mailto:twakeman@sycamore-school.org' style='color:#fff'><i class="fa fa-at"></i></a></h1>
+                    </div>
+                    <div class="media-body">
+                        <b><a href='mailto:twakeman@sycamore-school.org' style='color:#fff'>twakeman<br>@sycamore-school.org</a></b>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>

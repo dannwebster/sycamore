@@ -1,0 +1,41 @@
+.btn-next-step{
+    color:#fff;
+    font-family:'Open Sans';
+    -webkit-box-shadow: 4px 4px 0px 0px #5d8e92;
+    -moz-box-shadow: 4px 4px 0px 0px #5d8e92;
+    box-shadow: 4px 4px 0px 0px #5d8e92;
+    background-color:#47c2c8;
+    padding:15px 25px 15px 25px;
+}
+.goth{
+    font-famly: 'GothamLight'
+}
+.open{
+    font-family:'Open Sans';
+}
+.subtitlesignup{
+    text-transform:uppercase;
+
+    color:#494a48;
+}
+input.MEinvite:disabled{
+    background-color:#f1f6f7;
+    border:1px solid #5aafb5;
+}
+input.MEinvite:disabled{
+    background-color:#f1f6f7;
+    border:1px solid #5aafb5;
+}
+input.MEinvite{
+    border:1px solid #5aafb5;
+}
+textarea.MEinvite{
+    border:1px solid #5aafb5;
+}
+.MEinvite{
+    border:1px solid #5aafb5;
+
+}
+.signupblue{
+    color:#00b1b6;
+}

@@ -1,0 +1,83 @@
+<template name='MEchathub_form'>
+    <div class="formHolder">
+        <textarea class='form-control' id='chatContent'  style='height:100px'></textarea>
+
+        <div class='btn btn-info btn-xs addChat pull-right'>Send</div>
+        {{>MEchathub_attachment}}{{>MEchathub_emoticons}}
+        <div class='clearfix'></div>
+    </div>
+</template>
+
+<template name='MEchathub_topic_form'>
+    <div class="formHolder">
+        <textarea class='form-control' id='chatContent' style='height:100px'></textarea>
+        <div class='btn btn-info btn-xs addChat pull-right' style='right: -5px; top: -105%'>Send</div>
+        {{>MEchathub_attachment type=type uid=uid conversation=conversation}}{{>MEchathub_emoticons}}
+        <div class='clearfix'></div>
+    </div>
+</template>
+
+<template name="MEchathub_attachment">
+    <div class='btn-file pull-right MEchathub_addon'>
+        <img src='/images/emoticons/addfile.png' height='30' width='30'>
+        <input type="file" id="chatfile" class="chatfile">
+    </div>
+    {{#each files}}
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+            </div>
+        </div>
+    {{/each}}
+</template>
+
+<template name="MEchathub_emoticons">
+    <div class="btn-group dropup pull-right MEchathub_addon">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+            <img src='/images/emoticons/addsmiley.png' height='30' width='30'>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <img src='/images/emoticons/1.png' class='chatHub_emoticon' id='1'>
+                <img src='/images/emoticons/2.png' class='chatHub_emoticon' id='2'>
+                <img src='/images/emoticons/3.png' class='chatHub_emoticon' id='3'>
+                <img src='/images/emoticons/4.png' class='chatHub_emoticon' id='4'>
+                <img src='/images/emoticons/5.png' class='chatHub_emoticon' id='5'>
+            </li>
+            <li>
+                <img src='/images/emoticons/6.png' class='chatHub_emoticon' id='6'>
+                <img src='/images/emoticons/7.png' class='chatHub_emoticon' id='7'>
+                <img src='/images/emoticons/8.png' class='chatHub_emoticon' id='8'>
+                <img src='/images/emoticons/9.png' class='chatHub_emoticon' id='9'>
+                <img src='/images/emoticons/10.png' class='chatHub_emoticon' id='10'>
+            </li>
+            <li>
+                <img src='/images/emoticons/11.png' class='chatHub_emoticon' id='11'>
+                <img src='/images/emoticons/12.png' class='chatHub_emoticon' id='12'>
+                <img src='/images/emoticons/13.png' class='chatHub_emoticon' id='13'>
+                <img src='/images/emoticons/14.png' class='chatHub_emoticon' id='14'>
+                <img src='/images/emoticons/15.png' class='chatHub_emoticon' id='15'>
+            </li>
+            <li>
+                <img src='/images/emoticons/16.png' class='chatHub_emoticon' id='16'>
+                <img src='/images/emoticons/17.png' class='chatHub_emoticon' id='17'>
+                <img src='/images/emoticons/18.png' class='chatHub_emoticon' id='18'>
+                <img src='/images/emoticons/19.png' class='chatHub_emoticon' id='19'>
+                <img src='/images/emoticons/20.png' class='chatHub_emoticon' id='20'>
+            </li>
+            <li>
+                <img src='/images/emoticons/21.png' class='chatHub_emoticon' id='21'>
+                <img src='/images/emoticons/22.png' class='chatHub_emoticon' id='22'>
+                <img src='/images/emoticons/23.png' class='chatHub_emoticon' id='23'>
+                <img src='/images/emoticons/24.png' class='chatHub_emoticon' id='24'>
+                <img src='/images/emoticons/25.png' class='chatHub_emoticon' id='25'>
+            </li>
+            <li>
+                <img src='/images/emoticons/26.png' class='chatHub_emoticon' id='26'>
+                <img src='/images/emoticons/27.png' class='chatHub_emoticon' id='27'>
+                <img src='/images/emoticons/28.png' class='chatHub_emoticon' id='28'>
+                <img src='/images/emoticons/29.png' class='chatHub_emoticon' id='29'>
+                <img src='/images/emoticons/30.png' class='chatHub_emoticon' id='30'>
+            </li>
+        </ul>
+    </div>
+</template>

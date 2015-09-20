@@ -1,0 +1,149 @@
+/*.syc-main_circl_holder{
+    width:500px;
+    height:500px;
+}*/
+.syc-box{
+    position:relative;
+    width:50%;
+    height:50%;
+    overflow:hidden;
+    float:left;
+}
+.syc-path{
+    opacity: 0.5
+}
+.syc-path:hover{
+    opacity: 1
+}
+.noshow{
+    display:none;
+}
+.syc-path1{
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    right:0px;
+    background-image: url('/images/globe.png');
+    background-size:70%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+.syc-path2{
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
+    clip-path: polygon(0 0, 100% 100%, 100% 0%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-image: url('/images/book.png');
+    background-size:75%;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.syc-path3{
+    -webkit-clip-path: polygon(100% 0, 0 100%, 0% 0%);
+    clip-path: polygon(100% 0, 0 100%, 0% 0%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-image: url('/images/dice.png');
+    background-size:75%;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+.syc-path4{
+    -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    background-image: url('/images/gears.png');
+    background-size:70%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+.syc-path5{
+    -webkit-clip-path: polygon(100% 0, 0 100%, 0% 0%);
+    clip-path: polygon(100% 0, 0 100%, 0% 0%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+    left:0px;
+    background-image: url('/images/kids.png');
+    background-size:70%;
+    background-position: top left;
+    background-repeat: no-repeat;
+}
+.syc-path6{
+    -webkit-clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    bottom:0px;
+    right:0px;
+    background-image: url('/images/ipad.png');
+    background-size:75%;
+    background-position: bottom right;
+    background-repeat: no-repeat;
+}
+.syc-path7{
+    -webkit-clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    right:0px;
+    background-image: url('/images/compass.png');
+    background-size:75%;
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+.syc-path8{
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
+    clip-path: polygon(0 0, 100% 100%, 100% 0%);
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0px;
+    left:0px;
+    background-image: url('/images/brain.png');
+    background-size:70%;
+    background-position: top right;
+    background-repeat: no-repeat;
+}
+.cirtitle{
+    font-size:28px;
+    font-weight:100;
+}
+.syc-circ-treebox{
+    position:absolute;
+    width:44%;
+    height:44%;
+    border-radius:50%;
+    background-image: url('/images/circtree-01.png');
+    top:26%;
+    left:28%;
+    background-size:70%;
+    background-position:center center;
+    z-index:99;
+    background-repeat: no-repeat;
+    background-color:#fff;
+}
+.cirtext{
+    font-size: 16px;
+    line-height: 32px;
+    color:#888;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
+}

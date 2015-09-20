@@ -1,0 +1,151 @@
+<template name='projects'>
+    {{#if isInRole 'parent'}}
+        {{>parentProjects}}
+    {{else}}
+    <div class='row'>
+        <div class='col-lg-10 col-md-10'>
+            <h3 class='syc-title'>Current Projects
+                {{#if isInRole 'educator'}}
+                    <a href='#' class='btn btn-project syc-shadow text-left newProject' style='margin-left:10px;'><i class="fa fa-plus"></i> New Project</a>
+                {{/if}}
+            </h3>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px; margin-bottom:20px;'>
+                    <ul class="list-group ns">
+                        {{#each current}}
+                            {{>projectListItem}}
+                        {{else}}
+                        <li class="list-group-item text-center" style='border-bottom: none;'>
+                            {{>noProjects}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{#if isInRole 'educator'}}
+    <div class='row'>
+        <div class='col-lg-10 col-md-10'>
+            <h3 class='syc-title'>Project Drafts
+                <a href='#' class='btn btn-project syc-shadow text-left newProject' style='margin-left:10px;'><i class="fa fa-plus"></i> New Project</a>
+            </h3>
+        </div>
+        <div class='col-lg-2 col-md-2 title-margin-correct'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px; margin-bottom:20px;'>
+
+                    <ul class="list-group ns">
+                        {{#each drafts}}
+                            {{>projectListItem}}
+                        {{else}}
+                        <li class="list-group-item text-center" style='border-bottom: none;'>
+                            {{>noProjects type='drafted'}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    <div class='row'>
+        <div class='col-lg-10'><h3 class='syc-title'>Past Projects</h3></div>
+        <div class='col-lg-2 title-margin-correct'>
+        </div>
+    </div>
+    <div class='row'>
+        <div class='col-lg-12' style='margin-top:20px;'>
+            <div class='well  wellmfix syc-shadow'>
+                <div style='max-height:300px; overflow-y: scroll; overflow-x:hidden; padding:0px; margin-bottom:20px;'>
+
+                    <ul class="list-group ns">
+                        {{#each past}}
+                            {{>projectListItem this archived=true}}
+                        {{else}}
+                        <li class="list-group-item text-center" style='border-bottom: none;'>
+                            {{>noProjects type='past'}}
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>
+
+
+<template name="projectListItem">
+    <li class="set-main-s-m-s project-link" id='{{_id}}' user='{{userLink}}'>
+        <div class=''>{{buttonClass}}
+            <span class="syc-title">{{#if new}}<span class='text-danger'>NEW!</span>{{/if}}  {{title}}</span>
+        </div>
+        {{#if archived}}
+            <div class='text-center projectDue treePad'>
+                <p><b><i>COMPLETED<br>{{completedOn}}</i></b></p>
+            </div>
+        {{else}}
+            <div class='text-center projectDue treePad'>
+                <p class='{{dueOn.class}}'><b><i>DUE ON<br>{{dueOn.date}}</i></b></p>
+            </div>
+        {{/if}}
+        <div>
+            <div class="progress progressProjectBox">
+                <div class="progress-bar progressProject" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{myProgress}}%">
+                </div>
+            </div>
+        </div>
+        <div class='treePad'><img src='/img/tree-01.png' style='height:50px'></div>
+        <div class='projectButton text-center treePad'>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-o fa-stack-2x"></i>
+                <i class="fa fa-chevron-right fa-stack-1x"></i>
+            </span>
+        </div>
+    </li>
+    <li class='ns spacer'></li>
+</template>
+
+<template name="homeProjectListItem">
+    <li class="list-group-item row col-m-s-xs"><a href="{{pathFor 'projectView' id=project._id}}{{#if isInRole 'parent'}}/{{studentId}}{{/if}}" style='color:#000'>
+        <div class=''>
+            <h4 class="syc-title">{{#if new}}<span class='text-danger'>NEW!</span>{{/if}}  {{project.title}}</h4>
+        </div>
+        <div class=''>
+            <div class="progress progressProjectBox">
+                <div class="progress-bar progressProject" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: {{myProgress}}%">
+                </div>
+            </div>
+        </div>
+        <div class=''>
+            {{#unless project.status}}
+
+            <p class='syc-circle-button projectButton {{#if isActiveRoute "dashboard"}}homeProjectButton{{/if}}'>
+                <a href="{{pathFor 'projectEdit' id=project._id}}" >
+                    <span class='fa fa-chevron-right'></span>
+                </a>
+            </p>
+            {{else}}
+            <p class='projectButton {{#if isActiveRoute "dashboard"}}homeProjectButton{{/if}}'>
+                <a href="{{pathFor 'projectView' id=project._id}}" >
+                    <span class="fa-stack fa-lg homeProjectButton">
+                        <i class="fa fa-circle-o fa-stack-2x"></i>
+                        <i class="fa fa-chevron-right fa-stack-1x"></i>
+                    </span>
+                </a>
+            </p>
+            {{/unless}}
+        </div></a>
+    </li>
+</template>

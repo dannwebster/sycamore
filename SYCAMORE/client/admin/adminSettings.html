@@ -1,0 +1,84 @@
+<template name='adminSettings'>
+	<h1>App Settings</h1>
+    <div class='col-lg-6'>
+			<table class='table table-striped table-hover table-bordered'>
+				<tbody>
+					<tr>
+						<td><h6><strong>Site Status</strong></h6></td>
+						<td>{{>toggleSetting setting_id='live' status=config.live}}
+						</td>
+					</tr>
+					<tr>
+						<td colspan='2'><h6><strong>Dashboards</strong></h6></td>
+					</tr>
+					<tr>
+						<td><h6>Educator Dashboard</h6></td>
+						<td>
+							{{>toggleSetting setting_id='dashboard_educator' status=config.dashboard_educator}}
+						</td>
+					</tr>
+					<tr>
+						<td><h6>Student Dashboard</h6></td>
+						<td>
+							{{>toggleSetting setting_id='dashboard_student' status=config.dashboard_student}}
+						</td>
+					</tr>
+					<tr>
+						<td><h6>Parent Dashboard</h6></td>
+						<td>
+							{{>toggleSetting setting_id='dashboard_parent' status=config.dashboard_parent}}
+						</td>
+					</tr>
+					<tr>
+						<td colspan='2'><h6><strong>Registration</strong></h6></td>
+					</tr>
+					<tr>
+						<td><h6>Student Registration</h6></td>
+						<td>
+							{{>toggleSetting setting_id='register_student' status=config.register_student}}
+						</td>
+					</tr>
+					<tr>
+						<td><h6>Parent Registration</h6></td>
+						<td>
+							{{>toggleSetting setting_id='register_parent' status=config.register_parent}}
+						</td>
+					</tr>
+					<tr>
+						<td><h6>New Student Application</h6></td>
+						<td>
+							{{>toggleSetting setting_id='student_application' status=config.student_application}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+  </div>
+</template>
+
+<template name='toggleSetting'>
+	{{#if status}}
+	<div class="btn-group">
+		<a href="#" class="btn btn-success">LIVE</a>
+		<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			{{#if testLive}}
+				<li class='btn-warning'><a href="#" class='toggle_config' id='{{setting_id}}'>Switch to Test Mode</a></li>
+			{{else}}
+				<li class='btn-danger'><a href="#" class='toggle_config' id='{{setting_id}}'>Go Dark</a></li>
+			{{/if}}
+		</ul>
+	</div>
+	{{else}}
+	<div class="btn-group">
+		{{#if testLive}}
+			<a href="#" class='btn btn-warning'>Test Mode</a>
+		{{else}}
+			<a href="#" class='btn btn-danger'>Dark</a>
+		{{/if}}
+		<a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+		<ul class="dropdown-menu">
+			<li class='btn-success'><a href="#" class='toggle_config' id='{{setting_id}}'>{{#if testLive}}Switch to Live{{else}}Go Live{{/if}}</a></li>
+		</ul>
+	</div>
+	{{/if}}
+</template>

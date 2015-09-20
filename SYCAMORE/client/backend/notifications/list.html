@@ -1,0 +1,98 @@
+<template name='notificationList'>
+    <div class='row' style='margin-bottom:20px;'>
+        <div class='col-lg-12'>
+            <div class='well syc-shadow'>
+                <ul class="list-group forumList ns ns-pad-10" style='{{style}}' >
+                    {{#each ../notifications}}
+                        {{>notificationListItem}}
+                    {{else}}
+                        {{#each notifications}}
+                            {{>notificationListItem}}
+                        {{else}}
+                            {{>noNotis}}
+                        {{/each}}
+                    {{/each}}
+                    <div class='clearfix ns-border'></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="notificationListItem">
+    <li class="set-2s-main-1m-1s {{#unless read}}noti-unread{{/unless}} spacer noti-item-new ns-sidepad-10" id='{{_id}}'>
+        <p class='noti-blue text-center' id='{{_id}}'>
+            {{#unless read}}
+                <h2><i class="fa fa-circle"></i></h2>
+            {{else}}
+            {{#if starred}}
+                <h2 class='unStarItem cursor'><i class="fa fa-star"></i></h2>
+                {{else}}
+                <h2 class='starItem cursor'><i class="fa fa-star noti-faded"></i></h2>
+                {{/if}}
+            {{/unless}}
+        </p>
+        <p class='noti-blue cursor ns-link text-center' id='{{_id}}'>
+            <h2><span class='{{icon}}'></span></h2>
+        </p>
+        <p class='ns-link' id='{{_id}}'>
+            <span class="syc-title cursor noti-blue noti-title" style='padding-left:0px; margin-left:0px;'>{{title}} {{#if urgent}}<span class="label label-danger">Urgent!</span>{{/if}}</span>
+            <div class='listParagraph'>{{{content}}}</div>
+        </p>
+        <p class='small cursor ns-paddtop-10 text-center ns-link' id='{{_id}}'>
+            <i>{{time}}</i>
+        </p>
+        <p class='text-center cursor noti-blue ns-link' id='{{_id}}'>
+            {{#if isInRole 'educator'}}
+            <h2><i class='fa fa-comment'></i></h2>
+            {{/if}}
+        </p>
+        <div class='clearfix ns-border'></div>
+    </li>
+    <li class='ns spacer noti-item-new'></li>
+</template>
+
+
+
+<template name='homeNotificationList'>
+    <div class='row' style='margin-bottom:20px;'>
+        <div class='col-lg-12'>
+            <div class='' style='{{style}}'>
+                <ul class="list-group ns">
+                    {{#each ../notifications}}
+                        {{>notificationListItem}}
+                    {{else}}
+                        {{#each notifications}}
+                            {{>homeNotificationListItem}}
+                        {{else}}
+                            {{>noNotis}}
+                        {{/each}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="homeNotificationListItem">
+    <li class="set-1s-main-2s cursor notification-link {{#unless read}}noti-unread{{/unless}} noti-item-new ns-sidepad-10" id='{{_id}}'>
+        <p class='noti-blue text-center' id='{{_id}}'>
+            <h2><span class='{{icon}}'></span></h2>
+        </p>
+        <p id='{{_id}}'>
+            <span class="syc-title noti-blue noti-title" style='margin-left:0px; padding-left:0px;'>{{title}} {{#if urgent}}<span class="label label-danger">Urgent!</span>{{/if}}</span>
+            <p class='small'>{{time}}</p>
+        </p>
+        <p class='text-center noti-blue' id='{{_id}}'>
+            <h2 class='ns-no-padtop' style='padding-top:0px;'><i class='fa fa-comment'></i></h2>
+        </p>
+        <p class='text-center noti-blue' id='{{_id}}'>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle-o fa-stack-2x"></i>
+                <i class="fa fa-chevron-right fa-stack-1x"></i>
+            </span>
+        </p>
+        <div class='clearfix'></div>
+    </li>
+    <li class='ns spacer noti-item-new '></li>
+</template>

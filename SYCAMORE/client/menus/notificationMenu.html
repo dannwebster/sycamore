@@ -1,0 +1,20 @@
+<template name='notificationMenu'>
+    <ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span class='badge'>{{notifications.count}}</span> Notifications <span class="caret"></span></a>
+      <ul class="dropdown-menu" role="menu">
+        <li>
+          <ul>
+            <li>A Notification</li>
+            <li>Something else to read</li>
+            <li>And another notification</li>
+          </ul>
+        </li>
+        <li>
+            <a href='/notifications' class='pull-right'>View All</a>
+            <a href='/notification/settings' class='pull-left'><span class='glyphicon glyphicon-cog'></span></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</template>

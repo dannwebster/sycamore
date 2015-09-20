@@ -1,0 +1,38 @@
+<template name='MEchathub_list'>
+    <div class="list-group" id='MECLIST'>
+        {{#each conversation}}
+        {{>MEchathub_conversations}}
+        {{/each}}
+    </div>
+</template>
+
+<template name='MEchathub_conversations'>
+    <a href="#" class="list-group-item conversation row" id='{{_id}}'>
+        <div class='chatlist-icon'>
+            {{#if recipients.group}}
+                {{#each recipients.groupUsers}}
+                    {{>recipientViewGroup}}
+                {{/each}}
+                {{#if recipients.large}}
+                    <i class="fa fa-plus messageLargePlus"></i>
+                {{/if}}
+            {{else}}
+                {{#each recipients.users}}
+                    {{>recipientView}}
+                {{/each}}
+            {{/if}}
+        </div>
+        <div class='chatlist-text'>
+            <h5><b>{{text.text}}</b></h5>
+            <i>{{time}}</i>
+        </div>
+    </a>
+</template>
+<template name="recipientView">
+    {{#unless itsMe}}
+        {{> profileSnip photo=true user=this height=75 width=75}}
+    {{/unless}}
+</template>
+<template name="recipientViewGroup">
+    {{> profileSnip photo=true user=this height=45 width=45 class='messageOffset'}}
+</template>

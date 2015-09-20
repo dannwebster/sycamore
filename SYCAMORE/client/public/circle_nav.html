@@ -1,0 +1,144 @@
+<template name="circleNav">
+<style>
+#wheel {
+	max-width: 700px;
+}
+.st0{fill:#F5A71D;}
+.st1{fill:#6CA644;}
+.st2{fill:#69C8C3;}
+.st3{fill:#34A1BF;}
+.st4{fill:#F1977E;}
+.st5{fill:#ED6745;}
+.st6{fill:#C090C1;}
+.st7{fill:#EF395C;}
+
+.slice {
+	opacity: 0.5;
+	transition: all .2s;
+	-webkit-transition: all .2s;
+}
+.slice:hover,
+.slice.active { opacity: 1; }
+/*.noshow{
+    display:none;
+}*/
+</style>
+<div class='col-lg-5 col-md-5 col-sm-4'>
+<svg version="1.1" id="wheel" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 578 565.4" style="enable-background:new 0 0 578 565.4;" xml:space="preserve">
+	<g id="brain" class="slice">
+		<path class="st0" d="M419.5,282.4c0,0.1,0,0.3,0,0.4c0,35.7-14.4,68.1-37.8,91.6l98.9,98.9c48.9-48.9,79.1-116.4,79.1-190.9H419.5z"/>
+		<image style="overflow:visible;" width="402" height="328" xlink:href="/img/brain.png" transform="matrix(0.24 0 0 0.24 426.365 319.2175)"></image>
+	</g>
+	<g id="kids" class="slice">
+		<g>
+			<path class="st1" d="M159.6,282.9c0-0.1,0-0.3,0-0.4H19.7c0,69.1,26.4,138.2,79.1,190.9l98.8-98.8 C174.1,351.1,159.6,318.7,159.6,282.9z"/>
+		</g>
+		<g>
+			<image style="overflow:visible;" width="432" height="277" xlink:href="/img/kids.png" transform="matrix(0.24 0 0 0.24 54.1081 323.0131)"></image>
+		</g>
+	</g>
+	<g id="dice" class="slice">
+		<path class="st2" d="M381.3,190.9l99.4-99.4c-48.9-48.9-116.4-79.1-190.9-79.1v140.5C325.5,153,357.8,167.5,381.3,190.9z"/>
+		<g>
+			<image style="overflow:visible;" width="337" height="358" xlink:href="/img/dice.png" transform="matrix(0.24 0 0 0.24 332.1519 53.9694)"></image>
+		</g>
+	</g>
+	<g id="compass" class="slice">
+		<path class="st3" d="M381.7,374.4c-23.5,23.7-56,38.3-92,38.4v139.7c69.1,0,138.2-26.4,190.9-79.1L381.7,374.4z"/>
+		<g>
+			<image style="overflow:visible;" width="334" height="334" xlink:href="/img/compass.png" transform="matrix(0.24 0 0 0.24 326.8561 426.6907)"></image>
+		</g>
+	</g>
+	<g id="globe" class="slice">
+		<path class="st4" d="M98.8,91.5c-48.9,48.9-79.1,116.4-79.1,190.9h140.1c0-35.9,14.5-68.4,38.1-91.9L98.8,91.5z"/>
+		<g>
+			<image style="overflow:visible;" width="377" height="378" xlink:href="/img/globe.png	" transform="matrix(0.24 0 0 0.24 55.1081 158.5225)"></image>
+		</g>
+	</g>
+	<g id="ipad" class="slice">
+		<path class="st5" d="M289.6,412.8c-35.9,0-68.5-14.6-92-38.2l-98.8,98.8c48.9,48.9,116.4,79.1,190.9,79.1V412.8
+		C289.7,412.8,289.6,412.8,289.6,412.8z"/>
+		<image style="overflow:visible;" width="261" height="357" xlink:href="/img/ipad.png" transform="matrix(0.24 0 0 0.24 181.6075 423.4481)"></image>
+	</g>
+	<g id="book" class="slice">
+		<path class="st6" d="M289.6,152.9c0.1,0,0.1,0,0.2,0V12.4c-69.1,0-138.2,26.4-190.9,79.1l99.2,99.2
+		C221.5,167.4,253.8,152.9,289.6,152.9z"/>
+		<g>
+			<image style="overflow:visible;" width="391" height="313" xlink:href="/img/book.png" transform="matrix(0.24 0 0 0.24 169.4678 60.6526)"></image>
+		</g>
+	</g>
+	<g id="gears" class="slice">
+		<path class="st7" d="M419.5,282.4h140.3c0-69.1-26.4-138.2-79.1-190.9l-99.4,99.4C404.8,214.3,419.4,246.7,419.5,282.4z"/>
+		<image style="overflow:visible;" width="394" height="394" xlink:href="/img/gears.png" transform="matrix(0.24 0 0 0.24 430.6457 166.4999)"></image>
+	</g>
+	<image style="overflow:visible;" width="993" height="620" xlink:href="/img/tree.png" transform="matrix(0.24 0 0 0.24 170.6636 201.3104)"></image>
+</svg>
+</div>
+
+<div class='col-lg-7 col-md-7 col-sm-8'>
+    {{{circle.content}}}
+</div>
+</template>
+
+
+<template name="circleNavOld">
+    <div class='col-lg-5 col-md-5 col-sm-4'>
+        <div class='syc-main_circle_holder' style='width:100%'>
+            <div class='syc-box'>
+                <div class="syc-path syc-path1" id='globe'></div>
+                <div class="syc-path syc-path2" id='book'></div>
+            </div>
+            <div class='syc-box'>
+                <div class="syc-path syc-path3" id='dice'></div>
+                <div class="syc-path syc-path4" id='gears'></div>
+            </div>
+            <div class='syc-box'>
+                <div class="syc-path syc-path5" id='kids'></div>
+                <div class="syc-path syc-path6" id='ipad'></div>
+            </div>
+            <div class='syc-box'>
+                <div class="syc-path syc-path7" id='compass'></div>
+                <div class="syc-path syc-path8" id='brain'></div>
+            </div>
+            <div class='syc-circ-treebox'></div>
+        </div>
+    </div>
+    <div class='col-lg-7 col-md-7 col-sm-8'>
+        <div class='noshow' id='brain_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>STEAM</h3>
+            <p class='lead cirtext'>(Science, Technology, Engineering, Art, Math) Carl Sagan said, “Science is a way of thinking much more than it is a body of knowledge.” We believe that students should apply observation, critical thinking, creativity, and problem solving, not just in the traditional STEAM disciplines, but in every aspect of their lives. In this way, STEAM attitudes become a natural part of our students’ world view.
+            </p>
+        </div>
+        <div class='noshow' id='dice_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Play</h3>
+            <p class='lead cirtext'>Educational theorists from John Dewey to Jean Piaget have expressed the value of play in child development for decades. We believe a mixture of both guided and free play are an integral part of the development of children’s cognitive, social, and moral abilities.  Play is not seen as the "dessert" at the end of a week filled with worksheets and lectures, but a natural part of the learning process filled with risk-taking, creative thinking, and failure...and, it’s super fun.</p>
+        </div>
+        <div class='noshow' id='gears_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Making</h3>
+            <p class='lead cirtext'>Making encompasses creativity, craftsmanship, problem solving, and design thinking. We give our students ample opportunities for “thinking with their hands”. We want them to engage with the world as innovators who see a variety of creative solutions to everyday and large-scale problems. Making helps children to recognize their ability to affect the world around them. Our students are producers, not merely consumers of knowledge, ideas, and products.
+</p>
+        </div>
+        <div class='noshow' id='book_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Reading & Writing</h3>
+            <p class='lead cirtext'>We embrace a balanced approach between phonics and whole language learning, including the Language Experience Approach, using engaging texts and authentic language experiences. Hands-on, relevant experiences provide a context for developing literacy. Students will have opportunities to read or be read to every day.
+</p>
+        </div>
+        <div class='noshow' id='kids_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Social / Emotional Learning</h3>
+            <p class='lead cirtext'>Social Emotional Learning (SEL) is a vital component in the development of the whole child. Building and maintaining relationships, fostering self-awareness, developing character, appreciating perspectives, and learning empathy are just a few pieces to the puzzle of becoming a healthy and happy contributor to a better world. At the Sycamore School, our approach to SEL is supported by systems thinking and is enhanced through collaborative work and play opportunities.  A cognizance of social health is woven into the fabric of the daily student experience.</p>
+        </div>
+        <div class='noshow' id='compass_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Field Trips</h3>
+            <p class='lead cirtext'>Having a wide variety of authentic experiences is fundamental to developing a broad and well-rounded perspective. Field trips should be a regular part of the student experience. Giving kids a chance to get out and explore their environment reinforces that the world is their classroom. These trips foster ecological awareness and provide relevant contexts that have been shown to improve literacy. What happens beyond the dining room of a restaurant? How does a water filtration plant work? How does an ecologically friendly farm operate?  The benefits of experiential learning and exploration are invaluable.</p>
+        </div>
+        <div class='noshow' id='ipad_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>Technology</h3>
+            <p class='lead cirtext'>We strongly believe in a high-tech, low-tech, and NO-tech approach to daily activities. Technology is a tool, and humans have been developing their skill with tools for hundreds of thousands of years. Sometimes, Catalyst students use ancient tools, such as a needle and thread in “maker” activities; other times, they employ recent, high-tech tools such as computers,tablets, and 3-D printers. Additionally, no-tech role play activities provide for embodied learning. Students are encouraged to investigate different tools to communicate, explore, create, and research.</p>
+        </div>
+        <div class='noshow' id='globe_content'>
+            <h3 class='syc-homepage-title cirtitle' style='padding-bottom:10px;'>LEARNING SPACES</h3>
+            <p class='lead cirtext'>Even the word “classroom” conjures images of desks in rows. We embrace a view that the world is our classroom; therefore, our learning spaces take on a very different character. We have a maker space, an idea lab, an adventure room (with mobile furniture so that students can create their own learning environment), a greenhouse, a kitchen, a reading nook, and a beautiful outdoor area with grass and trees, and the ability to move through the surrounding environment as we expand far beyond the walls of school.</p>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,106 @@
+<template name="manageSchoolYear">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
+        <a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+    <div class='row'>
+        <h4 class='syc-title'>Manage School Calendar</h4>
+        <p class='lead'>Here you can set school sessions, holidays, breaks, and other essential calendar dates.</p>
+        <a href="{{pathFor 'manageSchoolSession'}}" class='btn btn-success'><i class='fa fa-plus'></i> Session</a>
+        <a href="{{pathFor 'manageSchoolHolidays'}}" class='btn btn-success'><i class="fa fa-plus"></i> Day Off / Holiday</a>
+        <a href="{{pathFor 'manageSchoolBreaks'}}" class='btn btn-success'><i class="fa fa-plus"></i> Break</a>
+    </div>
+    <div class='row'>
+        {{#each calevents}}
+            {{>eventHold}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="eventHold">
+    <div class='well'>
+        <div class='row'>
+            <div class='col-lg-3'><h5 class='syc-title'>{{name}}</h5></div>
+            <div class='col-lg-3'><p>{{{text}}}</p></div>
+            <div class='col-lg-3'><p>{{{dates}}}</p></div>
+            <div class='col-lg-3'><div class='btn btn-danger delete' id='{{_id}}'>Delete</div></div>
+        </div>
+    </div>
+</template>
+
+<template name="manageSchoolSession">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm addEvent'>Manage School Year</a>
+        <a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <h4 class='syc-title'>Add a Session</h4>
+            <div class='well'>
+                <p>What is this sessions name? (i.e. Fall Quarter, Spring Semester, Summer Session)</p>
+                <p><input class='form-control' id='name'></p>
+                <p>When does this session begin?</p>
+                <p>{{>dateTimeTemplate class='form-control' id='start'}}</p>
+                <p>What is this session end?</p>
+                <p>{{>dateTimeTemplate class='form-control' id='end'}}</p>
+                <p>Optional Description / Message</p>
+                <p><textarea id='description' class='form-control'></textarea></p>
+                <p><a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-danger'>Cancel</a>
+                    <div class='btn btn-success create'>Add Session</div>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="manageSchoolBreaks">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm addEvent'>Manage School Year</a>
+        <a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <h4 class='syc-title'>Add a Break</h4>
+            <div class='well'>
+                <p>What is this breaks name? (i.e. Fall Break, Summer Break)</p>
+                <p><input class='form-control' id='name'></p>
+                <p>When does this break begin?</p>
+                <p>{{>dateTimeTemplate class='form-control' id='start'}}</p>
+                <p>What is this break end?</p>
+                <p>{{>dateTimeTemplate class='form-control' id='end'}}</p>
+                <p>Optional Description / Message</p>
+                <p><textarea id='description' class='form-control'></textarea></p>
+                <p><a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-danger'>Cancel</a>
+                    <div class='btn btn-success create'>Add Break</div>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="manageSchoolHolidays">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm addEvent'>Manage School Year</a>
+        <a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+    <div class='row'>
+        <div class='col-md-6 col-md-offset-3'>
+            <h4 class='syc-title'>Add a Holiday</h4>
+            <div class='well'>
+                <p>What is this holiday / day off name? (i.e. Memorial Day, Presidents Day)</p>
+                <p><input class='form-control' id='name'></p>
+                <p>When day is off?</p>
+                <p>{{>dateTimeTemplate class='form-control' id='start'}}</p>
+                    <p>Optional Description / Message</p>
+                <p><textarea id='description' class='form-control'></textarea></p>
+                <p><a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-danger'>Cancel</a>
+                    <div class='btn btn-success create'>Add Day Off / Holiday</div>
+                </p>
+            </div>
+        </div>
+    </div>
+</template>

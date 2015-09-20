@@ -1,0 +1,24 @@
+<template name='dateShort'>
+  {{date}}
+</template>
+
+<template name='dateLong'>
+    {{date}}
+</template>
+
+<template name='postActions'>
+  <div class="btn-group btn-group-sm" role="group">
+    {{#if trash}}
+      <div class='btn btn-default restore' id='{{_id}}'>Restore</div>
+    {{else}}
+      <a href='{{pathFor editPath id=_id}}' class='btn btn-default'>Edit</a>
+      {{#unless live}}
+        <div class='btn btn-default make_live' id='{{_id}}'>Make Live</div>
+      {{/unless}}
+      {{#if live}}
+        <div class='btn btn-default make_draft' id='{{_id}}'>Make Draft</div>
+      {{/if}}
+      <div class='btn btn-default delete' id='{{_id}}'>Delete</div>
+    {{/if}}
+  </div>
+</template>

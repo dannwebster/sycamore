@@ -1,0 +1,34 @@
+<template name="notificationLinks">
+    <p class='syc-title'>
+        <a href="{{pathFor 'notifications'}}" class='sidelink'>Current</a> |
+        <a href="{{pathFor 'notificationTypes' type='starred'}}" class='sidelink'>Starred</a> |
+        <a href="{{pathFor 'notificationTypes' type='archived'}}" class='sidelink'>Archived</a>
+        {{#if isInRole 'educator'}}
+
+        | <a href="{{pathFor 'notificationTypes' type='sent'}}" class='sidelink'>Sent</a>
+        | <a href="{{pathFor 'notificationTypes' type='drafts'}}" class='sidelink'>Drafts</a>
+        {{/if}}
+    </p>
+</template>
+
+<template name="notiEduLinks">
+    {{#if isInRole 'educator'}}
+    <div class='row'>
+        <div class='col-lg-12'>
+            <a href="{{pathFor 'notificationCompose'}}" class='btn btn-info pull-right compose'>New Notification</a>
+        </div>
+    </div>
+    {{/if}}
+</template>
+
+<template name="selectANote">
+    <div class='alert alert-info text-center'>
+        <h4 style='margin:50px;' class="syc-title">Select a Notification from the list above.</h4>
+    </div>
+</template>
+
+<template name="noNotis">
+    <div class='text-center'>
+        <h4 style='margin:50px;' class="syc-title">You don't have any {{#if type}}{{type}} {{/if}}notifications.</h4>
+    </div>
+</template>

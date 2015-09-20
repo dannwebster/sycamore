@@ -1,0 +1,25 @@
+<template name='login'>
+    {{#if isDesktop}}
+    <div class='container'>
+        <div class='row' style='margin-top:100px;'>
+            <div class='col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1'>
+                <div class='jumbotron'>
+                    <h1>Login</h1>
+                    <p>Treehouse access is for current Educators, Parents, and Students only.</p>
+                </div>
+            </div>
+            <div class='col-lg-5 col-md-5'>
+                <div style='padding:40px; margin-top:30px;'>
+                    {{>formLogin}}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class='container'>
+        <div class='row' style='margin-top:100px;'>
+            {{>noMobile}}
+        </div>
+    </div>
+    {{/if}}
+</template>

@@ -1,0 +1,96 @@
+<template name="signupStep2">
+    <div style='height:210px; width:100%; text-align:center; margin:0px; background-image: url("/img/signslip.png"); background-size:20px 210px'>
+        <img src='/img/signtree.png' style='height:210px'>
+    </div>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-lg-4 col-lg-offset-4 col-md-6 col-md-offset-3'>
+                <div class='text-center'>
+                    <h2 class='open signupblue'>STEP 2 of 3</h2>
+                    <p class='subtitlesignup signupblue'><b>Complete Your Profile</b></p>
+                     <p class='text-center open' style='font-size:15px; line-height:30px; padding-top:30px; padding-bottom:30px;'>
+                         <b>Take a couple of minutes to entirely fill your profile and select a public profile picture.</b>
+                     </p>
+                </div>
+                <div class='errors'></div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-lg-4 col-md-4'>
+                <p class='signupblue'><b>PROFILE PICTURE</b></p>
+                <div class='well MEinvite'>
+                    <div style='padding:20px 50px 20px 50px'>
+                        {{#if currentUser.profile.photo}}
+                        <div class='btn-file'>
+                            {{>profileSnip height=180 width=180 name=false photo=true user=currentUser}}
+                            <input type="file" id="mainphoto" class="mainphoto">
+                        </div>
+                        {{else}}
+
+                        <div class='btn-file'>
+                            <img src='/images/blankprofile.jpg' style='width:100%'  class='profile-image'>
+                            <input type="file" id="mainphoto" class="mainphoto">
+                        </div>
+                        {{/if}}
+                        {{#each files}}
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{percent_uploaded}}%">
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <p class='text-center open' style='font-size:13px; line-height:20px;'>
+                        <b>Profile picture will be visible by the school and other parents. Recognizable portraits are always preferred!</b>
+                    </p>
+                </div>
+            </div>
+            <div class='col-lg-4 col-md-4'>
+                <p class='signupblue'><b>FIRST NAME</b></p>
+                <p>
+                    <input id='firstname' class='form-control editMe MEinvite' name='firstname' value='{{currentUser.profile.firstname}}'>
+                </p>
+                <br>
+                <p class='signupblue'><b>EMAIL ADDRESS</b></p>
+                <p>
+                    {{#each currentUser.emails}}
+                        <input id='email' class='form-control MEinvite' name='email' value='{{address}}' disabled>
+                    {{/each}}
+                </p>
+                <br>
+                <p class='signupblue'><b>HOME ADDRESS</b></p>
+                <p>
+                    <textarea id='address' class='form-control editMe MEinvite' name='Address'  style='height:148px'>{{{currentUser.profile.address}}}</textarea>
+                </p>
+            </div>
+            <div class='col-lg-4 col-md-4'>
+                <p class='signupblue'><b>LAST NAME</b></p>
+                <p>
+                    <input id='lastname' class='form-control editMe MEinvite' name='lastname' value='{{currentUser.profile.lastname}}'>
+                </p>
+                <br>
+                <p class='signupblue'><b>PHONE NUMBER</b></p>
+                <p>
+                    <input id='phone' class='form-control editMe MEinvite' name='phone' value='{{currentUser.profile.phone}}'>
+                </p>
+                <br>
+                <p class='signupblue'><b>EMERGENCY CONTACT INFO</b></p>
+                <p>
+                    <textarea id='emergency_contact' class='form-control editMe  MEinvite' name='Emergency Contact' style='height:148px'>{{{currentUser.profile.emergency_contact}}}</textarea>
+                </p>
+            </div>
+            <div class='row'><div id='signupAlert'></div></div>
+            {{#if isInRole 'educator'}}
+                <a href="{{pathFor 'signupComplete'}}" class='btn btn-lg btn-info pull-right'>Complete Signup <i class="fa fa-check"></i></a>
+            {{/if}}
+            {{#if isInRole 'parent'}}
+                <div class='btn btn-lg btn-info pull-right addMyFam'>Next: Add Your Family <i class='fa fa-chevron-right'></i></div>
+            {{/if}}
+            
+            <div class='row' style='margin-top:200px'></div>
+        </div>
+    </div>
+</template>
+
+<template name="phoneEditHolder">
+    <p>{{newNumber}} {{{typeField}}} (<a href='#' class='removePhone' id='address'>remove</a>)</p>
+</template>

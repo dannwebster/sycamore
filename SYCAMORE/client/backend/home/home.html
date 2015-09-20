@@ -1,0 +1,128 @@
+<template name='allHome'>
+    {{#if mainAlert}}
+    <div class='well noti-syc-shadow noti-box' id='mainnotification'>
+        <h3 class='home-noti-clip'>{{{mainAlert}}}</h3>
+    </div>
+    {{/if}}
+    {{#if isInRole 'student'}}
+    <h3 class="syc-title homeBottomSpace" id='projectlist'>Recent Projects
+        <a href="{{pathFor 'projects'}}" class='sidelink'>View All</a>
+
+        <div class='practicalInfo pull-right' style='cursor:pointer;'><img src='/img/emergency_button.png' height='35px'></div>
+    </h3>
+    <div class='well wellmfix  syc-shadow'>
+        <div style='max-height:300px; overflow-y: scroll; margin-bottom:20px;'>
+            <ul class="list-group currentList homeProjectList ns" style='margin-bottom:0px;'>
+                {{#each projects}}
+                    {{>homeProjectListItem project=this buttonClass='homeProjectButton' }}
+                {{else}}
+                <li class="list-group-item">{{>noProjects}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace" id='notilist'>Notifications
+            <a href="{{pathFor 'notifications'}}" class='sidelink'>View All</a>
+        </h3>
+        <div class='well wellmfix syc-shadow' id='notilist2'>
+            {{>homeNotificationList style='max-height:300px; min-height:300px;  overflow-y: scroll; overflow-x: hidden;' notifications=notifications}}
+        </div>
+    </div>
+
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace" id='messagelist'>Messages</h3>
+        <div class='well wellmfix syc-shadow matchHeight' match='notilist2'>
+            <div style='max-height:300px;  min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='messages'>
+                {{>ConversationList}}
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    {{#if isInRole 'parent'}}
+        {{>parentHome notifications=notifications }}
+    {{/if}}
+    {{#if isInRole 'educator'}}
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace">Quick Actions</h3>
+
+        <div class="row">
+            <div class='col-lg-4'>
+                <a href="{{pathFor 'messageCompose'}}" class='btn btn-lg btn-default btn-home'>
+                    <h2><i class="fa fa-comment"></i></h2>
+                    New<br>Message
+                </a>
+            </div>
+            <div class='col-lg-4'>
+                <a href="{{pathFor 'notificationCompose'}}" class='btn btn-lg btn-default btn-home'>
+                    <h2><span class='glyphicon glyphicon-envelope icon'></span></h2>
+                    New<br>Notification
+                </a>
+            </div>
+            <div class='col-lg-4'>
+                <a href="{{pathFor 'newEvent'}}" class='btn btn-lg btn-default btn-home'>
+                    <h2><i class="fa fa-calendar"></i></h2>
+                    New<br>Event
+                </a>
+            </div>
+        </div>
+        <div class='row' style='padding-top:20px;'>
+            <div class='col-lg-4'>
+                <a href='#' class='btn btn-lg btn-default btn-home newProject'>
+                    <h2><span class='glyphicon glyphicon-pencil icon'></span></h2>
+                    New<br>Project
+                </a>
+            </div>
+            <div class='col-lg-4'>
+                <a href="{{pathFor 'familyTree'}}" class='btn btn-lg btn-default btn-home '>
+                    <h2><span class='fa fa-users'></span></h2>
+                    Family<br>Tree
+                </a>
+            </div>
+            <div class='col-lg-4'>
+                <a href="{{pathFor 'settings'}}" class='btn btn-lg btn-default btn-home'>
+                    <h2><span class='fa fa-cog'></span></h2>
+                    Account<br>Settings<br>
+                </a>
+            </div>
+        </div>
+        <a href='{{pathFor "adminConsole"}}' class='btn btn-lg btn-info btn-block' style='margin-top:20px'><i class='fa fa-cog'></i>Site Management</a>
+    </div>
+
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace" id='notilist'>Notifications
+            <a href="{{pathFor 'notifications'}}" class='sidelink'>View All</a>
+            <div class='practicalInfo pull-right' style='cursor:pointer;'><img src='/img/emergency_button.png' height='35px'></div>
+        </h3>
+        <div class='well wellmfix syc-shadow' id='notilist2'>
+            {{>homeNotificationList style='max-height:300px;  min-height:300px; overflow-y: scroll; overflow-x: hidden;' notifications=notifications}}
+        </div>
+    </div>
+
+    <div class='clearfix'></div>
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace">Projects</h3>
+        <div class='well  wellmfix syc-shadow' style='padding-bottom:20px;'>
+            <div style='max-height:300px;  min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='projects'>
+                <ul class="list-group currentList ns">
+                    {{#each projects}}
+                    {{>homeProjectListItem project=this}}
+                    {{else}}
+                    <li class="list-group-item list-group-item-danger">No Current Projects Found</li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class='clearfix'></div>
+        </div>
+    </div>
+    <div class='col-lg-6 col-md-6'>
+        <h3 class="syc-title homeBottomSpace" id='messagelist'>Messages</h3>
+        <div class='well wellmfix syc-shadow' style='padding-bottom:20px;'>
+            <div style='max-height:300px; min-height:300px; overflow-y: scroll; overflow-x:hidden;' id='messages' class='matchHeight' match='projects'>
+                {{>ConversationList}}
+            </div>
+        </div>
+    </div>
+{{/if}}
+</template>

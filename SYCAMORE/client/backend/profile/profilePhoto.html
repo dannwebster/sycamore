@@ -1,0 +1,83 @@
+<template name='profileSnip'>
+        {{#if photo}}
+            {{#if user.profile.photo}}
+                <div class='img-div profileSnip {{class}}' id='{{snipid.id}}' style='{{style}} background-image: url({{user.profile.photo.secure_url}}); height:{{height}}px; width:{{width}}px'
+                     title="{{user.profile.firstname}} {{user.profile.lastname}}">
+                     {{#unless self}}
+                        {{#if mini}}
+                             <div class='hoverAction'>
+                                <div class='hoverBox hoverProfile'></div>
+                                <div class='hoverBox hoverMessage'></div>
+                             </div>
+                        {{/if}}
+                    {{/unless}}
+                </div>
+            {{else}}
+                <div class='img-div profileSnip {{class}}' id='{{snipid.id}}' style='{{style}} background-image: url(/images/profile.png); height:{{height}}px; width:{{width}}px'
+                     title="{{user.profile.firstname}} {{user.profile.lastname}}">
+                     {{#unless self}}
+                        {{#if mini}}
+                             <div class='hoverAction'>
+                                <div class='hoverBox hoverProfile'></div>
+                                <div class='hoverBox hoverMessage'></div>
+                             </div>
+                        {{/if}}
+                    {{/unless}}
+                </div>
+            {{/if}}
+        {{/if}}
+        {{#if name}}
+            <div class='{{nameClass}}' style='{{nameStyle}}'>
+            {{user.profile.firstname}}
+            {{user.profile.lastname}}
+            </div>
+            {{{nameAfter}}}
+        {{/if}}
+</template>
+
+<template name="miniProfile">
+    <div class='mini-profile-new' id='{{id}}'>
+        <div class='left-arrow'></div>
+        <div class='mini-box'>
+            <div class='img-div' style='background-image: url({{user.profile.photo.secure_url}}); height:50px; width:50px'></div>
+            <a href="{{pathFor 'manageProfile' id=user._id}}">
+                <i class='fa fa-user' title='View Profile'></i>
+            </a>
+            <a href="">
+                <i class='fa fa-envelope' title='View Profile'></i>
+            </a>
+            {{firstname}} {{lastname}}
+        </div>
+    </div>
+</template>
+
+<template name='familySnip'>
+    {{>profileSnip}}
+</template>
+
+<template name='addFamilySnip'>
+    <div class='row'>
+        <div class='col-lg-3 addFamilySnip'>
+            {{#if photo}}
+            {{#if user.profile.photo}}
+            <img src='{{user.profile.photo.secure_url}}' height={{height}} width={{width}} class='mini-profile-image'  title="{{user.profile.firstname}} {{user.profile.lastname}}">
+            {{else}}
+            <img src='/images/profile.png' height={{height}} width={{width}} class='mini-profile-image'>
+            {{/if}}
+            {{/if}}
+        </div>
+        <div class='col-lg-9'>
+            {{#if name}}
+            <h4 class='syc-title'>
+                {{user.profile.firstname}}
+                {{user.profile.lastname}}
+            </h4>
+            {{/if}}
+            {{#if add}}
+                <div class='btn btn-success addMember' id='{{user._id}}'>Add</div>
+            {{else}}
+                <div class='btn btn-danger removeMember' id='{{user._id}}'>Remove</div>
+            {{/if}}
+        </div>
+    </div>
+</template>

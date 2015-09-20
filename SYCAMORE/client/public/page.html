@@ -1,0 +1,70 @@
+<template name='page'>
+    {{#if isLive}} 
+        {{#if access}}
+            {{#unless page.headerImage}}
+                {{#if isDesktop}}
+                    <h2>{{page.title}}</h2>
+                {{else}}
+                    <h4>{{page.title}}</h4>
+                {{/if}}
+            {{/unless}}
+            <div class='pageContent' >
+                {{#if isDesktop}}
+                    {{{page.content}}}
+                {{else}}
+                    {{#if page.mobile}}
+                        {{{page.mobile}}}
+                    {{else}}
+                        {{{page.content}}}
+                    {{/if}}
+                {{/if}}
+
+
+
+                {{#if calendar}}
+                    {{>frontCalendar}}
+                {{/if}}
+                {{#if fieldTrip}}
+                    {{>fieldTripForm}}
+                {{/if}}
+            </div>
+        {{else}}
+            {{>accessRestricted}}
+        {{/if}}
+    {{else}}
+        {{>notPublished}}
+    {{/if}}
+</template>
+
+<template name="pageHeader">
+    {{#if live}}
+        {{#if page.headerImage}}
+            <div class='pageHeaderImage' style='background-image: url({{page.headerImage.secure_url}})'>
+                {{#if isDesktop}}
+                    <h2>{{page.title}}</h2>
+                {{else}}
+                    <h4 class='mobilePTitle'>{{page.title}}</h4>
+                {{/if}}
+            </div>
+        {{/if}}
+    {{/if}}
+</template>
+
+<template name="frontCalendar">
+    <div class='row'>
+        <div class='ns'>
+            <div class='col-xs-s-xs-s-s'>
+                <div class='text-center previous' id='prev'><i class="fa fa-chevron-circle-left"></i></div>
+                <div class='text-center gotham' id='cal_title'>{{title}}</div>
+                <div class='text-center' id='next'><i class="fa fa-chevron-circle-right"></i></div>
+                <div></div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='row'>
+        <div id='EventCalendar'></div>
+    </div>
+</template>

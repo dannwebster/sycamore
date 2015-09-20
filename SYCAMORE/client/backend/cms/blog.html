@@ -1,0 +1,50 @@
+<template name="blogList">
+    <div class='pageContent'>
+            {{#each posts}}
+                {{>feBlogPost}}
+            {{/each}}
+        </div>
+</template>
+
+<template name="feBlogPost">
+    <a href='/blog/{{_id}}' style='text-decoration:none; color:#222'>
+        <h3 class='gotham'>{{title}}</h3>
+        <p class='lead'><i>Posted on {{date}}</i></p>
+        <div class='btn btn-sm btn-info'>Read More...</div>
+    </a>
+    <hr>
+</template>
+
+<template name="blogView">
+    <div class='pageContent'>
+        {{#if isDesktop}}
+            {{{post.content}}}
+        {{else}}
+            {{#if post.mobile}}
+                {{{post.mobile}}}
+            {{else}}
+                {{{post.content}}}
+            {{/if}}
+        {{/if}}
+    </div>
+</template>
+
+<template name="blogHeader">
+    {{#if posts}}
+        <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+            {{#if isDesktop}}
+            <h2>The Sycamore Blog</h2>
+            {{else}}
+            <h4 class='mobilePTitle'>The Sycamore Blog</h4>
+            {{/if}}
+        </div>
+    {{else}}
+        <div class='pageHeaderImage' style='background-image: url({{headerPic}})'>
+            {{#if isDesktop}}
+            <h2>{{post.title}}</h2>
+            {{else}}
+            <h4 class='mobilePTitle'>{{post.title}}</h4>
+            {{/if}}
+        </div>
+    {{/if}}
+</template>

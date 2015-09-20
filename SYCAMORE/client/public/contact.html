@@ -1,0 +1,107 @@
+
+<template name="contactForm">
+    {{#if isDesktop}}
+    <div class='container-fluid hidden-sm hidden-xs visible-lg visible-md' id='fepage'>
+        <div class='row'>
+            <div class='page-bg1'></div>
+            <div class='page-bg2'>
+                <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+                    <h2>Contact Us</h2>
+                </div>
+            </div>
+        </div>
+        <div class='container' id='mpcontainer'>
+            <div class='row'>
+                <div class='frontEndSide'>
+                    {{>frontEndSideMenu}}
+                </div>
+                <div class='frontEndContent'>
+
+                    <div class='pageContent'>
+
+                        <div class='col-md-6'>
+                            <h4 class='syc-title'>Send us a message</h4>
+
+                            <div class='well MEinvite' style='background-color:#e7eded;' id='messageholder'>
+                                <p class='signupblue'><b>Your Name:</b></p>
+                                <input id='name2' class='form-control'>
+                                <p class='signupblue'><b>Your Email Address:</b></p>
+                                <input id='email2' class='form-control'>
+                                <p class='signupblue'><b>Your Message:</b></p>
+                                <textarea id='message2' class='form-control' style='height:150px'></textarea>
+                                <div class='btn btn-contact pull-right' style='margin-top:10px' id='sendmessage2'>Send</div>
+                                <div class='clearfix'></div>
+                            </div>
+                        </div>
+                        <div class='col-md-6'>
+                            <h4 class='syc-title'>Visit Us</h4>
+
+                            <div class='well MEinvite infoholder' style='color:#5baeb4; background-color:#e7eded;'>
+                                <p>
+                                    <a href='https://www.google.com/maps/place/3504+Las+Flores+Canyon+Rd,+Malibu,+CA+90265/@34.0408516,-118.6356562,15z/data=!4m2!3m1!1s0x80c2a0f7526c3ad1:0x6578e14f2555e561!6m1!1e1' target='_blank'>
+                                        <i class="fa fa-map-marker"></i><b> 3504 Las Flores Canyon, Malibu, CA 90265</b>
+                                    </a>
+                                </p>
+                                <p>
+                                    <i class="fa fa-phone"></i><b><a href="tel:+13104561980">(310) 456-1980</a></b>
+                                </p>
+                            </div>
+
+                            <div class='MEinvite'>
+                                <iframe class='googlemap'
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13224.470833611533!2d-118.63565620590498!3d34.04085157057441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2a0f7526c3ad1%3A0x6578e14f2555e561!2s3504+Las+Flores+Canyon+Rd%2C+Malibu%2C+CA+90265!5e0!3m2!1sen!2sus!4v1441067414178"
+                                     frameborder="0" style="border:0" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class='container' id='fepage'>
+    <div class='row'>
+        <div class='pageHeaderImage' style='background-image: url(https://s3-us-west-2.amazonaws.com/sycamore-la/pages/27562bf8-d7d5-4221-af4e-ee0a606d96e4.jpg)'>
+            <h4>Contact Us</h4>
+        </div>
+
+        <div class='clearfix'></div>
+    </div>
+    <div class='clearfix'></div>
+    <div class='row' style='margin-top:260px;'>
+        <div class='col-xs-12'>
+                <h4 class='syc-title'>Send us a message</h4>
+
+                <div class='well MEinvite' style='background-color:#e7eded;' id='messageholder'>
+                    <p class='signupblue'><b>Your Name:</b></p>
+                    <input id='name2' class='form-control'>
+                    <p class='signupblue'><b>Your Email Address:</b></p>
+                    <input id='email2' class='form-control'>
+                    <p class='signupblue'><b>Your Message:</b></p>
+                    <textarea id='message2' class='form-control' style='height:150px'></textarea>
+                    <div class='btn btn-contact pull-right' style='margin-top:10px' id='sendmessage2'>Send</div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <h4 class='syc-title'>Visit Us</h4>
+
+                <div class='well MEinvite infoholder' style='color:#5baeb4; background-color:#e7eded;'>
+                    <p>
+                        <a href='https://www.google.com/maps/place/3504+Las+Flores+Canyon+Rd,+Malibu,+CA+90265/@34.0408516,-118.6356562,15z/data=!4m2!3m1!1s0x80c2a0f7526c3ad1:0x6578e14f2555e561!6m1!1e1' target='_blank'>
+                            <i class="fa fa-map-marker"></i><b> 3504 Las Flores Canyon, Malibu, CA 90265</b>
+                        </a>
+                    </p>
+                    <p>
+                        <i class="fa fa-phone"></i><b><a href="tel:+13104561980">(310) 456-1980</a></b>
+                    </p>
+                </div>
+
+
+                <iframe class='mobilemap'
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13224.470833611533!2d-118.63565620590498!3d34.04085157057441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2a0f7526c3ad1%3A0x6578e14f2555e561!2s3504+Las+Flores+Canyon+Rd%2C+Malibu%2C+CA+90265!5e0!3m2!1sen!2sus!4v1441067414178"
+                     frameborder="0" style="border:0; width:100%; height:200px;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</template>

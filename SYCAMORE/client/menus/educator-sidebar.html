@@ -1,0 +1,27 @@
+<template name='educatorSidebar'>
+  <ul class="list-group">
+    
+    <a class="list-group-item" href='{{pathFor "dashboard"}}'>
+      <div class='sideImageBox'><img src='/images/icons/92.png' height='50'></div>
+      <h4>Quick Menu</h4>
+    </a>
+    {{#if isInRole 'superadmin'}}
+    <a class="list-group-item" href='{{pathFor "adminConsole"}}'>
+      <div class='sideImageBox'><img src='/images/icons/127.png' height='50'></div>
+      <h4>Admin Console</h4>
+    </a>
+    {{/if}}
+    <a class="list-group-item" href='{{pathFor "inbox"}}'>
+      <div class='sideImageBox'><img src='/images/icons/246.png' height='50'></div>
+      <h4>Inbox</h4>
+    </a>
+    <a class="list-group-item" href='{{pathFor "notifications"}}'>
+      <div class='sideImageBox'><img src='/images/icons/142.png' height='50'></div>
+      <h4>Notifications</h4>
+    </a>
+    <a class="list-group-item" href='{{pathFor "classrooms"}}'>
+      <div class='miniSideImageBox'><img src='/images/icons/174.png' height='35'></div>
+      <span class='lead'>My Classrooms</span>
+    </a>
+  </ul>
+</template>
