@@ -116,18 +116,18 @@ Template.frontCalendar.rendered = function(event,template){
         theme: false, header: false, events: Session.get('calevents')
     });
 
-    Meteor.setTimeout(function(){
-        $('#EventCalendar').fullCalendar( 'refetchEvents' );    console.log('events refetched')
-    }, 3500);
+    // Meteor.setTimeout(function(){
+    //     $('#EventCalendar').fullCalendar( 'refetchEvents' );    console.log('events refetched')
+    // }, 3500);
 
-    Meteor.setTimeout(function(){
-        $('#EventCalendar').fullCalendar( 'rerenderEvents' );   console.log('events rerendered')
-    }, 5000);
+    // Meteor.setTimeout(function(){
+    //     $('#EventCalendar').fullCalendar( 'rerenderEvents' );   console.log('events rerendered')
+    // }, 5000);
 
-    Meteor.setTimeout(function(eventArray){
-        $('#EventCalendar').fullCalendar({ theme: false, header: false, events: Session.get('calevents') });
-        console.log('cal reloaded')
-    }, 8000);
+    // Meteor.setTimeout(function(eventArray){
+    //     $('#EventCalendar').fullCalendar({ theme: false, header: false, events: Session.get('calevents') });
+    //     console.log('cal reloaded')
+    // }, 8000);
 
     var view = $('#EventCalendar').fullCalendar('getView');
     $('#cal_title').html(view.title)

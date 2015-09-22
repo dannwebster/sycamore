@@ -183,7 +183,7 @@ Template.manageProfile.events({
     'click .removeUser': function(event,template){
         bootbox.confirm('Are you sure you want to remove this user? This is PERMANENT.', function(result){
             if(result){
-                Meteor.call('removeUser',template.data.user._id,function(){
+                Meteor.call('deleteUser',template.data.user._id,function(){
                     Router.go('familyTree')
                 })
             }

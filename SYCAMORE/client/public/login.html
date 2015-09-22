@@ -1,5 +1,4 @@
 <template name='login'>
-    {{#if isDesktop}}
     <div class='container'>
         <div class='row' style='margin-top:100px;'>
             <div class='col-lg-5 col-lg-offset-1 col-md-5 col-md-offset-1'>
@@ -15,11 +14,4 @@
             </div>
         </div>
     </div>
-    {{else}}
-    <div class='container'>
-        <div class='row' style='margin-top:100px;'>
-            {{>noMobile}}
-        </div>
-    </div>
-    {{/if}}
 </template>

@@ -90,7 +90,13 @@ Meteor.methods({
         })
 
     },
-    'createNewUser': function(user,password,usertype){
+    createNewUser: function(user,password,usertype){
+        // only superadmins can create new users -- this code needs a total revamp though, this is just a sad patch
+        var loggedInUser = Meteor.user();
+
+        if (!loggedInUser || !Roles.userIsInRole(loggedInUser, ['superadmin'])) {
+            throw new Meteor.Error(403, "Access denied");
+        }
 
         //IS IT AN EMAIL?
         var re = /\S+@\S+\.\S+/;
@@ -121,15 +127,5 @@ Meteor.methods({
         console.log(usertype)
         Meteor.users.update(id,{$set: {'profile.enabled': true}})
         Roles.addUsersToRoles(id, [usertype])
-    },
-    'removeUser': function(uid){
-        Meteor.users.remove(uid,function(e,r){
-            if(e){
-                console.log(e);
-                return false
-            }else{
-                return true
-            }
-        })
     }
 })

@@ -62,8 +62,8 @@ Template.allHome.events({
 
 Template.allHome.rendered = function(){
     //matchHeight();
-    Meteor.setTimeout(matchHeight(), 1500);
-    colorSwatch(Router.current().route.getName());
+    // Meteor.setTimeout(matchHeight(), 1500);
+    // colorSwatch(Router.current().route.getName());
 }
 /*
 Template.allHome.rendered = function(){

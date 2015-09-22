@@ -21,7 +21,7 @@ Template.editEvent.helpers({
         console.log(options)
         return options
     },
-    'inviteSelect': function(){
+    inviteSelect: function(){
         var options = '';
         if(this.event.guests == 'all'){
             options+= "<option value='all' selected>Everyone</option>"
@@ -50,7 +50,7 @@ Template.editEvent.helpers({
         }
         return options
     },
-    'rsvpSelect': function(){
+    rsvpSelect: function(){
         var options = '';
         if(this.event.guests == 'none'){
             options+= "<option value='none' selected>No RSVP needed</option>"
@@ -69,7 +69,8 @@ Template.editEvent.helpers({
         }
         return options
     }
-})
+});
+
 Template.editEvent.events({
     'change #guests': function(event,template){
         var guests = $(event.target).val();

@@ -159,7 +159,7 @@ Template.forumView.rendered = function(){
 
     //THEN once every 3 seconds
     scrollMe3('.chatHolder');
-    Meteor.setInterval(function(){scrollMe3('.chatHolder');}, 3000);
+    // Meteor.setInterval(function(){scrollMe3('.chatHolder');}, 3000);
 
 }
 Template.forumView.rerendered = function() {
