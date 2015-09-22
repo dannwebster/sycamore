@@ -12,7 +12,7 @@ TempUsers.permit(['update','insert','remove']).ifLoggedIn().apply();
 SliderImages.permit(['update','insert','remove']).ifHasRole('educator').apply();
 SliderImages.permit(['update','insert','remove']).ifHasRole('superadmin').apply();
 
-Blog.permit(['update','insert','remove']).ifHasRole('admin').apply();
+Blog.permit(['update','insert','remove']).ifHasRole('superadmin').apply();
 
 Blog.permit(['update','insert','remove']).ifHasRole('educator').apply();
 
