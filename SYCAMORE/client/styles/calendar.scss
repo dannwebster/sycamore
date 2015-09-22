@@ -1,0 +1,90 @@
+@import "bourbon/bourbon";
+
+#calendar-template {
+	#event-details {
+	    min-height: 600px;
+	    overflow-x:hidden;
+	    overflow-y:scroll;
+	}
+
+	.cal-dot{
+	    color:#f0d200;
+	}
+
+	.google-map {
+	    border:0;
+	}
+
+	.today-dot{
+	    background-color:#f0d200;
+	    color:#fff;
+	    font-weight:bold;
+	    border-radius:50%;
+	}
+
+	.fc-event{
+	    background-color:rgba(255,255,255,0);
+	    border:none;
+	    color:#222;
+	    font-weight:bold;
+	    font-size:11px;
+	    cursor:pointer;
+		
+		&:hover {
+		    background-color:rgba(255,255,255,0);
+		    border:none;
+		    color:#222;
+		    font-weight:bold;
+		    font-size:11px;
+		}
+	}
+
+	.holiday .fc-event-container {
+	    background-color:#000;
+	}
+	
+	.holiday {
+	    color:#fff;
+	    font-weight:bold;
+	    background-color: #c72e2e;
+	}
+
+	.fc-day.fc-sun, .fc-day.fc-sat{
+	    background: #ebebeb;
+	}
+	.fc, .fc-view-container, .fc-view, table, thead, tr, th{
+	    border:none;
+	}
+	.fc-widget-header, .fc-head, .fc-widget-header table thead tr th{
+	    border:none;
+	    text-transform:uppercase;
+	    color:#222;
+	    font-weight:bold;
+	    font-size:10px;
+	}
+	.fc-day-number{
+	    font-size:11px;
+	    font-weight:bold;
+	    margin:2px;
+	}
+
+	.calendar-box{
+	    background: #faeb82;
+	}
+	.calendar-box-shadow{
+	    box-shadow: 5px 5px 0px 0px #f0d200;
+	}
+	.calendar-title-box{
+	    background-color: #fcf1a8;
+	    padding: 10px;
+	}
+	.date-title{
+	    font-family: 'Open Sans', sans-serif;
+	    text-transform: uppercase;
+	}
+	.fieldTripEvent{
+	    background: #faeb82;
+	    color:#222;
+	    border-radius:0px;
+	}	
+}

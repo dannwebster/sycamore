@@ -1,6 +1,17 @@
+/*#event-details {
+    min-height: 600px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+}
+
 .cal-dot{
     color:#f0d200;
 }
+
+.google-map {
+    border:0;
+}
+
 .today-dot{
     background-color:#f0d200;
     color:#fff;
@@ -54,7 +65,7 @@
     background-color: #fcf1a8;
     padding: 10px;
 }
-#cal_title{
+.date-title{
     font-family: 'Open Sans', sans-serif;
     text-transform: uppercase;
 }
@@ -63,3 +74,18 @@
     color:#222;
     border-radius:0px;
 }
+*/
+
+/*.holiday < .fc-event-container{
+    background-color:#000;
+}
+.holiday{
+    color:#fff;
+    font-weight:bold;
+    background-color: #c72e2e;
+}*/
+/*
+.fc-past{
+    background-color: #e8e8e8;
+}
+*/

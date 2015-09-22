@@ -1,63 +1,69 @@
 <template name='calendar'>
-    {{#if isInRole 'educator' 'superadmin'}}
-        <div class='row'>
-            <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
-            <a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
-            <a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
-        </div>
-    {{/if}}
-    <div class='row'>
-        <h3 class='syc-title'>Events Calendar</h3>
-    </div>
-    <div class='row'>
-        <div class='col-lg-8 col-md-8 ns'>
-            <div class='col-xs-s-xs-s-s'>
-                <div class='text-center' id='prev'><i class="fa fa-chevron-circle-left"></i></div>
-                <div class='text-center' id='cal_title'>{{title}}</div>
-                <div class='text-center' id='next'><i class="fa fa-chevron-circle-right"></i></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div>
-                    {{#if searchlis}}
-                    <input class='form-control syc-shadow ns'>
-                    {{/if}}
-                </div>
-            </div>
-            <div id='EventCalendar' class='syc-shadow ns full-width'></div>
-        </div>
+	<div id='calendar-template'>
+		{{#if isInRole 'educator' 'superadmin'}}
+			<div class='row'>
+				<a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
+				<a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
+				<a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+			</div>
+		{{/if}}
+		<div class='row'>
+			<h3 class='syc-title'>Events Calendar</h3>
+		</div>
+		<div class='row'>
+			<div class='col-lg-8 col-md-8 ns'>
+				<div class='col-xs-s-xs-s-s'>
+					<div class='text-center' id='prev'>
+						<i class="fa fa-chevron-circle-left"></i>
+					</div>
+					<div class='text-center date-title'>{{title}}</div>
+					<div class='text-center' id='next'>
+						<i class="fa fa-chevron-circle-right"></i>
+					</div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div>
+						{{#if searchlis}}
+						<input class='form-control syc-shadow ns'>
+						{{/if}}
+					</div>
+				</div>
+				<div id='calendar' class='syc-shadow ns full-width'></div>
+			</div>
 
-        <div class='col-lg-4 col-md-4 pull-right' id='cal-details'>
-            <h3 class='syc-title'>Event Details 
-                {{#if isInRole 'educator' 'superadmin'}}
-                    <a href='{{pathFor "editEvent" id=event._id}}'>Edit</a>
-                {{/if}}
-            </h3>
-            <div class='well calendar-box calendar-box-shadow' id='eventDetailsBox' style='overflow-x:hidden; overflow-y:scroll'>
-                {{#if event}}
-                    <div class='row'>
-                        <div class='col-lg-12 col-md-6'>
-                            <div class='calendar-title-box'>
-                                <h4 class='syc-title'>{{event.name}}</h4>
-                                <i class='syc-cal-type'>{{event.type}}</i>
-                            </div>
-                            <div class='content-pad-10'>
-                                <p>Date: {{formatDate event.start}} {{#if event.end}} - {{formatDate event.end}} {{/if}}</p>
-                                <p class='syc-cal-content'>{{{event.description}}}</p>
-                            </div>
-                        </div>
-                        {{#if event.address}}
-                            <div class='col-lg-12 col-md-6'>
-                                <h4 class='syc-title'>Map</h4>
-                                <div class="embed-responsive embed-responsive-4by3">
-                                    <iframe class="embed-responsive-item" frameborder="0" style="border:0" src="{{googleEmbeddedMap event.address}}" allowfullscreen></iframe>
-<!--                                     <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.6348370898854!2d-118.35909899999999!3d34.053236999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2b910be3b37a7%3A0xb208f87c76d0c82b!2s{{event.address}}!5e0!3m2!1sen!2sus!4v1437931378013" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-                                </div>
-                            </div>
-                        {{/if}}
-                    </div>
-                {{/if}}
-            </div>
-        </div>
-    </div>
+			<div class='col-lg-4 col-md-4 pull-right' id='cal-details'>
+				<h3 class='syc-title'>Event Details 
+					{{#if isInRole 'educator' 'superadmin'}}
+						<a href='{{pathFor "editEvent" id=event._id}}'>Edit</a>
+					{{/if}}
+				</h3>
+				<div class='well calendar-box calendar-box-shadow' id='event-details'>
+					{{#if event}}
+						<div class='row'>
+							<div class='col-lg-12 col-md-6'>
+								<div class='calendar-title-box'>
+									<h4 class='syc-title'>{{event.name}}</h4>
+									<i class='syc-cal-type'>{{event.type}}</i>
+								</div>
+								<div class='content-pad-10'>
+									<p>Date: {{formatDate event.start}} {{#if event.end}} - {{formatDate event.end}} {{/if}}</p>
+									<p class='syc-cal-content'>{{{event.description}}}</p>
+								</div>
+							</div>
+							{{#if event.address}}
+								<div class='col-lg-12 col-md-6'>
+									<h4 class='syc-title'>Map</h4>
+									<div class="embed-responsive embed-responsive-4by3">
+										<iframe class="embed-responsive-item google-map" frameborder="0" src="{{googleEmbeddedMap event.address}}" allowfullscreen></iframe>
+									</div>
+								</div>
+							{{/if}}
+						</div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
 </template>
+	
