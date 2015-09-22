@@ -1,28 +1,6 @@
 Router.map(function() {
     this.route('calendar', {
-        path: '/calendar',
-        layoutTemplate: 'backend-layout',
-        waitOn : function () {
-            return [
-                Meteor.subscribe('calendarEvents',Meteor.userId())
-            ];
-        },
-        data: function (){
-            templateData = {
-                events: CalendarEvents.find({},{sort: {start: 1}})
-            };
-            return templateData;
-        },
-        onBeforeAction: function () {
-            if(!Meteor.user()) {
-                this.render('accessDenied')
-            }else{
-                this.next();
-            }
-        }
-    });
-    this.route('calendarView', {
-        path: '/calendar/:id',
+        path: '/calendar/:id?',
         layoutTemplate: 'backend-layout',
         waitOn : function () {
             return [
@@ -32,13 +10,13 @@ Router.map(function() {
         data: function (){
             templateData = {
                 events: CalendarEvents.find({},{sort: {start: 1}}),
-                event: CalendarEvents.findOne(this.params.id)
+                event: this.params.id ? CalendarEvents.findOne(this.params.id) : null
             };
             return templateData;
         },
         onBeforeAction: function () {
             if(!Meteor.user()) {
-                this.render('accessDenied')
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -112,7 +90,7 @@ Router.map(function() {
             return templateData
         },
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
                 this.render('accessDenied')
             }else{
                 this.next();
@@ -142,13 +120,14 @@ Router.map(function() {
             return templateData
         },
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
         }
     });
+
     this.route('manageEvents', {
         path: '/calendar/manage/events',
         layoutTemplate: 'backend-layout',
@@ -164,13 +143,14 @@ Router.map(function() {
             return templateData;
         },
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
                 this.render('accessDenied')
             }else{
                 this.next();
             }
         }
-    })
+    });
+
     this.route('manageEventsOld', {
         path: '/calendar/manage/events/past',
         layoutTemplate: 'backend-layout',
@@ -186,13 +166,14 @@ Router.map(function() {
             return templateData;
         },
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
         }
-    })
+    });
+
     this.route('manageSchoolYear', {
         path: '/calendar/manage/schoolyear',
         layoutTemplate: 'backend-layout',
@@ -208,8 +189,8 @@ Router.map(function() {
             return templateData;
         },
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -219,8 +200,8 @@ Router.map(function() {
         path: '/calendar/manage/session',
         layoutTemplate: 'backend-layout',
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -230,8 +211,8 @@ Router.map(function() {
         path: '/calendar/manage/holidays',
         layoutTemplate: 'backend-layout',
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -241,8 +222,8 @@ Router.map(function() {
         path: '/calendar/manage/breaks',
         layoutTemplate: 'backend-layout',
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -252,8 +233,8 @@ Router.map(function() {
         path: '/calendar/list',
         layoutTemplate: 'backend-layout',
         onBeforeAction: function () {
-            if(!Roles.userIsInRole(Meteor.userId(),'educator')) {
-                this.render('accessDenied')
+            if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
+                this.render('accessDenied');
             }else{
                 this.next();
             }
@@ -264,7 +245,7 @@ Router.map(function() {
         layoutTemplate: 'backend-layout',
         onBeforeAction: function () {
             if(!Meteor.userId()) {
-                this.render('accessDenied')
+                this.render('accessDenied');
             }else{
                 this.next();
             }

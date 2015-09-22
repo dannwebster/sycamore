@@ -9,12 +9,11 @@ Router.map(function() {
                 Meteor.subscribe('userCounter')
             ];
         },
-        onAfterAction: function (pause) {
-            if (Meteor.user()) {
-                //this.redirect('/');
-                this.next()
+        onBeforeAction: function (pause) {
+            if (Meteor.userId()) {
+                this.redirect('dashboard');
             }else{
-                this.next()
+                this.next();
             }
         }
     });
@@ -54,11 +53,11 @@ Router.map(function() {
                 return []
             }
         },
-        onAfterAction: function (pause) {
+        onBeforeAction: function (pause) {
             if(!Meteor.userId()) {
-                this.render('login');
+                this.redirect('login');
             }else{
-                this.next()
+                this.next();
             }
         }
     });
@@ -75,7 +74,7 @@ Router.map(function() {
             if (!Meteor.user()) {
                 this.render('home');
             }else{
-                this.next()
+                this.next();
             }
         }
     });

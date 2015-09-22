@@ -164,8 +164,13 @@ Handlebars.registerHelper('allInfamily', function (user) {
     return members;
 });
 
+Handlebars.registerHelper('isInRole', function() {
+    return Roles.userIsInRole(Meteor.userId(), _.filter(arguments, function(e){ return typeof e === 'string';}));
+});
 
-
+Handlebars.registerHelper('formatDate', function(date) {
+    return moment.unix(this.event.start).format('MMM DD, YYYY hh:mm A');
+});
 
 var blogTypes = new Array();
 blogTypes[1] = 'blog';          blogTypes['blog'] = 1;

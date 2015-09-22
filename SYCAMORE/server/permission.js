@@ -35,6 +35,7 @@ Meteor.users.permit(['update','insert','remove']).ifHasRole('superadmin').apply(
 Meteor.users.permit(['update']).ifHasRole('parent').apply();
 
 CalendarEvents.permit(['update','insert','remove']).ifHasRole('educator').apply();
+CalendarEvents.permit(['update','insert','remove']).ifHasRole('superadmin').apply();
 
 Families.permit(['update','insert','remove']).ifHasRole('educator').apply();
 FamilyMembers.permit(['update','insert','remove']).ifHasRole('educator').apply();
