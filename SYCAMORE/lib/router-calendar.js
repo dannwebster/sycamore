@@ -23,7 +23,7 @@ Router.map(function() {
         }
     });
     this.route('editEvent', {
-        path: '/calendar/edit/:id',
+        path: '/calendar/:id/edit',
         layoutTemplate: 'backend-layout',
         waitOn : function () {
             return [
@@ -38,7 +38,7 @@ Router.map(function() {
         },
         onBeforeAction: function () {
             if(!Meteor.user()) {
-                this.render('accessDenied')
+                this.render('accessDenied');
             }else{
                 this.next();
             }

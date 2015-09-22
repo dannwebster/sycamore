@@ -1,25 +1,12 @@
 Template.editEvent.helpers({
-    'start': function(){
+    start: function(){
+        console.log(this.event);
         return moment.unix(this.event.start).format('MM-DD-YYYY h:mm a')
     },
-    'end': function(){
-
-            return moment.unix(this.event.end).format('MM-DD-YYYY h:mm a')
+    end: function(){
+        return moment.unix(this.event.end).format('MM-DD-YYYY h:mm a')
     },
-    'epublic': function(){
-        console.log(this.event)
-        if(this.event.public){
-            //$('#public').prop('checked', true);
-            $('#public')[0].checked = true;
-        }
-    },
-    'eallday': function(){
-        if(this.event.allday){
-            //$('#allday').prop('checked', true);
-            $('#allday')[0].checked = true;
-        }
-    },
-    'typeSelect': function(){
+    typeSelect: function(){
         var options = "<option value=''></option>";
         if(this.event.type == 'offsite'){
             options+= "<option value='offsite' selected>Off-Site Event</option>"

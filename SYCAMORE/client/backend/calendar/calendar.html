@@ -34,9 +34,9 @@
 
 			<div class='col-lg-4 col-md-4 pull-right' id='cal-details'>
 				<h3 class='syc-title'>Event Details 
-					{{#if isInRole 'educator' 'superadmin'}}
+					{{#if event}}{{#if isInRole 'educator' 'superadmin'}}
 						<a href='{{pathFor "editEvent" id=event._id}}'>Edit</a>
-					{{/if}}
+					{{/if}}{{/if}}
 				</h3>
 				<div class='well calendar-box calendar-box-shadow' id='event-details'>
 					{{#if event}}
