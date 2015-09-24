@@ -39,12 +39,12 @@ CalendarEvents.after.insert(function (userId, doc) {
 CalendarEvents.after.update(function (userId, doc, fieldNames, modifier, options) {
     // lol this notification setup is a freaking joke ~ i couldn't even make it this bad if i tried
     // update the notification or resend a new one if we're not adjusting the rsvp
-    if(fieldNames.length > 1 || fieldNames[0] !== 'rsvp_list'){
-        dealWithNotifications(userId, doc);
-    }
+    // if(fieldNames.length > 1 || fieldNames[0] !== 'rsvp_list'){
+    //     dealWithNotifications(userId, doc);
+    // }
 });
 
 CalendarEvents.after.remove(function (userId, doc) {
     // update the notification or resend a new one
-    dealWithNotifications(userId, doc);
+    // dealWithNotifications(userId, doc);
 });
