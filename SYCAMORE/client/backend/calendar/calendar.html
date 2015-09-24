@@ -1,10 +1,11 @@
+<!-- SAFE FILE -->
 <template name='calendar'>
 	<div id='calendar-template'>
 		{{#if isInRole 'educator' 'superadmin'}}
 			<div class='row'>
 				<a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
 				<a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
-				<a href="{{pathFor 'newEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+				<a href="{{pathFor 'createEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
 			</div>
 		{{/if}}
 		<div class='row'>
@@ -16,7 +17,7 @@
 					<div class='text-center' id='prev'>
 						<i class="fa fa-chevron-circle-left"></i>
 					</div>
-					<div class='text-center date-title'>{{title}}</div>
+					<div class='text-center date-title'></div>
 					<div class='text-center' id='next'>
 						<i class="fa fa-chevron-circle-right"></i>
 					</div>
@@ -29,12 +30,12 @@
 						{{/if}}
 					</div>
 				</div>
-				<div id='calendar' class='syc-shadow ns full-width'></div>
+				{{ > ReactiveFullcalendar options=calendarOptions }}
 			</div>
 
 			<div class='col-lg-4 col-md-4 pull-right' id='cal-details'>
 				<h3 class='syc-title'>Event Details 
-					{{#if event}}{{#if isInRole 'educator' 'superadmin'}}
+					{{#if editableEvent event}}{{#if isInRole 'educator' 'superadmin'}}
 						<a href='{{pathFor "editEvent" id=event._id}}'>Edit</a>
 					{{/if}}{{/if}}
 				</h3>
@@ -51,6 +52,18 @@
 									<p class='syc-cal-content'>{{{event.description}}}</p>
 								</div>
 							</div>
+							{{#if $exists event.rsvp}}{{#if $neq event.rsvp 'none'}}
+								<div class='col-lg-12 col-md-6 content-pad-10'>
+									<form id="rsvpForm" class="calendar-title-box">
+										<h4 class="syc-title">RSVP</h4>
+										<input type="radio" name="rsvp" value="yes" checked="{{isRSVP 'yes'}}"> Attending
+										<br />
+										<input type="radio" name="rsvp" value="maybe" checked="{{isRSVP 'maybe'}}"> Maybe Attending
+										<br />
+										<input type="radio" name="rsvp" value="no" checked="{{isRSVP 'no'}}"> Not Attending
+									</form>
+								</div>
+							{{/if}}{{/if}}
 							{{#if event.address}}
 								<div class='col-lg-12 col-md-6'>
 									<h4 class='syc-title'>Map</h4>

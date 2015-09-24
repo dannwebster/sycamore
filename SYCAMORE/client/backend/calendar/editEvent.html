@@ -1,0 +1,114 @@
+<template name="editEvent">
+	{{>createMenu}}
+	<form id="edit-event-template">
+		<div class="row">
+			<h3 class="syc-title">{{#if event._id}}Edit{{else}}Create{{/if}} Event</h3>
+			<div class="col-lg-6 col-md-6">
+				<div class="form-group title">
+					<label for="title">Event Name</label>
+					<input type="text" class="form-control" name="name" value="{{event.name}}" required/>
+				</div>
+				<div class="row">
+					<div class="col-lg-8 col-md-8">
+						<div class="form-group">
+							<label for="type">Event Type</label>
+							<select class="form-control" name="eventType" required>
+								{{#each typeOptions}}
+							      <option value="{{value}}" selected="{{$eq ../event.type value}}">{{title}}</option>
+							    {{/each}}
+							</select>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4">
+						<div class="form-group">
+							<div class="checkbox public-checkbox">
+								<label>
+									<input type="checkbox" name="isPublic" id="public" checked="{{event.public}}"> Public Event
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							<label for="type">Starts</label>
+							<p>{{>dateTimeTemplate class="form-control" id="start" date=start required="true"}}</p>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							<label for="type">Ends</label>
+							<p>{{>dateTimeTemplate class="form-control" id="end" date=end}}</p>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" name="isAllDay" checked="{{event.all_day}}"> All Day Event
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							<label for="guests">Who's Invited?</label>
+							<select class="form-control" id="guests" name="guests" required>
+								{{#each invitationOptions}}
+									<option value="{{value}}" selected="{{$eq ../event.guests value}}">{{title}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group">
+							<label for="rsvp">RSVP</label>
+							<select class="form-control" name="rsvp" required>
+								{{#each rsvpOptions}}
+							      <option value="{{value}}" selected="{{$eq ../event.rsvp value}}">{{title}}</option>
+							    {{/each}}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group invitees">
+					<label for="invitees">Invitees</label>
+					<textarea class="form-control" id="invitees" name="invitees" rows="8"></textarea>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group title">
+							<label for="url">URL: (optional)</label>
+							<input type="text" class="form-control" name="url" value="{{event.url}}">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="form-group title">
+							<label for="address">Address: (optional)</label>
+							<input type="text" class="form-control" name="address" value="{{event.address}}">
+						</div>
+					</div>
+				</div>
+				<hr>
+				<button class="btn btn-info save" type="submit">
+					Save Event
+				</button>
+				{{#if event._id}}
+					<button class="btn btn-danger delete">
+						Delete Event
+					</button>
+				{{/if}}
+			</div>
+
+			<div class="col-lg-6 col-md-6">
+				<div class="form-group title">
+					<label for="title">Event Description</label>
+					<div id="description"></div>
+				</div>
+			</div>
+		</div>
+	</form>
+</template>

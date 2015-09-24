@@ -1,0 +1,26 @@
+<template name="manageSchoolYear">
+    {{>manageMenu}}
+    <div class='row'>
+        <h4 class='syc-title'>Manage School Calendar</h4>
+        <p class='lead'>Here you can set school sessions, holidays, breaks, and other essential calendar dates.</p>
+        <a href="{{pathFor 'createSchoolSession'}}" class='btn btn-success'><i class='fa fa-plus'></i> Session</a>
+        <a href="{{pathFor 'createSchoolHoliday'}}" class='btn btn-success'><i class="fa fa-plus"></i> Day Off / Holiday</a>
+        <a href="{{pathFor 'createSchoolBreak'}}" class='btn btn-success'><i class="fa fa-plus"></i> Break</a>
+    </div>
+    <div class='row'>
+        {{#each calendarEvents}}
+            {{>eventHold}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="eventHold">
+    <div class='well'>
+        <div class='row'>
+            <div class='col-lg-3'><h5 class='syc-title'>{{name}}</h5></div>
+            <div class='col-lg-3'><p>{{{text}}}</p></div>
+            <div class='col-lg-3'><p>{{dates}}</p></div>
+            <div class='col-lg-3'><div class='btn btn-danger delete' id='{{_id}}'>Delete</div></div>
+        </div>
+    </div>
+</template>

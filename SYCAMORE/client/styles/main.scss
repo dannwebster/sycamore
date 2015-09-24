@@ -3,4 +3,6 @@
 // Existing content in the file will not be touched
 // When deleting a .scss or .sass file you must manually delete it from here
 
+@import "bourbon/bourbon";
 @import "client/styles/calendar.scss";
+@import "client/styles/edit-event.scss";

@@ -1,0 +1,15 @@
+<template name="manageMenu">
+	<div class='row'>
+	    <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm'>Manage School Year</a>
+	    <a href="{{pathFor 'manageEvents'}}" class='btn btn-info btn-sm pull-right manageEvents'>Manage Events</a>
+	    <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+	</div>
+</template>
+
+<template name="createMenu">
+    <div class='row'>
+        <a href="{{pathFor 'manageSchoolYear'}}" class='btn btn-info pull-right btn-sm addEvent'>Manage School Year</a>
+        <a href="{{pathFor 'createEvent'}}" class='btn btn-info btn-sm pull-right addEvent'>New Event</a>
+        <a href="{{pathFor 'calendar'}}" class='btn btn-info btn-sm pull-right'>Return to Calendar</a>
+    </div>
+</template>

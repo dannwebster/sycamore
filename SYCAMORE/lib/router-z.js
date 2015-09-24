@@ -38,7 +38,6 @@ Router.map(function() {
         waitOn : function () {
             return [
                 Meteor.subscribe('allPages'),
-                Meteor.subscribe('adminEvents',12345),
                 Meteor.subscribe('publicEvents')
             ];
         },

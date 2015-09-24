@@ -169,7 +169,7 @@ Handlebars.registerHelper('isInRole', function() {
 });
 
 Handlebars.registerHelper('formatDate', function(date) {
-    return moment.unix(this.event.start).format('MMM DD, YYYY hh:mm A');
+    return moment.unix(date).format('MMM DD, YYYY hh:mm A');
 });
 
 var blogTypes = new Array();

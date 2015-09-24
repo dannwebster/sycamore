@@ -1,6 +1,7 @@
 
 Template.pageHeader.helpers({
     'live': function(){
+        console.log(this);
         if(this.page.status=='live'){
             return true;
         }
@@ -89,7 +90,47 @@ Template.frontCalendar.helpers({
         if(view){
             return view.title;
         }
-    }
+    },
+    calendarOptions: {
+        // Standard fullcalendar options
+        theme: false,
+        header: false,
+        addedClasses: 'syc-shadow ns full-width',
+        eventClick: function(calEvent, jsEvent, view) {
+            Router.go('calendar', {id: calEvent.id});   // route to a calendar event
+        },
+        eventRender: function(event, element, view) {
+            element.find('span.fc-title').html(element.find('span.fc-title').text());   // seems like a hack to get the dot and the title
+        },
+        // Function providing events reactive computation for fullcalendar plugin
+        events: function(start, end, timezone, callback) {
+            //console.log(start);
+            //console.log(end);
+            //console.log(timezone);
+            var calendarEvents = CalendarEvents.find().fetch();
+            var events = _.map(calendarEvents, function(evt){
+                console.log(evt);
+                console.log(evt.end ? moment.unix(evt.end).format() : null);
+                return {
+                    title: '<i class="fa fa-circle cal-dot"></i> '+evt.name,
+                    id: evt._id,
+                    start: moment.unix(evt.start).format(),
+                    end: evt.end ? moment.unix(evt.end).format() : null,
+                    description: evt.description,
+                    allDay: evt.all_day
+                };
+            });
+            callback(events);
+        },
+        // Optional: id of the calendar
+        id: 'EventCalendar',
+        // Optional: Additional functions to apply after each reactive events computation
+        autoruns: [
+            function () {
+                CalendarEvents.find();
+            }
+        ]
+    },
 });
  
 Template.frontCalendar.events({
@@ -109,27 +150,6 @@ Template.frontCalendar.events({
 
 
 Template.frontCalendar.rendered = function(event,template){
-    var eve = getMyEvents2()
-    var eventArray = this.data.events;
-
-    $('#EventCalendar').fullCalendar({
-        theme: false, header: false, events: Session.get('calevents')
-    });
-
-    // Meteor.setTimeout(function(){
-    //     $('#EventCalendar').fullCalendar( 'refetchEvents' );    console.log('events refetched')
-    // }, 3500);
-
-    // Meteor.setTimeout(function(){
-    //     $('#EventCalendar').fullCalendar( 'rerenderEvents' );   console.log('events rerendered')
-    // }, 5000);
-
-    // Meteor.setTimeout(function(eventArray){
-    //     $('#EventCalendar').fullCalendar({ theme: false, header: false, events: Session.get('calevents') });
-    //     console.log('cal reloaded')
-    // }, 8000);
-
     var view = $('#EventCalendar').fullCalendar('getView');
     $('#cal_title').html(view.title)
-
 }

@@ -91,6 +91,10 @@ Meteor.methods({
 
     },
     createNewUser: function(user,password,usertype){
+        check(user, String);
+        check(password, String);
+        check(usertype, Match.OneOf('superadmin', 'educator', 'student'));
+
         // only superadmins can create new users -- this code needs a total revamp though, this is just a sad patch
         var loggedInUser = Meteor.user();
 

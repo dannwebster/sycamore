@@ -44,7 +44,6 @@ ongoworks:security
 rgoomar:bootstrap-validator
 richsilv:pikaday
 ryanswapp:spectrum-colorpicker
-rzymek:fullcalendar
 timmyg:wow
 tmeasday:publish-counts
 tmeasday:publish-with-relations
@@ -67,3 +66,5 @@ reactive-var
 fourseven:scss
 wolves:bourbon
 raix:handlebar-helpers
+matb33:collection-hooks
+gquemart:meteor-reactive-fullcalendar

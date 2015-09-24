@@ -1,39 +1,31 @@
 <template name='page'>
-    {{#if isLive}} 
-        {{#if access}}
-            {{#unless page.headerImage}}
-                {{#if isDesktop}}
-                    <h2>{{page.title}}</h2>
-                {{else}}
-                    <h4>{{page.title}}</h4>
-                {{/if}}
-            {{/unless}}
-            <div class='pageContent' >
-                {{#if isDesktop}}
-                    {{{page.content}}}
-                {{else}}
-                    {{#if page.mobile}}
-                        {{{page.mobile}}}
-                    {{else}}
-                        {{{page.content}}}
-                    {{/if}}
-                {{/if}}
-
-
-
-                {{#if calendar}}
-                    {{>frontCalendar}}
-                {{/if}}
-                {{#if fieldTrip}}
-                    {{>fieldTripForm}}
-                {{/if}}
-            </div>
+    {{#unless page.headerImage}}
+        {{#if isDesktop}}
+            <h2>{{page.title}}</h2>
         {{else}}
-            {{>accessRestricted}}
+            <h4>{{page.title}}</h4>
         {{/if}}
-    {{else}}
-        {{>notPublished}}
-    {{/if}}
+    {{/unless}}
+    <div class='pageContent' >
+        {{#if isDesktop}}
+            {{{page.content}}}
+        {{else}}
+            {{#if page.mobile}}
+                {{{page.mobile}}}
+            {{else}}
+                {{{page.content}}}
+            {{/if}}
+        {{/if}}
+
+
+
+        {{#if calendar}}
+            {{>frontCalendar}}
+        {{/if}}
+        {{#if fieldTrip}}
+            {{>fieldTripForm}}
+        {{/if}}
+    </div>
 </template>
 
 <template name="pageHeader">
@@ -65,6 +57,6 @@
         </div>
     </div>
     <div class='row'>
-        <div id='EventCalendar'></div>
+        {{ > ReactiveFullcalendar options=calendarOptions }}
     </div>
 </template>

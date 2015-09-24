@@ -6,10 +6,6 @@ Meteor.publish('calendarEvent', function(id) {
     return CalendarEvents.find({_id: id});
 });
 
-Meteor.publish('adminEvents', function(user) {
-    return CalendarEvents.find({admin:true});
-});
-
 Meteor.publish('publicEvents', function() {
     return CalendarEvents.find({public:true});
 });

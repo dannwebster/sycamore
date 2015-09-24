@@ -37,7 +37,7 @@ Meteor.methods({
             var teachers = Meteor.users.find({roles: 'educator'});
             var admins = Meteor.users.find({roles: 'superadmin'});
         }else if(noti.visibility === 'invited'){
-
+            var invitees = Meteor.users.find({_id: {$in: _.pluck(invitees, 'id')}});
         }
 
         if(users){  subscribeUsersBulk(users,id,'1',false)}
@@ -45,6 +45,7 @@ Meteor.methods({
         if(teachers){  subscribeUsersBulk(teachers,id,'1',false)}
         if(admins){  subscribeUsersBulk(admins,id,'1',false)}
         if(parents){  subscribeUsersBulk(parents,id,'1',false)}
+        if(invitees){  subscribeUsersBulk(invitees,id,'1',false)}
 
 
         Notifications.update(id,{$set: {status: 1, sendDate: moment().format('X')}});

@@ -1,3 +1,5 @@
+// SAFE FILE
+
 // update a users permissions
 Meteor.methods({
   /**

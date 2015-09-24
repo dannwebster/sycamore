@@ -15,7 +15,7 @@ Template.manageProfile.helpers({
         }
     },
     'current': function(){
-        if(Roles.userIsInRole(Meteor.userId(),'educator')){
+        if(Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])){
             var current = Projects.find({educator: Meteor.userId(),status: 1},{sort: {created: -1}});
         }else{
             var current = Projects.find({status: 1},{sort: {created: -1}});
@@ -183,9 +183,13 @@ Template.manageProfile.events({
     'click .removeUser': function(event,template){
         bootbox.confirm('Are you sure you want to remove this user? This is PERMANENT.', function(result){
             if(result){
-                Meteor.call('deleteUser',template.data.user._id,function(){
-                    Router.go('familyTree')
-                })
+                Meteor.call('deleteUser',template.data.user._id, function(err, success){
+                    if(err){
+                        console.error(err);
+                    } else {
+                        Router.go('home');
+                    }    
+                });
             }
         })
     },
