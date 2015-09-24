@@ -47,4 +47,6 @@ CalendarEvents.after.update(function (userId, doc, fieldNames, modifier, options
 CalendarEvents.after.remove(function (userId, doc) {
     // update the notification or resend a new one
     // dealWithNotifications(userId, doc);
+    // clean up david's mess
+    Notifications.remove({eventId: doc._id});
 });
