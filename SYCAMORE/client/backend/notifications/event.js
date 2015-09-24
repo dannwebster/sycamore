@@ -1,4 +1,10 @@
 Template.eventNotification.helpers({
+    googleEmbeddedMap: function(query){
+        return GOOGLE_EMBEDDED_MAPS_URI + Utilities.encodeURIParameters({
+            q: query,
+            key: Meteor.settings.public.google.api_key
+        });
+    },
     'startDate': function(){
         return moment.unix(this.start).format('MMM DD, YYYY h:mm A')
     },
