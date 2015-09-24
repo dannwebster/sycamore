@@ -97,7 +97,7 @@ Template.editEvent.events({
 
 			// hack it up, boyeeee
 			if(data.rsvp !== 'none' && !template.data.event.rsvp_list){
-				data.rsvp_list = {yes: [], maybe: [], no:[]};
+				data.rsvp_list = {};
 			}
 
 			// update the CalendarEvent object with the new data -- we need a method because we'll be setting roles
@@ -114,7 +114,7 @@ Template.editEvent.events({
 			
 			// hack it up, boyeeee
 			if(data.rsvp !== 'none')
-				data.rsvp_list = {yes: [], maybe: [], no:[]};
+				data.rsvp_list = {};
 
 			CalendarEvents.insert(data, function(err, succ){
 				if(err){

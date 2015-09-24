@@ -127,11 +127,12 @@ Router.map(function() {
 	});
 
 	this.route('eventRSVPS', {
-		path: '/calendar/rsvps/:id',
+		path: '/calendar/event/:id/rsvps',
 		layoutTemplate: 'backend-layout',
 		waitOn : function () {
 			return [
-				Meteor.subscribe('calendarEvent',this.params.id)
+				Meteor.subscribe('calendarEvent',this.params.id),
+				Meteor.subscribe('schoolRoster'),
 			];
 		},
 		data: function (){
@@ -140,7 +141,7 @@ Router.map(function() {
 			};
 		},
 		onBeforeAction: function () {
-			if(!Meteor.user()) {
+			if(!Roles.userIsInRole(Meteor.userId(), ['educator', 'superadmin'])) {
 				this.render('accessDenied');
 			}else{
 				this.next();

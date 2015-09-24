@@ -1,0 +1,11 @@
+<template name="eventRSVPS">
+	{{>createMenu}}
+	<div class='row'>
+        <h4 class='syc-title'>{{event.name}}</h4>
+    </div>
+    <div class='row'>
+        {{#each rsvps}}
+            {{name}} - {{status}}
+        {{/each}}
+    </div>
+</template>
